@@ -6,11 +6,10 @@ import jss.notfine.core.Settings;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.BlockEnchantmentTable;
-import net.minecraft.block.material.Material;
-import net.minecraft.world.World;
-
+import net.minecraft.BlockContainer;
+import net.minecraft.BlockEnchantmentTable;
+import net.minecraft.Material;
+import net.minecraft.World;
 
 @Mixin(value = BlockEnchantmentTable.class)
 public abstract class MixinBlockEnchantmentTable extends BlockContainer {

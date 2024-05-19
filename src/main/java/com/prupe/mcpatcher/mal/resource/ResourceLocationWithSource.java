@@ -3,8 +3,8 @@ package com.prupe.mcpatcher.mal.resource;
 import java.util.Comparator;
 import java.util.regex.Pattern;
 
-import net.minecraft.client.resources.IResourcePack;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.IResourcePack;
+import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.MCPatcherUtils;
 

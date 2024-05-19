@@ -2,9 +2,9 @@ package com.prupe.mcpatcher.mal.biome;
 
 import java.util.BitSet;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.Minecraft;
+import net.minecraft.IBlockAccess;
+import net.minecraft.BiomeGenBase;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

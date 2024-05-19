@@ -3,7 +3,7 @@ package com.prupe.mcpatcher.cit;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.mal.resource.PropertiesFile;
 import com.prupe.mcpatcher.mal.resource.TexturePackAPI;

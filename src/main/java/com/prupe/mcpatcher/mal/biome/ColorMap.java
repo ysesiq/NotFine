@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.MathHelper;
+import net.minecraft.ResourceLocation;
+import net.minecraft.IBlockAccess;
+import net.minecraft.BiomeGenBase;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

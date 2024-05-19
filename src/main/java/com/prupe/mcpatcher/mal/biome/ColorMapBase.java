@@ -6,8 +6,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.ResourceLocation;
+import net.minecraft.IBlockAccess;
 
 import com.prupe.mcpatcher.MCLogger;
 

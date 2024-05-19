@@ -1,8 +1,8 @@
 package jss.notfine.mixins.early.minecraft.glint;
 
 import jss.notfine.core.Settings;
-import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.item.ItemStack;
+import net.minecraft.RenderItem;
+import net.minecraft.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -11,10 +11,10 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class MixinRenderItem {
 
     @Redirect(
-        method = "renderDroppedItem(Lnet/minecraft/entity/item/EntityItem;Lnet/minecraft/util/IIcon;IFFFFI)V",
+        method = "renderDroppedItem(Lnet/minecraft/EntityItem;Lnet/minecraft/IIcon;IFFFFI)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/item/ItemStack;hasEffect(I)Z"
+            target = "Lnet/minecraft/ItemStack;hasEffect(I)Z"
         ),
         remap = false
     )

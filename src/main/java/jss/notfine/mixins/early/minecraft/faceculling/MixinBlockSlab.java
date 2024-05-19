@@ -1,11 +1,11 @@
 package jss.notfine.mixins.early.minecraft.faceculling;
 
 import jss.notfine.util.IFaceObstructionCheckHelper;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSlab;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.Facing;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.BlockSlab;
+import net.minecraft.Material;
+import net.minecraft.Facing;
+import net.minecraft.IBlockAccess;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;

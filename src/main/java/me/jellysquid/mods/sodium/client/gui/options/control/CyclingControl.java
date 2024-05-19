@@ -4,7 +4,7 @@ import me.jellysquid.mods.sodium.client.gui.options.Option;
 import me.jellysquid.mods.sodium.client.gui.options.control.element.ControlElementFactory;
 import me.jellysquid.mods.sodium.client.gui.options.named.NamedState;
 import me.jellysquid.mods.sodium.client.util.Dim2i;
-import net.minecraft.client.resources.I18n;
+import net.minecraft.I18n;
 import org.apache.commons.lang3.Validate;
 
 public class CyclingControl<T extends Enum<T>> implements Control<T> {

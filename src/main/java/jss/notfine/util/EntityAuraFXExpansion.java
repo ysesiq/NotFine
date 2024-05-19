@@ -1,6 +1,6 @@
 package jss.notfine.util;
 
-import net.minecraft.client.particle.EntityAuraFX;
+import net.minecraft.EntityAuraFX;
 
 public interface EntityAuraFXExpansion {
 

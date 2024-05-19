@@ -1,6 +1,6 @@
 package jss.notfine.util;
 
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.IBlockAccess;
 
 public interface ILeafBlock {
 

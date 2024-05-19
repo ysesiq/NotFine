@@ -1,7 +1,7 @@
 package com.prupe.mcpatcher.mal.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.Block;
+import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.mal.resource.BlendMethod;
 

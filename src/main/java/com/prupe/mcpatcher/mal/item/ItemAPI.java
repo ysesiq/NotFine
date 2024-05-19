@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Set;
 
-import net.minecraft.item.Item;
+import net.minecraft.Item;
 
 import com.prupe.mcpatcher.MCPatcherUtils;
 

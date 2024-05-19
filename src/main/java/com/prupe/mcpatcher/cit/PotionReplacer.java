@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionHelper;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.Potion;
+import net.minecraft.PotionHelper;
+import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.mal.resource.PropertiesFile;

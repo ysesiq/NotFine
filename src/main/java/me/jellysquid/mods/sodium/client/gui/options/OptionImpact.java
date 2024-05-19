@@ -1,7 +1,7 @@
 package me.jellysquid.mods.sodium.client.gui.options;
 
-import net.minecraft.client.resources.I18n;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.I18n;
+import net.minecraft.EnumChatFormatting;
 
 public enum OptionImpact {
     LOW(EnumChatFormatting.GREEN, I18n.format("sodium.option_impact.low")),

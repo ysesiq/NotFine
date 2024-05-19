@@ -1,8 +1,8 @@
 package jss.notfine.mixins.early.minecraft.glint;
 
 import jss.notfine.core.Settings;
-import net.minecraft.client.renderer.entity.RenderBiped;
-import net.minecraft.item.ItemStack;
+import net.minecraft.RenderBiped;
+import net.minecraft.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -11,10 +11,10 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class MixinRenderBiped {
 
     @Redirect(
-        method = "shouldRenderPass(Lnet/minecraft/entity/EntityLiving;IF)I",
+        method = "shouldRenderPass(Lnet/minecraft/EntityLiving;IF)I",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/item/ItemStack;isItemEnchanted()Z"
+            target = "Lnet/minecraft/ItemStack;isItemEnchanted()Z"
         )
     )
     private boolean notFine$toggleGlint(ItemStack stack) {

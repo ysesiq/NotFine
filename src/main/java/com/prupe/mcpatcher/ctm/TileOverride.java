@@ -13,10 +13,10 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.minecraft.block.Block;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.IIcon;
+import net.minecraft.ResourceLocation;
+import net.minecraft.IBlockAccess;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

@@ -2,10 +2,10 @@ package com.prupe.mcpatcher.cit;
 
 import java.awt.image.BufferedImage;
 
-import net.minecraft.client.renderer.ItemRenderer;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.ItemRenderer;
+import net.minecraft.Tessellator;
+import net.minecraft.IIcon;
+import net.minecraft.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 

@@ -1,11 +1,11 @@
 package jss.notfine.mixins.early.minecraft.fix;
 
 import jss.notfine.core.Settings;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.item.ItemStack;
+import net.minecraft.Minecraft;
+import net.minecraft.OpenGlHelper;
+import net.minecraft.Tessellator;
+import net.minecraft.RenderItem;
+import net.minecraft.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;

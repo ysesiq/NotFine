@@ -5,7 +5,7 @@ import java.nio.IntBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.ResourceLocation;
 
 import org.lwjgl.opengl.EXTTextureFilterAnisotropic;
 import org.lwjgl.opengl.EXTTextureLODBias;

@@ -1,8 +1,8 @@
 package jss.notfine.mixins.early.minecraft.toggle;
 
 import jss.notfine.core.SettingsManager;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.settings.GameSettings;
+import net.minecraft.EntityRenderer;
+import net.minecraft.GameSettings;
 import org.spongepowered.asm.lib.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,7 +16,7 @@ public abstract class MixinEntityRenderer$RenderRainSnow {
         method = "renderRainSnow(F)V",
         at = @At(
             value = "FIELD",
-            target = "Lnet/minecraft/client/settings/GameSettings;fancyGraphics:Z",
+            target = "Lnet/minecraft/GameSettings;fancyGraphics:Z",
             opcode = Opcodes.GETFIELD
         )
     )

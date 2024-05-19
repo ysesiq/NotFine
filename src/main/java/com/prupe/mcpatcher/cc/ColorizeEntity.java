@@ -3,7 +3,7 @@ package com.prupe.mcpatcher.cc;
 import java.util.Arrays;
 import java.util.Random;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.MCPatcherUtils;
 import com.prupe.mcpatcher.mal.biome.BiomeAPI;

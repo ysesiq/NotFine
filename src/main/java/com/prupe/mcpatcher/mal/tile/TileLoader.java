@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.Minecraft;
+import net.minecraft.TextureAtlasSprite;
+import net.minecraft.TextureMap;
+import net.minecraft.IIcon;
+import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

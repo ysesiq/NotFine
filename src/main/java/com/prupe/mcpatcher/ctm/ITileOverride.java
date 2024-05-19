@@ -3,7 +3,7 @@ package com.prupe.mcpatcher.ctm;
 import java.util.List;
 import java.util.Set;
 
-import net.minecraft.util.IIcon;
+import net.minecraft.IIcon;
 
 import com.prupe.mcpatcher.mal.block.BlockStateMatcher;
 

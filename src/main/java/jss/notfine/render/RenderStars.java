@@ -2,8 +2,8 @@ package jss.notfine.render;
 
 import jss.notfine.core.Settings;
 import jss.util.RandomXoshiro256StarStar;
-import net.minecraft.client.renderer.RenderGlobal;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.RenderGlobal;
+import net.minecraft.Tessellator;
 import org.lwjgl.opengl.GL11;
 
 public class RenderStars {

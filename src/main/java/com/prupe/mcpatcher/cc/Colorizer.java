@@ -1,7 +1,7 @@
 package com.prupe.mcpatcher.cc;
 
-import net.minecraft.potion.Potion;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.Potion;
+import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

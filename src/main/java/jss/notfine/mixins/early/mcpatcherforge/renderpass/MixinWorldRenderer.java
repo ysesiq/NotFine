@@ -3,14 +3,14 @@ package jss.notfine.mixins.early.mcpatcherforge.renderpass;
 import java.util.HashSet;
 import java.util.List;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.WorldRenderer;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.ChunkCache;
-import net.minecraft.world.World;
+import net.minecraft.Block;
+import net.minecraft.Minecraft;
+import net.minecraft.RenderBlocks;
+import net.minecraft.WorldRenderer;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.TileEntity;
+import net.minecraft.ChunkCache;
+import net.minecraft.World;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -42,7 +42,7 @@ public abstract class MixinWorldRenderer {
     @Shadow
     public abstract void setPosition(int x, int y, int z);
 
-    @Inject(method = "<init>(Lnet/minecraft/world/World;Ljava/util/List;IIII)V", at = @At("RETURN"))
+    @Inject(method = "<init>(Lnet/minecraft/World;Ljava/util/List;IIII)V", at = @At("RETURN"))
     private void modifyWorldRendererConstructor1(World world, List<TileEntity> tileEntities, int x, int y, int z,
         int glRenderList, CallbackInfo ci) {
         skipRenderPass = new boolean[4];
@@ -54,8 +54,8 @@ public abstract class MixinWorldRenderer {
      * Cancel first call as skipRenderPass isn't ready yet
      */
     @Redirect(
-        method = "<init>(Lnet/minecraft/world/World;Ljava/util/List;IIII)V",
-        at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/WorldRenderer;setPosition(III)V"))
+        method = "<init>(Lnet/minecraft/World;Ljava/util/List;IIII)V",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/WorldRenderer;setPosition(III)V"))
     private void modifyWorldRendererConstructor2(WorldRenderer renderer, int x, int y, int z) {}
 
     @ModifyArg(
@@ -67,13 +67,13 @@ public abstract class MixinWorldRenderer {
     }
 
     @ModifyConstant(
-        method = "updateRenderer(Lnet/minecraft/entity/EntityLivingBase;)V",
+        method = "updateRenderer(Lnet/minecraft/EntityLivingBase;)V",
         constant = @Constant(intValue = 2))
     private int adjustRenderpassSizeUpdateRenderer(int constant) {
         return 4;
     }
 
-    @Inject(method = "updateRenderer(Lnet/minecraft/entity/EntityLivingBase;)V", at = @At("RETURN"))
+    @Inject(method = "updateRenderer(Lnet/minecraft/EntityLivingBase;)V", at = @At("RETURN"))
     private void finishRenderPassUpdateRenderer(EntityLivingBase entityLivingBase, CallbackInfo ci) {
         RenderPass.finish();
     }
@@ -82,7 +82,7 @@ public abstract class MixinWorldRenderer {
     // Idea doesn't like it, but it does work :shrugs:
     @SuppressWarnings({ "InvalidInjectorMethodSignature", "rawtypes" })
     @Inject(
-        method = "updateRenderer(Lnet/minecraft/entity/EntityLivingBase;)V",
+        method = "updateRenderer(Lnet/minecraft/EntityLivingBase;)V",
         at = @At(value = "JUMP", ordinal = 4, shift = At.Shift.AFTER),
         locals = LocalCapture.CAPTURE_FAILHARD)
     private void injectRenderPassStartUpdateRenderer(EntityLivingBase entity, CallbackInfo ci, int i, int j, int k,
@@ -92,8 +92,8 @@ public abstract class MixinWorldRenderer {
     }
 
     @Redirect(
-        method = "updateRenderer(Lnet/minecraft/entity/EntityLivingBase;)V",
-        at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;canRenderInPass(I)Z", remap = false))
+        method = "updateRenderer(Lnet/minecraft/EntityLivingBase;)V",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/Block;canRenderInPass(I)Z", remap = false))
     private boolean redirectCanRenderInThisPassUpdateRenderer(Block block, int pass) {
         return RenderPass.canRenderInThisPass(block.getRenderBlockPass() == pass);
     }

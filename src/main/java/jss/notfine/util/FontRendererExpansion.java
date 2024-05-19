@@ -1,6 +1,6 @@
 package jss.notfine.util;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.ResourceLocation;
 
 public interface FontRendererExpansion {
 

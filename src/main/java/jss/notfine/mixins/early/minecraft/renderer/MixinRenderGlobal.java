@@ -2,10 +2,10 @@ package jss.notfine.mixins.early.minecraft.renderer;
 
 import jss.notfine.core.Settings;
 import jss.notfine.render.RenderStars;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.client.renderer.RenderGlobal;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.Minecraft;
+import net.minecraft.WorldClient;
+import net.minecraft.RenderGlobal;
+import net.minecraft.Tessellator;
 import net.minecraftforge.client.IRenderHandler;
 
 import org.spongepowered.asm.mixin.Mixin;

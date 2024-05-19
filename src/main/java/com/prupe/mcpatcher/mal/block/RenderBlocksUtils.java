@@ -1,10 +1,10 @@
 package com.prupe.mcpatcher.mal.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.Minecraft;
+import net.minecraft.Blocks;
+import net.minecraft.IIcon;
+import net.minecraft.IBlockAccess;
 
 import jss.notfine.config.MCPatcherForgeConfig;
 

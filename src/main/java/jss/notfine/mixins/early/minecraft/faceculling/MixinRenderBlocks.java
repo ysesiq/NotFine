@@ -1,11 +1,11 @@
 package jss.notfine.mixins.early.minecraft.faceculling;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockFence;
-import net.minecraft.block.BlockWall;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.BlockFence;
+import net.minecraft.BlockWall;
+import net.minecraft.RenderBlocks;
+import net.minecraft.Blocks;
+import net.minecraft.IBlockAccess;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;

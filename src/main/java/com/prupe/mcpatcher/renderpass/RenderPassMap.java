@@ -1,6 +1,6 @@
 package com.prupe.mcpatcher.renderpass;
 
-import net.minecraft.block.Block;
+import net.minecraft.Block;
 
 import com.prupe.mcpatcher.mal.block.RenderPassAPI;
 

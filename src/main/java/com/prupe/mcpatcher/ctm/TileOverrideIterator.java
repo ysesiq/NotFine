@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.minecraft.block.Block;
-import net.minecraft.util.IIcon;
+import net.minecraft.Block;
+import net.minecraft.IIcon;
 
 import com.prupe.mcpatcher.mal.block.BlockStateMatcher;
 

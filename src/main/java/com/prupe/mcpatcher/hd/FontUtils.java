@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.FontRenderer;
+import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

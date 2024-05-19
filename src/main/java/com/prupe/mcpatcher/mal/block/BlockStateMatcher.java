@@ -1,7 +1,7 @@
 package com.prupe.mcpatcher.mal.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.IBlockAccess;
 
 import com.prupe.mcpatcher.MCPatcherUtils;
 

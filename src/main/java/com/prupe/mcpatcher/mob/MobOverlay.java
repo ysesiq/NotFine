@@ -1,8 +1,8 @@
 package com.prupe.mcpatcher.mob;
 
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.Tessellator;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.mal.resource.TexturePackAPI;
 

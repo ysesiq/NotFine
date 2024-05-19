@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
 
-import net.minecraft.launchwrapper.Launch;
+import net.minecraft.Launch;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

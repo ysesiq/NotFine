@@ -1,7 +1,7 @@
 package jss.notfine.util.itembreakparticles;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraft.ItemStack;
+import net.minecraft.IIcon;
 
 public interface IWorldSpawnItemBreakParticle {
 

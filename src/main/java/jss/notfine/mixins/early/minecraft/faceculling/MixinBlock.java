@@ -1,8 +1,8 @@
 package jss.notfine.mixins.early.minecraft.faceculling;
 
 import jss.notfine.util.IFaceObstructionCheckHelper;
-import net.minecraft.block.Block;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.IBlockAccess;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;

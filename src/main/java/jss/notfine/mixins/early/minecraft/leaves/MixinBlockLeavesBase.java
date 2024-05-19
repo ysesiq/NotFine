@@ -3,10 +3,10 @@ package jss.notfine.mixins.early.minecraft.leaves;
 import jss.notfine.util.IFaceObstructionCheckHelper;
 import jss.notfine.util.ILeafBlock;
 import jss.notfine.util.LeafRenderUtil;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockLeavesBase;
-import net.minecraft.block.material.Material;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.BlockLeavesBase;
+import net.minecraft.Material;
+import net.minecraft.IBlockAccess;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(value = BlockLeavesBase.class)

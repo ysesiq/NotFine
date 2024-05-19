@@ -4,11 +4,11 @@ import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.potion.Potion;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+import net.minecraft.Minecraft;
+import net.minecraft.EntityRenderer;
+import net.minecraft.Potion;
+import net.minecraft.ResourceLocation;
+import net.minecraft.World;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.mal.biome.ColorUtils;

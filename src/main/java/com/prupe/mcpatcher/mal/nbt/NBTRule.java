@@ -3,16 +3,16 @@ package com.prupe.mcpatcher.mal.nbt;
 import java.lang.reflect.Method;
 import java.util.regex.Pattern;
 
-import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagByte;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagDouble;
-import net.minecraft.nbt.NBTTagFloat;
-import net.minecraft.nbt.NBTTagInt;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.nbt.NBTTagLong;
-import net.minecraft.nbt.NBTTagShort;
-import net.minecraft.nbt.NBTTagString;
+import net.minecraft.NBTBase;
+import net.minecraft.NBTTagByte;
+import net.minecraft.NBTTagCompound;
+import net.minecraft.NBTTagDouble;
+import net.minecraft.NBTTagFloat;
+import net.minecraft.NBTTagInt;
+import net.minecraft.NBTTagList;
+import net.minecraft.NBTTagLong;
+import net.minecraft.NBTTagShort;
+import net.minecraft.NBTTagString;
 
 import jss.notfine.util.NBTTagCompoundExpansion;
 import jss.notfine.util.NBTTagListExpansion;

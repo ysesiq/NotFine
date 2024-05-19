@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.RenderBlocks;
+import net.minecraft.IIcon;
+import net.minecraft.ResourceLocation;
+import net.minecraft.IBlockAccess;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

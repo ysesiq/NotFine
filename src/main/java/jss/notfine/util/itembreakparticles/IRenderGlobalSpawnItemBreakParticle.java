@@ -1,7 +1,7 @@
 package jss.notfine.util.itembreakparticles;
 
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.item.ItemStack;
+import net.minecraft.EntityFX;
+import net.minecraft.ItemStack;
 
 public interface IRenderGlobalSpawnItemBreakParticle {
 

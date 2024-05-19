@@ -7,16 +7,16 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.projectile.EntityPotion;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.Entity;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.EntityPotion;
+import net.minecraft.Item;
+import net.minecraft.ItemStack;
+import net.minecraft.NBTBase;
+import net.minecraft.NBTTagCompound;
+import net.minecraft.NBTTagList;
+import net.minecraft.IIcon;
+import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

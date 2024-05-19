@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.minecraft.block.material.MapColor;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionHelper;
+import net.minecraft.MapColor;
+import net.minecraft.Potion;
+import net.minecraft.PotionHelper;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.mal.resource.PropertiesFile;

@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import net.minecraft.client.resources.IResourcePack;
+import net.minecraft.IResourcePack;
 
 import com.prupe.mcpatcher.MCLogger;
 

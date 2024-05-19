@@ -12,7 +12,7 @@ import static com.prupe.mcpatcher.ctm.RenderBlockState.REL_UL;
 import static com.prupe.mcpatcher.ctm.RenderBlockState.REL_UR;
 import static com.prupe.mcpatcher.ctm.RenderBlockState.TOP_FACE;
 
-import net.minecraft.util.IIcon;
+import net.minecraft.IIcon;
 
 import com.prupe.mcpatcher.mal.resource.PropertiesFile;
 import com.prupe.mcpatcher.mal.tile.TileLoader;

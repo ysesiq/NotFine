@@ -1,6 +1,6 @@
 package jss.notfine.util;
 
-import net.minecraft.nbt.NBTBase;
+import net.minecraft.NBTBase;
 
 public interface NBTTagListExpansion {
 

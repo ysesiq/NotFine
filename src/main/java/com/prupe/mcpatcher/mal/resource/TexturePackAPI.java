@@ -15,19 +15,19 @@ import java.util.regex.Pattern;
 
 import javax.imageio.ImageIO;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ThreadDownloadImageData;
-import net.minecraft.client.renderer.texture.AbstractTexture;
-import net.minecraft.client.renderer.texture.DynamicTexture;
-import net.minecraft.client.renderer.texture.ITextureObject;
-import net.minecraft.client.renderer.texture.SimpleTexture;
-import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.client.resources.FallbackResourceManager;
-import net.minecraft.client.resources.IResourceManager;
-import net.minecraft.client.resources.IResourcePack;
-import net.minecraft.client.resources.SimpleReloadableResourceManager;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.Minecraft;
+import net.minecraft.ThreadDownloadImageData;
+import net.minecraft.AbstractTexture;
+import net.minecraft.DynamicTexture;
+import net.minecraft.ITextureObject;
+import net.minecraft.SimpleTexture;
+import net.minecraft.TextureManager;
+import net.minecraft.TextureMap;
+import net.minecraft.FallbackResourceManager;
+import net.minecraft.IResourceManager;
+import net.minecraft.IResourcePack;
+import net.minecraft.SimpleReloadableResourceManager;
+import net.minecraft.ResourceLocation;
 
 import org.apache.commons.io.IOUtils;
 

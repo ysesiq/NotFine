@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.RenderBlocks;
+import net.minecraft.Blocks;
+import net.minecraft.ResourceLocation;
+import net.minecraft.IBlockAccess;
 
 import org.lwjgl.opengl.GL11;
 

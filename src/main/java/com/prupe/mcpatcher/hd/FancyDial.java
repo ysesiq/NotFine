@@ -13,13 +13,13 @@ import java.util.TreeMap;
 
 import javax.imageio.ImageIO;
 
-import net.minecraft.client.renderer.texture.ITextureObject;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.renderer.texture.TextureClock;
-import net.minecraft.client.renderer.texture.TextureCompass;
-import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.ITextureObject;
+import net.minecraft.TextureAtlasSprite;
+import net.minecraft.TextureClock;
+import net.minecraft.TextureCompass;
+import net.minecraft.TextureMap;
+import net.minecraft.IIcon;
+import net.minecraft.ResourceLocation;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.EXTFramebufferObject;

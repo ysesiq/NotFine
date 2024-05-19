@@ -5,13 +5,13 @@ import java.util.Random;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import jss.notfine.core.Settings;
-import net.minecraft.world.WorldProvider;
+import net.minecraft.WorldProvider;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import jss.util.RandomXoshiro256StarStar;
-import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.WorldClient;
 
 @Mixin(value = WorldClient.class)
 public abstract class MixinWorldClient {
@@ -40,7 +40,7 @@ public abstract class MixinWorldClient {
         method = "doVoidFogParticles(III)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/world/WorldProvider;getWorldHasVoidParticles()Z"
+            target = "Lnet/minecraft/WorldProvider;getWorldHasVoidParticles()Z"
         )
     )
     private boolean notFine$toggleVoidParticles(WorldProvider provider, Operation<Boolean> original){

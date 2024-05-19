@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+import net.minecraft.Minecraft;
+import net.minecraft.Tessellator;
+import net.minecraft.ResourceLocation;
+import net.minecraft.World;
 
 import org.lwjgl.opengl.GL11;
 

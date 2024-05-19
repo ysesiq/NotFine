@@ -6,10 +6,10 @@ import org.spongepowered.asm.mixin.Overwrite;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSnow;
-import net.minecraft.block.material.Material;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.BlockSnow;
+import net.minecraft.Material;
+import net.minecraft.IBlockAccess;
 
 @Mixin(value = BlockSnow.class)
 public abstract class MixinBlockSnow extends Block implements IFaceObstructionCheckHelper {

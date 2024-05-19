@@ -8,11 +8,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldProvider;
+import net.minecraft.Entity;
+import net.minecraft.ResourceLocation;
+import net.minecraft.IBlockAccess;
+import net.minecraft.World;
+import net.minecraft.WorldProvider;
 
 import com.prupe.mcpatcher.mal.biome.BiomeAPI;
 import com.prupe.mcpatcher.mal.biome.ColorMap;

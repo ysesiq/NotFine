@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

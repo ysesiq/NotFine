@@ -2,8 +2,8 @@ package com.prupe.mcpatcher.mal.biome;
 
 import java.util.Collection;
 
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.ResourceLocation;
+import net.minecraft.IBlockAccess;
 
 public interface IColorMap {
 

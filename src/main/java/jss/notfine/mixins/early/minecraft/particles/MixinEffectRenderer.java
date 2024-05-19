@@ -1,6 +1,6 @@
 package jss.notfine.mixins.early.minecraft.particles;
 
-import net.minecraft.client.particle.EffectRenderer;
+import net.minecraft.EffectRenderer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;

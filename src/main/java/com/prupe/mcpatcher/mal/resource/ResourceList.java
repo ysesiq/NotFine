@@ -14,11 +14,11 @@ import java.util.logging.Level;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import net.minecraft.client.resources.AbstractResourcePack;
-import net.minecraft.client.resources.DefaultResourcePack;
-import net.minecraft.client.resources.FileResourcePack;
-import net.minecraft.client.resources.IResourcePack;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.AbstractResourcePack;
+import net.minecraft.DefaultResourcePack;
+import net.minecraft.FileResourcePack;
+import net.minecraft.IResourcePack;
+import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;

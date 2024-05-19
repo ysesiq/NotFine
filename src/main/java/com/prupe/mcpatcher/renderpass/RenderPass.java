@@ -6,10 +6,10 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.EntityRenderer;
+import net.minecraft.ResourceLocation;
+import net.minecraft.IBlockAccess;
 
 import org.lwjgl.opengl.GL11;
 

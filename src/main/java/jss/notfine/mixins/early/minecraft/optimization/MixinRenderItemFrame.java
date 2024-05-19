@@ -1,10 +1,10 @@
 package jss.notfine.mixins.early.minecraft.optimization;
 
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.tileentity.RenderItemFrame;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
+import net.minecraft.Render;
+import net.minecraft.RenderItemFrame;
+import net.minecraft.EntityItem;
+import net.minecraft.ItemStack;
+import net.minecraft.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -15,7 +15,7 @@ public abstract class MixinRenderItemFrame extends Render {
     private EntityItem cachedEntityItem;
 
     @Redirect(
-        method = "func_82402_b(Lnet/minecraft/entity/item/EntityItemFrame;)V",
+        method = "func_82402_b(Lnet/minecraft/item/EntityItemFrame;)V",
         at = @At(
             value = "NEW",
             target = "(Lnet/minecraft/world/World;DDDLnet/minecraft/item/ItemStack;)Lnet/minecraft/entity/item/EntityItem;",

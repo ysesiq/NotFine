@@ -1,6 +1,6 @@
 package me.jellysquid.mods.sodium.client.gui.options.named;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.Minecraft;
 
 public enum GraphicsQuality implements NamedState {
     DEFAULT("generator.default"),

@@ -1,9 +1,9 @@
 package com.prupe.mcpatcher.sky;
 
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.particle.EntityFireworkOverlayFX;
-import net.minecraft.client.particle.EntityFireworkSparkFX;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.EntityFX;
+import net.minecraft.EntityFireworkOverlayFX;
+import net.minecraft.EntityFireworkSparkFX;
+import net.minecraft.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 

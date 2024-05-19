@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.Item;
+import net.minecraft.ItemStack;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.mal.resource.PropertiesFile;

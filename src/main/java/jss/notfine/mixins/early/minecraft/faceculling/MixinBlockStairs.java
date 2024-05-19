@@ -1,10 +1,10 @@
 package jss.notfine.mixins.early.minecraft.faceculling;
 
 import jss.notfine.util.IFaceObstructionCheckHelper;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockStairs;
-import net.minecraft.block.material.Material;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.BlockStairs;
+import net.minecraft.Material;
+import net.minecraft.IBlockAccess;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(value = BlockStairs.class)

@@ -1,7 +1,7 @@
 package com.prupe.mcpatcher.mob;
 
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.Tessellator;
+import net.minecraft.ResourceLocation;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;

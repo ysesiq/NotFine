@@ -1,8 +1,8 @@
 package jss.notfine.mixins.early.minecraft.gui;
 
 import jss.notfine.core.Settings;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiSlot;
+import net.minecraft.Minecraft;
+import net.minecraft.GuiSlot;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

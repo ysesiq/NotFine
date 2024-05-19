@@ -1,7 +1,7 @@
 package jss.notfine.mixins.early.minecraft.clouds;
 
 import jss.notfine.core.Settings;
-import net.minecraft.world.WorldType;
+import net.minecraft.WorldType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 

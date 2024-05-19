@@ -1,6 +1,6 @@
 package com.prupe.mcpatcher.mal.biome;
 
-import net.minecraft.util.MathHelper;
+import net.minecraft.MathHelper;
 
 public class ColorUtils {
 
