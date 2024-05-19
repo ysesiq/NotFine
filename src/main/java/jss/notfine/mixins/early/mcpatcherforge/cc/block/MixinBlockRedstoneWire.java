@@ -2,10 +2,10 @@ package jss.notfine.mixins.early.mcpatcherforge.cc.block;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockRedstoneWire;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
+import net.minecraft.Block;
+import net.minecraft.BlockRedstoneWire;
+import net.minecraft.IBlockAccess;
+import net.minecraft.World;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

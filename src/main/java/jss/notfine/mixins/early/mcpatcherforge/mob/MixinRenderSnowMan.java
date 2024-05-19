@@ -1,9 +1,9 @@
 package jss.notfine.mixins.early.mcpatcherforge.mob;
 
-import net.minecraft.client.renderer.ItemRenderer;
-import net.minecraft.client.renderer.entity.RenderSnowMan;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
+import net.minecraft.ItemRenderer;
+import net.minecraft.RenderSnowMan;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.ItemStack;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

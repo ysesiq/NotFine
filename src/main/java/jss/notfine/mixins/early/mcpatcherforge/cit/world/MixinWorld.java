@@ -2,9 +2,9 @@ package jss.notfine.mixins.early.mcpatcherforge.cit.world;
 
 import jss.notfine.util.itembreakparticles.IRenderGlobalSpawnItemBreakParticle;
 import jss.notfine.util.itembreakparticles.IWorldSpawnItemBreakParticle;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.IWorldAccess;
-import net.minecraft.world.World;
+import net.minecraft.ItemStack;
+import net.minecraft.IWorldAccess;
+import net.minecraft.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 

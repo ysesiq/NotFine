@@ -1,12 +1,12 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.item.crafting;
 
-import net.minecraft.block.BlockColored;
-import net.minecraft.entity.passive.EntitySheep;
-import net.minecraft.init.Items;
-import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.RecipesArmorDyes;
+import net.minecraft.BlockColored;
+import net.minecraft.EntitySheep;
+import net.minecraft.Item;
+import net.minecraft.InventoryCrafting;
+import net.minecraft.ItemArmor;
+import net.minecraft.ItemStack;
+import net.minecraft.RecipesArmorDyes;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;

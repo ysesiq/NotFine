@@ -1,6 +1,6 @@
 package jss.notfine.mixins.early.mcpatcherforge.base;
 
-import net.minecraft.client.renderer.texture.AbstractTexture;
+import net.minecraft.AbstractTexture;
 
 import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,6 +1,6 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.block.material;
 
-import net.minecraft.block.material.MapColor;
+import net.minecraft.MapColor;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;

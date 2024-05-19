@@ -2,10 +2,10 @@ package jss.notfine.mixins.early.mcpatcherforge.renderpass;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.RenderGlobal;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.Minecraft;
+import net.minecraft.EntityRenderer;
+import net.minecraft.RenderGlobal;
+import net.minecraft.EntityLivingBase;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

@@ -1,9 +1,9 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.client.renderer;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.ItemRenderer;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
+import net.minecraft.Block;
+import net.minecraft.ItemRenderer;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 
 import org.spongepowered.asm.mixin.Mixin;

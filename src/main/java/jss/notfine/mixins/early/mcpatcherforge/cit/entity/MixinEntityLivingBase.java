@@ -1,12 +1,12 @@
 package jss.notfine.mixins.early.mcpatcherforge.cit.entity;
 
 import jss.notfine.util.itembreakparticles.IWorldSpawnItemBreakParticle;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Vec3;
-import net.minecraft.world.World;
+import net.minecraft.Entity;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.Item;
+import net.minecraft.ItemStack;
+import net.minecraft.Vec3;
+import net.minecraft.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 

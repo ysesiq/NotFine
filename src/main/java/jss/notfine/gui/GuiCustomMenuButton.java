@@ -1,8 +1,8 @@
 package jss.notfine.gui;
 
 import me.jellysquid.mods.sodium.client.gui.options.OptionPage;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
+import net.minecraft.Minecraft;
+import net.minecraft.GuiButton;
 
 public class GuiCustomMenuButton extends GuiButton {
 

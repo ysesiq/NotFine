@@ -1,8 +1,8 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.client.particle;
 
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.particle.EntityReddustFX;
-import net.minecraft.world.World;
+import net.minecraft.EntityFX;
+import net.minecraft.EntityReddustFX;
+import net.minecraft.World;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

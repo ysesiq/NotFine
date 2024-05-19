@@ -1,10 +1,10 @@
 package jss.notfine.mixins.early.mcpatcherforge.renderpass;
 
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.GLAllocation;
-import net.minecraft.client.renderer.RenderGlobal;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.world.IWorldAccess;
+import net.minecraft.EntityRenderer;
+import net.minecraft.GLAllocation;
+import net.minecraft.RenderGlobal;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.IWorldAccess;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,7 +20,7 @@ import com.prupe.mcpatcher.renderpass.RenderPassMap;
 public abstract class MixinRenderGlobal implements IWorldAccess {
 
     @Redirect(
-        method = "<init>(Lnet/minecraft/client/Minecraft;)V",
+        method = "<init>(Lnet/minecraft/Minecraft;)V",
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/client/renderer/GLAllocation;generateDisplayLists(I)I",
@@ -44,7 +44,7 @@ public abstract class MixinRenderGlobal implements IWorldAccess {
     // Order important here!
 
     @Inject(
-        method = "sortAndRender(Lnet/minecraft/entity/EntityLivingBase;ID)I",
+        method = "sortAndRender(Lnet/minecraft/EntityLivingBase;ID)I",
         at = @At(value = "HEAD"),
         cancellable = true)
     private void modifySortAndRender1(EntityLivingBase entity, int map18To17, double partialTickTime,
@@ -55,7 +55,7 @@ public abstract class MixinRenderGlobal implements IWorldAccess {
     }
 
     @ModifyVariable(
-        method = "sortAndRender(Lnet/minecraft/entity/EntityLivingBase;ID)I",
+        method = "sortAndRender(Lnet/minecraft/EntityLivingBase;ID)I",
         at = @At(value = "HEAD"),
         ordinal = 0,
         argsOnly = true)
@@ -64,7 +64,7 @@ public abstract class MixinRenderGlobal implements IWorldAccess {
     }
 
     @Inject(
-        method = "sortAndRender(Lnet/minecraft/entity/EntityLivingBase;ID)I",
+        method = "sortAndRender(Lnet/minecraft/EntityLivingBase;ID)I",
         at = @At(value = "RETURN"),
         cancellable = true)
     private void modifySortAndRender3(EntityLivingBase entity, int renderPass, double partialTickTime,
@@ -74,7 +74,7 @@ public abstract class MixinRenderGlobal implements IWorldAccess {
 
     @Redirect(
         method = "renderAllRenderLists(ID)V",
-        at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/EntityRenderer;enableLightmap(D)V"))
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/EntityRenderer;enableLightmap(D)V"))
     private void modifyRenderAllRenderLists(EntityRenderer instance, double partialTick) {
         RenderPass.enableDisableLightmap(instance, partialTick);
     }

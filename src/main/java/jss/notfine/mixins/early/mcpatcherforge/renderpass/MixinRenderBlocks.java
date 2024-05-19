@@ -1,8 +1,8 @@
 package jss.notfine.mixins.early.mcpatcherforge.renderpass;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.RenderBlocks;
+import net.minecraft.IBlockAccess;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -14,12 +14,12 @@ import com.prupe.mcpatcher.renderpass.RenderPass;
 public abstract class MixinRenderBlocks {
 
     @Redirect(
-        method = { "renderBlockBed(Lnet/minecraft/block/Block;III)Z",
-            "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/block/Block;IIIFFF)Z",
-            "renderStandardBlockWithColorMultiplier(Lnet/minecraft/block/Block;IIIFFF)Z",
-            "renderStandardBlockWithAmbientOcclusionPartial(Lnet/minecraft/block/Block;IIIFFF)Z",
-            "renderBlockCactusImpl(Lnet/minecraft/block/Block;IIIFFF)Z",
-            "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z" },
+        method = { "renderBlockBed(Lnet/minecraft/Block;III)Z",
+            "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/Block;IIIFFF)Z",
+            "renderStandardBlockWithColorMultiplier(Lnet/minecraft/Block;IIIFFF)Z",
+            "renderStandardBlockWithAmbientOcclusionPartial(Lnet/minecraft/Block;IIIFFF)Z",
+            "renderBlockCactusImpl(Lnet/minecraft/Block;IIIFFF)Z",
+            "renderBlockLiquid(Lnet/minecraft/Block;III)Z" },
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/block/Block;shouldSideBeRendered(Lnet/minecraft/world/IBlockAccess;IIII)Z"))

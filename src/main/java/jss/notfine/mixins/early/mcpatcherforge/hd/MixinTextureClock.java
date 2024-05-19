@@ -1,6 +1,6 @@
 package jss.notfine.mixins.early.mcpatcherforge.hd;
 
-import net.minecraft.client.renderer.texture.TextureClock;
+import net.minecraft.TextureClock;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

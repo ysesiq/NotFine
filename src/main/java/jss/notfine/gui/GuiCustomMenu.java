@@ -2,11 +2,11 @@ package jss.notfine.gui;
 
 import me.jellysquid.mods.sodium.client.gui.options.OptionPage;
 import me.jellysquid.mods.sodium.client.gui.options.storage.OptionStorage;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiListExtended;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.resources.I18n;
+import net.minecraft.GuiButton;
+import net.minecraft.GuiListExtended;
+import net.minecraft.GuiScreen;
+import net.minecraft.ScaledResolution;
+import net.minecraft.I18n;
 import org.lwjgl.input.Keyboard;
 
 import java.util.HashSet;

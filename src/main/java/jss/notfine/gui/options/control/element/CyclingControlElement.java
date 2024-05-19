@@ -2,7 +2,7 @@ package jss.notfine.gui.options.control.element;
 
 import me.jellysquid.mods.sodium.client.gui.options.Option;
 import me.jellysquid.mods.sodium.client.util.Dim2i;
-import net.minecraft.client.Minecraft;
+import net.minecraft.Minecraft;
 
 public class CyclingControlElement<T extends Enum<T>> extends NotFineControlElement<T> {
     private final T[] allowedValues;

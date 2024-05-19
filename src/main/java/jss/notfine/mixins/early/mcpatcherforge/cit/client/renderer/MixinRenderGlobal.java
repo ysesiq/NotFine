@@ -2,13 +2,13 @@ package jss.notfine.mixins.early.mcpatcherforge.cit.client.renderer;
 
 import com.prupe.mcpatcher.cit.CITUtils;
 import jss.notfine.util.itembreakparticles.IRenderGlobalSpawnItemBreakParticle;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.client.particle.EntityBreakingFX;
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.renderer.RenderGlobal;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.Minecraft;
+import net.minecraft.WorldClient;
+import net.minecraft.EntityBreakingFX;
+import net.minecraft.EntityFX;
+import net.minecraft.RenderGlobal;
+import net.minecraft.Item;
+import net.minecraft.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 

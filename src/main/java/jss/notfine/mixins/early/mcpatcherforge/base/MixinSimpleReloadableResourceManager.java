@@ -1,6 +1,6 @@
 package jss.notfine.mixins.early.mcpatcherforge.base;
 
-import net.minecraft.client.resources.SimpleReloadableResourceManager;
+import net.minecraft.SimpleReloadableResourceManager;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

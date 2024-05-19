@@ -1,7 +1,7 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.IBlockAccess;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

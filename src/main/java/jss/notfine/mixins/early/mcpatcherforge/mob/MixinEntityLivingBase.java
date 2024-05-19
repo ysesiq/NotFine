@@ -1,7 +1,7 @@
 package jss.notfine.mixins.early.mcpatcherforge.mob;
 
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.NBTTagCompound;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

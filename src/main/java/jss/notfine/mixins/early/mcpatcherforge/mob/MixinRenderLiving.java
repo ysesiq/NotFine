@@ -1,12 +1,12 @@
 package jss.notfine.mixins.early.mcpatcherforge.mob;
 
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.client.renderer.entity.RendererLivingEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityHanging;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.ModelBase;
+import net.minecraft.Tessellator;
+import net.minecraft.RenderLiving;
+import net.minecraft.RendererLivingEntity;
+import net.minecraft.Entity;
+import net.minecraft.EntityHanging;
+import net.minecraft.EntityLiving;
 
 import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Mixin;

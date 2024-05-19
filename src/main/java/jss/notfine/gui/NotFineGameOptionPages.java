@@ -18,9 +18,9 @@ import me.jellysquid.mods.sodium.client.gui.options.named.GraphicsMode;
 import me.jellysquid.mods.sodium.client.gui.options.named.LightingQuality;
 import me.jellysquid.mods.sodium.client.gui.options.named.ParticleMode;
 import me.jellysquid.mods.sodium.client.gui.options.storage.MinecraftOptionsStorage;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.client.settings.GameSettings;
+import net.minecraft.Minecraft;
+import net.minecraft.I18n;
+import net.minecraft.GameSettings;
 import org.lwjgl.opengl.Display;
 
 import java.util.ArrayList;

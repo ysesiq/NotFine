@@ -1,8 +1,8 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.client.renderer.entity;
 
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.RenderXPOrb;
-import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.Tessellator;
+import net.minecraft.RenderXPOrb;
+import net.minecraft.EntityXPOrb;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

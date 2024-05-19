@@ -5,9 +5,9 @@ import me.jellysquid.mods.sodium.client.gui.options.Option;
 import me.jellysquid.mods.sodium.client.gui.options.OptionFlag;
 import me.jellysquid.mods.sodium.client.gui.options.control.ControlElement;
 import me.jellysquid.mods.sodium.client.util.Dim2i;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.Minecraft;
+import net.minecraft.GuiButton;
+import net.minecraft.EnumChatFormatting;
 
 import java.util.Collection;
 

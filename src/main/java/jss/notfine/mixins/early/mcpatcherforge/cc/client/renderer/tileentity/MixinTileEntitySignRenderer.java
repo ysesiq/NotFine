@@ -1,6 +1,6 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.client.renderer.tileentity;
 
-import net.minecraft.client.renderer.tileentity.TileEntitySignRenderer;
+import net.minecraft.TileEntitySignRenderer;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

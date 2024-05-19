@@ -6,12 +6,12 @@ import java.net.Proxy;
 
 import javax.imageio.ImageIO;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.texture.DynamicTexture;
-import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.client.resources.IResourceManager;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Session;
+import net.minecraft.Minecraft;
+import net.minecraft.DynamicTexture;
+import net.minecraft.TextureManager;
+import net.minecraft.IResourceManager;
+import net.minecraft.ResourceLocation;
+import net.minecraft.Session;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

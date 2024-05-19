@@ -3,8 +3,8 @@ package jss.notfine.gui.options.control.element;
 import me.jellysquid.mods.sodium.client.gui.options.Option;
 import me.jellysquid.mods.sodium.client.gui.options.control.ControlValueFormatter;
 import me.jellysquid.mods.sodium.client.util.Dim2i;
-import net.minecraft.client.Minecraft;
-import net.minecraft.util.MathHelper;
+import net.minecraft.Minecraft;
+import net.minecraft.MathHelper;
 import org.lwjgl.opengl.GL11;
 
 public class SliderControlElement extends NotFineControlElement<Integer> {

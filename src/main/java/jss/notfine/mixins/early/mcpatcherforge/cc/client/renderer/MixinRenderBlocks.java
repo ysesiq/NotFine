@@ -1,12 +1,12 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.client.renderer;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockCauldron;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
+import net.minecraft.Block;
+import net.minecraft.BlockCauldron;
+import net.minecraft.EntityRenderer;
+import net.minecraft.RenderBlocks;
+import net.minecraft.Tessellator;
+import net.minecraft.IBlockAccess;
+import net.minecraft.World;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

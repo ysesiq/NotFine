@@ -1,8 +1,8 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.client.renderer.entity;
 
-import net.minecraft.client.renderer.entity.RenderWolf;
-import net.minecraft.entity.passive.EntitySheep;
-import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.RenderWolf;
+import net.minecraft.EntitySheep;
+import net.minecraft.EntityWolf;
 
 import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Mixin;

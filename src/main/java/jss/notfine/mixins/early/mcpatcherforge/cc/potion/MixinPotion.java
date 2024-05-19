@@ -1,6 +1,6 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.potion;
 
-import net.minecraft.potion.Potion;
+import net.minecraft.Potion;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;

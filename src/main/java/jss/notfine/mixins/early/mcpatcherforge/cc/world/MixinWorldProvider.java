@@ -1,7 +1,7 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.world;
 
-import net.minecraft.util.Vec3;
-import net.minecraft.world.WorldProvider;
+import net.minecraft.Vec3;
+import net.minecraft.WorldProvider;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

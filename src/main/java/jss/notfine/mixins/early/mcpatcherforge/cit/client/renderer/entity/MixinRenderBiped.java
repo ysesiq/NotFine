@@ -1,10 +1,10 @@
 package jss.notfine.mixins.early.mcpatcherforge.cit.client.renderer.entity;
 
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.RenderBiped;
-import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.ModelBase;
+import net.minecraft.RenderBiped;
+import net.minecraft.RenderLiving;
+import net.minecraft.EntityLiving;
+import net.minecraft.ResourceLocation;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

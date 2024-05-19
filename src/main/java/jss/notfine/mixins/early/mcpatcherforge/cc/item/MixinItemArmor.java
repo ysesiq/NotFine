@@ -1,6 +1,6 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.item;
 
-import net.minecraft.item.ItemArmor;
+import net.minecraft.ItemArmor;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;

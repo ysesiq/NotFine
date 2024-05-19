@@ -1,8 +1,8 @@
 package jss.notfine.mixins.early.mcpatcherforge.mob;
 
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.entity.Render;
+import net.minecraft.Entity;
+import net.minecraft.ResourceLocation;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

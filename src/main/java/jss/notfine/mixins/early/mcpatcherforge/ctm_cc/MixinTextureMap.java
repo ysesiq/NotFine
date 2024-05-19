@@ -2,11 +2,11 @@ package jss.notfine.mixins.early.mcpatcherforge.ctm_cc;
 
 import java.util.Map;
 
-import net.minecraft.client.renderer.texture.AbstractTexture;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.client.resources.IResourceManager;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.AbstractTexture;
+import net.minecraft.TextureAtlasSprite;
+import net.minecraft.TextureMap;
+import net.minecraft.IResourceManager;
+import net.minecraft.ResourceLocation;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

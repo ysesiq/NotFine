@@ -3,8 +3,8 @@ package jss.notfine.mixins.early.mcpatcherforge.cit.nbt;
 import java.util.Collection;
 import java.util.Map;
 
-import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.NBTBase;
+import net.minecraft.NBTTagCompound;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

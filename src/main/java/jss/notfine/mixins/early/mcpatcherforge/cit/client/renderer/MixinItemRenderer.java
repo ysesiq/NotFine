@@ -1,10 +1,10 @@
 package jss.notfine.mixins.early.mcpatcherforge.cit.client.renderer;
 
 import jss.notfine.core.Settings;
-import net.minecraft.client.renderer.ItemRenderer;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraft.ItemRenderer;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.ItemStack;
+import net.minecraft.IIcon;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

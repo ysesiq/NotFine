@@ -1,7 +1,7 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.client.renderer;
 
-import net.minecraft.client.renderer.RenderGlobal;
-import net.minecraft.client.settings.GameSettings;
+import net.minecraft.RenderGlobal;
+import net.minecraft.GameSettings;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

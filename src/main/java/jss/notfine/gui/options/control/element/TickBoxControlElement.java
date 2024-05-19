@@ -2,8 +2,8 @@ package jss.notfine.gui.options.control.element;
 
 import me.jellysquid.mods.sodium.client.gui.options.Option;
 import me.jellysquid.mods.sodium.client.util.Dim2i;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.I18n;
+import net.minecraft.Minecraft;
+import net.minecraft.I18n;
 
 public class TickBoxControlElement extends NotFineControlElement<Boolean> {
     public TickBoxControlElement(Option<Boolean> option, Dim2i dim) {

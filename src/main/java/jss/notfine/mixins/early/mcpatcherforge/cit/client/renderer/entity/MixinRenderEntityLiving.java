@@ -1,12 +1,12 @@
 package jss.notfine.mixins.early.mcpatcherforge.cit.client.renderer.entity;
 
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RendererLivingEntity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.ModelBase;
+import net.minecraft.OpenGlHelper;
+import net.minecraft.Render;
+import net.minecraft.RendererLivingEntity;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.MathHelper;
+import net.minecraft.ResourceLocation;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.MinecraftForge;
 

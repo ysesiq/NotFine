@@ -1,7 +1,7 @@
 package jss.notfine.gui.options.control;
 
 import me.jellysquid.mods.sodium.client.gui.options.control.ControlValueFormatter;
-import net.minecraft.client.resources.I18n;
+import net.minecraft.I18n;
 
 public class NotFineControlValueFormatter {
 

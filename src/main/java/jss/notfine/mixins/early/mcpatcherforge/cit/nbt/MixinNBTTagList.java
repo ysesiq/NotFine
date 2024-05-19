@@ -2,8 +2,8 @@ package jss.notfine.mixins.early.mcpatcherforge.cit.nbt;
 
 import java.util.List;
 
-import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagList;
+import net.minecraft.NBTBase;
+import net.minecraft.NBTTagList;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

@@ -1,14 +1,14 @@
 package jss.notfine.mixins.early.mcpatcherforge.cit.client.renderer.entity;
 
-import net.minecraft.client.entity.AbstractClientPlayer;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.RenderBiped;
-import net.minecraft.client.renderer.entity.RenderPlayer;
-import net.minecraft.client.renderer.entity.RendererLivingEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.AbstractClientPlayer;
+import net.minecraft.ModelBase;
+import net.minecraft.RenderBiped;
+import net.minecraft.RenderPlayer;
+import net.minecraft.RendererLivingEntity;
+import net.minecraft.Entity;
+import net.minecraft.EntityLivingBase;
+import net.minecraft.ItemStack;
+import net.minecraft.ResourceLocation;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

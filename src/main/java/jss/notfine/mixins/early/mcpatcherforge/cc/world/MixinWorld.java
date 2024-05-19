@@ -1,8 +1,8 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.world;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.util.Vec3;
-import net.minecraft.world.World;
+import net.minecraft.Entity;
+import net.minecraft.Vec3;
+import net.minecraft.World;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

@@ -1,12 +1,12 @@
 package jss.notfine.mixins.early.mcpatcherforge.cit.client.renderer.entity;
 
 import jss.notfine.core.Settings;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.item.Item;
+import net.minecraft.FontRenderer;
+import net.minecraft.OpenGlHelper;
+import net.minecraft.Render;
+import net.minecraft.RenderItem;
+import net.minecraft.TextureManager;
+import net.minecraft.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;

@@ -1,9 +1,9 @@
 package jss.notfine.mixins.early.mcpatcherforge.base;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockMycelium;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.BlockMycelium;
+import net.minecraft.IIcon;
+import net.minecraft.IBlockAccess;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

@@ -1,9 +1,9 @@
 package jss.notfine.mixins.early.mcpatcherforge.base;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockGrass;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.Block;
+import net.minecraft.BlockGrass;
+import net.minecraft.Icon;
+import net.minecraft.IBlockAccess;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -17,14 +17,14 @@ import com.prupe.mcpatcher.mal.block.RenderBlocksUtils;
 public class MixinBlockGrass {
 
     @Shadow
-    private IIcon field_149991_b;
+    private Icon field_149991_b;
 
     @Inject(
         method = "getIcon(Lnet/minecraft/world/IBlockAccess;IIII)Lnet/minecraft/util/IIcon;",
         at = @At("HEAD"),
         cancellable = true)
-    private void modifyGetIcon(IBlockAccess worldIn, int x, int y, int z, int side, CallbackInfoReturnable<IIcon> cir) {
-        final IIcon grassTexture = RenderBlocksUtils
+    private void modifyGetIcon(IBlockAccess worldIn, int x, int y, int z, int side, CallbackInfoReturnable<Icon> cir) {
+        final Icon grassTexture = RenderBlocksUtils
             .getGrassTexture((Block) (Object) this, worldIn, x, y, z, side, this.field_149991_b);
         if (grassTexture != null) {
             cir.setReturnValue(grassTexture);

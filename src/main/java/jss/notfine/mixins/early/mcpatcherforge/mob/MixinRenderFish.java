@@ -1,12 +1,12 @@
 package jss.notfine.mixins.early.mcpatcherforge.mob;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderFish;
-import net.minecraft.entity.projectile.EntityFishHook;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.Vec3;
+import net.minecraft.Minecraft;
+import net.minecraft.Tessellator;
+import net.minecraft.Render;
+import net.minecraft.RenderFish;
+import net.minecraft.EntityFishHook;
+import net.minecraft.MathHelper;
+import net.minecraft.Vec3;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;

@@ -8,10 +8,10 @@ import me.jellysquid.mods.sodium.client.gui.options.Option;
 import me.jellysquid.mods.sodium.client.gui.options.OptionGroup;
 import me.jellysquid.mods.sodium.client.gui.options.OptionPage;
 import me.jellysquid.mods.sodium.client.util.Dim2i;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiListExtended;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.Minecraft;
+import net.minecraft.GuiButton;
+import net.minecraft.GuiListExtended;
+import net.minecraft.Tessellator;
 
 import java.util.Iterator;
 import java.util.List;

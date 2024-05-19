@@ -1,9 +1,9 @@
 package jss.notfine.mixins.early.mcpatcherforge.cit.client.renderer.entity;
 
-import net.minecraft.client.renderer.entity.RenderSnowball;
-import net.minecraft.entity.Entity;
-import net.minecraft.item.Item;
-import net.minecraft.util.IIcon;
+import net.minecraft.RenderSnowball;
+import net.minecraft.Entity;
+import net.minecraft.Item;
+import net.minecraft.IIcon;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

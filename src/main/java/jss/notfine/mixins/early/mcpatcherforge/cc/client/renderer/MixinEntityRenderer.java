@@ -1,9 +1,9 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.client.renderer;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.texture.DynamicTexture;
-import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.Minecraft;
+import net.minecraft.EntityRenderer;
+import net.minecraft.DynamicTexture;
+import net.minecraft.EnchantmentHelper;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

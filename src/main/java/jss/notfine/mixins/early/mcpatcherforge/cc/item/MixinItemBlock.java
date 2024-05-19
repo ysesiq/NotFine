@@ -1,9 +1,9 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.item;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
+import net.minecraft.Block;
+import net.minecraft.Item;
+import net.minecraft.ItemBlock;
+import net.minecraft.ItemStack;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

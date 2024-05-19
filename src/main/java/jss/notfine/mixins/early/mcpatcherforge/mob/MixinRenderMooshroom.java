@@ -1,12 +1,12 @@
 package jss.notfine.mixins.early.mcpatcherforge.mob;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.client.renderer.entity.RenderMooshroom;
-import net.minecraft.entity.passive.EntityMooshroom;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.Block;
+import net.minecraft.ModelBase;
+import net.minecraft.RenderBlocks;
+import net.minecraft.RenderLiving;
+import net.minecraft.RenderMooshroom;
+import net.minecraft.EntityMooshroom;
+import net.minecraft.ResourceLocation;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

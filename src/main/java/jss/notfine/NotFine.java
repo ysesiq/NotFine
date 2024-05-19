@@ -6,37 +6,24 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import jss.notfine.proxy.CommonProxy;
+import net.fabricmc.api.ModInitializer;
+import net.xiaoyu233.fml.classloading.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(
-    modid = NotFine.MODID,
-    name = NotFine.NAME,
-    version = NotFine.VERSION,
-    acceptableRemoteVersions = "*"
-)
-public class NotFine {
+@Mod
+public class NotFine implements ModInitializer {
     public static final String MODID = "notfine";
     public static final String NAME = "NotFine";
     public static final String VERSION = "GRADLETOKEN_VERSION";
     public static final Logger logger = LogManager.getLogger(NAME);
 
-    @SidedProxy(clientSide = "jss.notfine.proxy.ClientProxy", serverSide = "jss.notfine.proxy.CommonProxy")
     public static CommonProxy proxy;
 
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
+    @Override
+    public void onInitialize() {
         proxy.preInit(event);
-    }
-
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
         proxy.init(event);
-    }
-
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
     }
-
 }

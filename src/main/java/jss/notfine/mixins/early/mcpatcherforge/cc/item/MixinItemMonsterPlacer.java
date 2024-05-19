@@ -1,7 +1,7 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.item;
 
-import net.minecraft.item.ItemMonsterPlacer;
-import net.minecraft.item.ItemStack;
+import net.minecraft.ItemMonsterPlacer;
+import net.minecraft.ItemStack;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

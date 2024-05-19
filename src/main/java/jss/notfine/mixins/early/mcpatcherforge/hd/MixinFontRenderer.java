@@ -2,8 +2,8 @@ package jss.notfine.mixins.early.mcpatcherforge.hd;
 
 import java.awt.image.BufferedImage;
 
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.FontRenderer;
+import net.minecraft.ResourceLocation;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

@@ -8,11 +8,11 @@ import jss.notfine.gui.options.named.GraphicsQualityOff;
 import jss.notfine.gui.options.named.GraphicsToggle;
 import jss.notfine.gui.options.named.LeavesQuality;
 import me.jellysquid.mods.sodium.client.gui.options.named.GraphicsQuality;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
-import net.minecraft.init.Blocks;
-import net.minecraft.launchwrapper.Launch;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.Minecraft;
+import net.minecraft.Gui;
+import net.minecraft.Block;
+import net.minecraft.Launch;
+import net.minecraft.ResourceLocation;
 
 import java.io.File;
 
@@ -81,8 +81,8 @@ public class SettingsManager {
     public static void leavesUpdated() {
         LeavesQuality value = (LeavesQuality)Settings.MODE_LEAVES.option.getStore();
         leavesOpaque = value == LeavesQuality.FAST || (value == LeavesQuality.DEFAULT && !mc.gameSettings.fancyGraphics);
-        Blocks.leaves.setGraphicsLevel(!leavesOpaque);
-        Blocks.leaves2.setGraphicsLevel(!leavesOpaque);
+        Block.leaves.setGraphicsLevel(!leavesOpaque);
+        Block.leaves2.setGraphicsLevel(!leavesOpaque);
     }
 
     public static void shadowsUpdated() {

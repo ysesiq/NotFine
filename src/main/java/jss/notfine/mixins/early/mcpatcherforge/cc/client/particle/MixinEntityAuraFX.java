@@ -1,8 +1,8 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.client.particle;
 
-import net.minecraft.client.particle.EntityAuraFX;
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.world.World;
+import net.minecraft.EntityAuraFX;
+import net.minecraft.EntityFX;
+import net.minecraft.World;
 
 import org.spongepowered.asm.mixin.Mixin;
 
