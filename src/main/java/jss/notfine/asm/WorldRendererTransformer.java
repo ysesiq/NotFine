@@ -2,7 +2,7 @@ package jss.notfine.asm;
 
 import static jss.notfine.asm.ASMUtils.matchesNodeSequence;
 
-import net.minecraft.launchwrapper.IClassTransformer;
+import net.xiaoyu233.fml.asm.IClassTransformer;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

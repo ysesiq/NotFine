@@ -10,7 +10,7 @@ public class NotFineControlValueFormatter {
     }
 
     public static ControlValueFormatter powerOfTwo() {
-        return (v) -> (v == 0) ? I18n.format("options.off") : I18n.format((int)Math.pow(2, v) + "x");
+        return (v) -> (v == 0) ? I18n.getString("options.off") : I18n.getString((int)Math.pow(2, v) + "x");
     }
 
     public static ControlValueFormatter percentage() {

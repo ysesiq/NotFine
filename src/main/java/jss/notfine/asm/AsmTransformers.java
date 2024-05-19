@@ -5,10 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
-import cpw.mods.fml.relauncher.FMLLaunchHandler;
 import jss.notfine.config.NotFineConfig;
 import jss.notfine.mixinplugin.NotFineEarlyMixins;
 import jss.notfine.config.MCPatcherForgeConfig;
+import net.xiaoyu233.fml.FishModLoader;
 
 /**
  * Adapted from Hodgepodge
@@ -36,10 +36,8 @@ public enum AsmTransformers {
     }
 
     private boolean shouldLoadSide() {
-        return side == Side.BOTH || (side == Side.SERVER && FMLLaunchHandler.side()
-            .isServer())
-            || (side == Side.CLIENT && FMLLaunchHandler.side()
-                .isClient());
+        return side == Side.BOTH || (side == Side.SERVER && FishModLoader.isServer())
+            || (side == Side.CLIENT && !FishModLoader.isServer());
     }
 
     public static String[] getTransformers() {

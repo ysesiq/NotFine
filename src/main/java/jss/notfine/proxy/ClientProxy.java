@@ -1,23 +1,16 @@
 package jss.notfine.proxy;
 
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.relauncher.Side;
 import jss.notfine.config.NotFineConfig;
 import jss.notfine.core.LoadMenuButtons;
 import jss.notfine.core.Settings;
 import jss.notfine.core.SettingsManager;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.settings.GameSettings;
-import net.minecraftforge.client.event.FOVUpdateEvent;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraft.Minecraft;
+import net.minecraft.GameSettings;
 
 public class ClientProxy extends CommonProxy {
 
     @Override
-    public void preInit(FMLPreInitializationEvent event) {
+    public void preInit() {
         if(!NotFineConfig.allowAdvancedOpenGL) {
             Minecraft.getMinecraft().gameSettings.advancedOpengl = false;
         }
@@ -37,10 +30,12 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void init(FMLInitializationEvent event) { }
+    public void init() {
+        super.init();
+    }
 
     @Override
-    public void postInit(FMLPostInitializationEvent event) {
+    public void postInit() {
         SettingsManager.settingsFile.loadSettings();
     }
 

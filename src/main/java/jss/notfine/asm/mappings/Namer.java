@@ -3,7 +3,7 @@ package jss.notfine.asm.mappings;
 import java.util.ArrayList;
 
 import jss.notfine.mixinplugin.NotFineEarlyMixins;
-import net.minecraft.launchwrapper.Launch;
+import net.xiaoyu233.fml.relaunch.Launch;
 
 /**
  * This class und inherited classes are adapted from

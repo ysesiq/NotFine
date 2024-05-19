@@ -20,7 +20,7 @@ public class MixinBlockGrass {
     private Icon field_149991_b;
 
     @Inject(
-        method = "getIcon(Lnet/minecraft/world/IBlockAccess;IIII)Lnet/minecraft/util/IIcon;",
+        method = "getIcon(Lnet/minecraft/IBlockAccess;IIII)Lnet/minecraft/IIcon;",
         at = @At("HEAD"),
         cancellable = true)
     private void modifyGetIcon(IBlockAccess worldIn, int x, int y, int z, int side, CallbackInfoReturnable<Icon> cir) {

@@ -34,8 +34,8 @@ public class NotFineGameOptionPages {
 
         groups.add(OptionGroup.createBuilder()
             .add(OptionImpl.createBuilder(GraphicsMode.class, vanillaOpts)
-                .setName(I18n.format("options.graphics"))
-                .setTooltip(I18n.format("sodium.options.graphics_quality.tooltip"))
+                .setName(I18n.getString("options.graphics"))
+                .setTooltip(I18n.getString("sodium.options.graphics_quality.tooltip"))
                 .setControl(option -> new CyclingControl<>(option, GraphicsMode.class))
                 .setBinding((opts, value) -> {
                     opts.fancyGraphics = value.isFancy();
@@ -45,16 +45,16 @@ public class NotFineGameOptionPages {
                 .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
                 .build())
             .add(OptionImpl.createBuilder(int.class, vanillaOpts)
-                .setName(I18n.format("options.renderDistance"))
-                .setTooltip(I18n.format("sodium.options.view_distance.tooltip"))
+                .setName(I18n.getString("options.renderDistance"))
+                .setTooltip(I18n.getString("sodium.options.view_distance.tooltip"))
                 .setControl(option -> new SliderControl(option, 2, (int)GameSettings.Options.RENDER_DISTANCE.getValueMax(), 1, ControlValueFormatter.quantity("options.chunks")))
                 .setBinding((options, value) -> options.renderDistanceChunks = value, options -> options.renderDistanceChunks)
                 .setImpact(OptionImpact.HIGH)
                 .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
                 .build())
             .add(OptionImpl.createBuilder(boolean.class, vanillaOpts)
-                .setName(I18n.format("options.vsync"))
-                .setTooltip(I18n.format("sodium.options.v_sync.tooltip"))
+                .setName(I18n.getString("options.vsync"))
+                .setTooltip(I18n.getString("sodium.options.v_sync.tooltip"))
                 .setControl(TickBoxControl::new)
                 .setBinding((opts, value) -> {
                     opts.enableVsync = value;
@@ -63,8 +63,8 @@ public class NotFineGameOptionPages {
                 .setImpact(OptionImpact.VARIES)
                 .build())
             .add(OptionImpl.createBuilder(boolean.class, vanillaOpts)
-                .setName(I18n.format("options.fullscreen"))
-                .setTooltip(I18n.format("sodium.options.fullscreen.tooltip"))
+                .setName(I18n.getString("options.fullscreen"))
+                .setTooltip(I18n.getString("sodium.options.fullscreen.tooltip"))
                 .setControl(TickBoxControl::new)
                 .setBinding((opts, value) -> {
                     opts.fullScreen = value;
@@ -80,8 +80,8 @@ public class NotFineGameOptionPages {
 
         groups.add(OptionGroup.createBuilder()
             .add(OptionImpl.createBuilder(int.class, vanillaOpts)
-                .setName(I18n.format("options.framerateLimit"))
-                .setTooltip(I18n.format("sodium.options.fps_limit.tooltip"))
+                .setName(I18n.getString("options.framerateLimit"))
+                .setTooltip(I18n.getString("sodium.options.fps_limit.tooltip"))
                 .setControl(option -> new SliderControl(option, 5, 260, 1, ControlValueFormatter.fpsLimit()))
                 .setBinding((opts, value) -> opts.limitFramerate = value, opts -> opts.limitFramerate)
                 .build())
@@ -90,36 +90,36 @@ public class NotFineGameOptionPages {
         int maxGuiScale = Math.max(3, Math.min(Minecraft.getMinecraft().displayWidth / 320, Minecraft.getMinecraft().displayHeight / 240));
         groups.add(OptionGroup.createBuilder()
             .add(OptionImpl.createBuilder(int.class, vanillaOpts)
-                .setName(I18n.format("options.guiScale"))
-                .setTooltip(I18n.format("sodium.options.gui_scale.tooltip"))
+                .setName(I18n.getString("options.guiScale"))
+                .setTooltip(I18n.getString("sodium.options.gui_scale.tooltip"))
                 .setControl(option -> new SliderControl(option, 0, maxGuiScale, 1, ControlValueFormatter.guiScale()))
                 .setBinding((opts, value) -> opts.guiScale = value, opts -> opts.guiScale)
                 .build())
             .add(OptionImpl.createBuilder(boolean.class, vanillaOpts)
-                .setName(I18n.format("options.viewBobbing"))
-                .setTooltip(I18n.format("sodium.options.view_bobbing.tooltip"))
+                .setName(I18n.getString("options.viewBobbing"))
+                .setTooltip(I18n.getString("sodium.options.view_bobbing.tooltip"))
                 .setControl(TickBoxControl::new)
                 .setBinding((opts, value) -> opts.viewBobbing = value, opts -> opts.viewBobbing)
                 .build())
             .add(OptionImpl.createBuilder(LightingQuality.class, vanillaOpts)
-                .setName(I18n.format("options.ao"))
-                .setTooltip(I18n.format("sodium.options.smooth_lighting.tooltip"))
+                .setName(I18n.getString("options.ao"))
+                .setTooltip(I18n.getString("sodium.options.smooth_lighting.tooltip"))
                 .setControl(option -> new CyclingControl<>(option, LightingQuality.class))
                 .setBinding((opts, value) -> opts.ambientOcclusion = value.getVanilla(), opts -> LightingQuality.fromOrdinal(opts.ambientOcclusion))
                 .setImpact(OptionImpact.MEDIUM)
                 .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
                 .build())
             .add(OptionImpl.createBuilder(int.class, vanillaOpts)
-                .setName(I18n.format("options.gamma"))
-                .setTooltip(I18n.format("sodium.options.brightness.tooltip"))
+                .setName(I18n.getString("options.gamma"))
+                .setTooltip(I18n.getString("sodium.options.brightness.tooltip"))
                 .setControl(opt -> new SliderControl(opt, 0, 100, 1, ControlValueFormatter.brightness()))
                 .setBinding((opts, value) -> opts.gammaSetting = value * 0.01F, (opts) -> (int) (opts.gammaSetting / 0.01F))
                 .build())
             .add(Settings.MODE_LIGHT_FLICKER.option)
             .add(Settings.DYNAMIC_FOV.option)
             .add(OptionImpl.createBuilder(int.class, vanillaOpts)
-                .setName(I18n.format("options.mipmapLevels"))
-                .setTooltip(I18n.format("sodium.options.mipmap_levels.tooltip"))
+                .setName(I18n.getString("options.mipmapLevels"))
+                .setTooltip(I18n.getString("sodium.options.mipmap_levels.tooltip"))
                 .setControl(option -> new SliderControl(option, 0, 4, 1, ControlValueFormatter.multiplier()))
                 //mc.getTextureMapBlocks().setMipmapLevels(this.mipmapLevels); ?
                 .setBinding((opts, value) -> opts.mipmapLevels = value, opts -> opts.mipmapLevels)
@@ -127,8 +127,8 @@ public class NotFineGameOptionPages {
                 .setFlags(OptionFlag.REQUIRES_ASSET_RELOAD)
                 .build())
             .add(OptionImpl.createBuilder(int.class, vanillaOpts)
-                .setName(I18n.format("options.anisotropicFiltering"))
-                .setTooltip(I18n.format("sodium.options.anisotropic_filtering.tooltip"))
+                .setName(I18n.getString("options.anisotropicFiltering"))
+                .setTooltip(I18n.getString("sodium.options.anisotropic_filtering.tooltip"))
                 .setControl(option -> new SliderControl(option, 0, 4, 1, NotFineControlValueFormatter.powerOfTwo()))
                 .setBinding(
                     //mc.getTextureMapBlocks().setAnisotropicFiltering(this.anisotropicFiltering); ?
@@ -138,7 +138,7 @@ public class NotFineGameOptionPages {
                 .setFlags(OptionFlag.REQUIRES_ASSET_RELOAD)
                 .build())
             .build());
-        return new OptionPage(I18n.format("options.video"), ImmutableList.copyOf(groups));
+        return new OptionPage(I18n.getString("options.video"), ImmutableList.copyOf(groups));
     }
 
     public static OptionPage detail() {
@@ -154,7 +154,7 @@ public class NotFineGameOptionPages {
             .add(Settings.MODE_GLINT_WORLD.option)
             .add(Settings.MODE_GLINT_INV.option)
         .build());
-        return new OptionPage(I18n.format("options.button.detail"), ImmutableList.copyOf(groups));
+        return new OptionPage(I18n.getString("options.button.detail"), ImmutableList.copyOf(groups));
     }
 
     public static OptionPage atmosphere() {
@@ -171,15 +171,15 @@ public class NotFineGameOptionPages {
             .add(Settings.TOTAL_STARS.option)
             .add(Settings.FOG_NEAR_DISTANCE.option)
         .build());
-        return new OptionPage(I18n.format("options.button.sky"), ImmutableList.copyOf(groups));
+        return new OptionPage(I18n.getString("options.button.sky"), ImmutableList.copyOf(groups));
     }
 
     public static OptionPage particles() {
         List<OptionGroup> groups = new ArrayList<>();
         groups.add(OptionGroup.createBuilder()
             .add(OptionImpl.createBuilder(ParticleMode.class, vanillaOpts)
-                .setName(I18n.format("options.particles"))
-                .setTooltip(I18n.format("sodium.options.particle_quality.tooltip"))
+                .setName(I18n.getString("options.particles"))
+                .setTooltip(I18n.getString("sodium.options.particle_quality.tooltip"))
                 .setControl(opt -> new CyclingControl<>(opt, ParticleMode.class))
                 .setBinding((opts, value) -> opts.particleSetting = value.ordinal(), (opts) -> ParticleMode.fromOrdinal(opts.particleSetting))
                 .setImpact(OptionImpact.LOW)
@@ -187,7 +187,7 @@ public class NotFineGameOptionPages {
             .add(Settings.PARTICLES_VOID.option)
             .add(Settings.PARTICLES_ENC_TABLE.option)
         .build());
-        return new OptionPage(I18n.format("options.button.particle"), ImmutableList.copyOf(groups));
+        return new OptionPage(I18n.getString("options.button.particle"), ImmutableList.copyOf(groups));
     }
 
     public static OptionPage other() {
@@ -195,23 +195,23 @@ public class NotFineGameOptionPages {
 
         groups.add(OptionGroup.createBuilder()
             .add(OptionImpl.createBuilder(boolean.class, vanillaOpts)
-                .setName(I18n.format("options.advancedOpengl"))
-                .setTooltip(I18n.format("sodium.options.advanced_opengl.tooltip"))
+                .setName(I18n.getString("options.advancedOpengl"))
+                .setTooltip(I18n.getString("sodium.options.advanced_opengl.tooltip"))
                 .setControl(TickBoxControl::new)
                 .setBinding((opts, value) -> opts.advancedOpengl = value, opts -> opts.advancedOpengl)
                 .setImpact(OptionImpact.VARIES)
                 .setEnabled(NotFineConfig.allowAdvancedOpenGL)
                 .build())
             .add(OptionImpl.createBuilder(boolean.class, vanillaOpts)
-                .setName(I18n.format("options.fboEnable"))
-                .setTooltip(I18n.format("sodium.options.fbo.tooltip"))
+                .setName(I18n.getString("options.fboEnable"))
+                .setTooltip(I18n.getString("sodium.options.fbo.tooltip"))
                 .setControl(TickBoxControl::new)
                 .setBinding((opts, value) -> opts.fboEnable = value, opts -> opts.fboEnable)
                 .setEnabled(NotFineConfig.allowToggleFBO)
                 .build())
             .add(OptionImpl.createBuilder(boolean.class, vanillaOpts)
-                .setName(I18n.format("options.anaglyph"))
-                .setTooltip(I18n.format("sodium.options.anaglyph.tooltip"))
+                .setName(I18n.getString("options.anaglyph"))
+                .setTooltip(I18n.getString("sodium.options.anaglyph.tooltip"))
                 .setControl(TickBoxControl::new)
                 .setBinding((opts, value) -> opts.anaglyph = value, opts -> opts.anaglyph)
                 .setImpact(OptionImpact.HIGH)
@@ -219,8 +219,8 @@ public class NotFineGameOptionPages {
                 .setEnabled(NotFineConfig.allowToggle3DAnaglyph)
                 .build())
             .add(OptionImpl.createBuilder(boolean.class, vanillaOpts)
-                .setName(I18n.format("options.showCape"))
-                .setTooltip(I18n.format("sodium.options.show_cape.tooltip"))
+                .setName(I18n.getString("options.showCape"))
+                .setTooltip(I18n.getString("sodium.options.show_cape.tooltip"))
                 .setControl(TickBoxControl::new)
                 .setBinding((opts, value) -> opts.showCape = value, opts -> opts.showCape)
                 .build())
@@ -231,7 +231,7 @@ public class NotFineGameOptionPages {
             .add(Settings.GUI_BACKGROUND.option)
         .build());
 
-        return new OptionPage(I18n.format("options.button.other"), ImmutableList.copyOf(groups));
+        return new OptionPage(I18n.getString("options.button.other"), ImmutableList.copyOf(groups));
     }
 
 }

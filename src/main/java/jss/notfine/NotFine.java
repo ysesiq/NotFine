@@ -1,10 +1,5 @@
 package jss.notfine;
 
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import jss.notfine.proxy.CommonProxy;
 import net.fabricmc.api.ModInitializer;
 import net.xiaoyu233.fml.classloading.Mod;
@@ -22,8 +17,8 @@ public class NotFine implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        proxy.preInit(event);
-        proxy.init(event);
-        proxy.postInit(event);
+        proxy.preInit();
+        proxy.init();
+        proxy.postInit();
     }
 }
