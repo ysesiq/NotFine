@@ -12,9 +12,9 @@ public abstract class MixinWorldType {
      * @author jss2a98aj
      * @reason Control cloud height.
      */
-    @Overwrite(remap = false)
-    public float getCloudHeight() {
-        return (int)Settings.CLOUD_HEIGHT.option.getStore();
-    }
+//    @Overwrite(remap = false)
+//    public float getCloudHeight() {
+//        return (int)Settings.CLOUD_HEIGHT.option.getStore();
+//    }
 
 }

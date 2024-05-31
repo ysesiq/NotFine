@@ -7,9 +7,9 @@ import net.minecraft.Render;
 import net.minecraft.RenderItem;
 import net.minecraft.TextureManager;
 import net.minecraft.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.ItemStack;
+import net.minecraft.Icon;
+import net.minecraft.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Final;
@@ -38,25 +38,25 @@ public abstract class MixinRenderItem extends Render {
     // TODO: figure out if ForgeHooksClient#renderEntityItem also needs work
 
     @Redirect(
-        method = "doRender(Lnet/minecraft/entity/item/EntityItem;DDDFF)V",
+        method = "doRender(Lnet/minecraft/EntityItem;DDDFF)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/item/Item;getIcon(Lnet/minecraft/item/ItemStack;I)Lnet/minecraft/util/IIcon;",
+            target = "Lnet/minecraft/Item;getIcon(Lnet/minecraft/ItemStack;I)Lnet/minecraft/Icon;",
             remap = false))
-    private IIcon modifyDoRender(Item item, ItemStack itemStack, int pass) {
+    private Icon modifyDoRender(Item item, ItemStack itemStack, int pass) {
         return CITUtils.getIcon(item.getIcon(itemStack, pass), itemStack, pass);
     }
 
     @Redirect(
-        method = "renderDroppedItem(Lnet/minecraft/entity/item/EntityItem;Lnet/minecraft/util/IIcon;IFFFFI)V",
-        at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;hasEffect(I)Z", remap = false),
+        method = "renderDroppedItem(Lnet/minecraft/EntityItem;Lnet/minecraft/Icon;IFFFFI)V",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/ItemStack;hasEffect(I)Z", remap = false),
         remap = false)
     private boolean modifyRenderDroppedItem(ItemStack instance, int pass) {
         return !CITUtils.renderEnchantmentDropped(instance) && instance.hasEffect(pass) && (boolean) Settings.MODE_GLINT_WORLD.option.getStore();
     }
 
     @Inject(
-        method = "renderItemIntoGUI(Lnet/minecraft/client/gui/FontRenderer;Lnet/minecraft/client/renderer/texture/TextureManager;Lnet/minecraft/item/ItemStack;IIZ)V",
+        method = "renderItemIntoGUI(Lnet/minecraft/FontRenderer;Lnet/minecraft/TextureManager;Lnet/minecraft/ItemStack;IIZ)V",
         at = @At(value = "INVOKE", target = "Lorg/lwjgl/opengl/GL11;glColorMask(ZZZZ)V", remap = false, ordinal = 0),
         remap = false)
     private void modifyRenderItemIntoGUI1(FontRenderer fontRenderer, TextureManager manager, ItemStack itemStack, int x,
@@ -65,7 +65,7 @@ public abstract class MixinRenderItem extends Render {
     }
 
     @Inject(
-        method = "renderItemIntoGUI(Lnet/minecraft/client/gui/FontRenderer;Lnet/minecraft/client/renderer/texture/TextureManager;Lnet/minecraft/item/ItemStack;IIZ)V",
+        method = "renderItemIntoGUI(Lnet/minecraft/FontRenderer;Lnet/minecraft/TextureManager;Lnet/minecraft/ItemStack;IIZ)V",
         at = @At(value = "INVOKE", target = "Lorg/lwjgl/opengl/GL11;glEnable(I)V", remap = false, ordinal = 4),
         remap = false)
     private void modifyRenderItemIntoGUI2(FontRenderer fontRenderer, TextureManager manager, ItemStack itemStack, int x,
@@ -74,13 +74,13 @@ public abstract class MixinRenderItem extends Render {
     }
 
     @Redirect(
-        method = "renderItemIntoGUI(Lnet/minecraft/client/gui/FontRenderer;Lnet/minecraft/client/renderer/texture/TextureManager;Lnet/minecraft/item/ItemStack;IIZ)V",
+        method = "renderItemIntoGUI(Lnet/minecraft/FontRenderer;Lnet/minecraft/TextureManager;Lnet/minecraft/ItemStack;IIZ)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/item/Item;getIcon(Lnet/minecraft/item/ItemStack;I)Lnet/minecraft/util/IIcon;",
+            target = "Lnet/minecraft/Item;getIcon(Lnet/minecraft/ItemStack;I)Lnet/minecraft/Icon;",
             remap = false),
         remap = false)
-    private IIcon modifyRenderItemIntoGUI3(Item item, ItemStack itemStack, int pass) {
+    private Icon modifyRenderItemIntoGUI3(Item item, ItemStack itemStack, int pass) {
         return CITUtils.getIcon(item.getIcon(itemStack, pass), itemStack, pass);
     }
 
@@ -88,7 +88,7 @@ public abstract class MixinRenderItem extends Render {
     // my open gl knowledge is pretty much none-existent atm
 
     @Redirect(
-        method = "renderItemIntoGUI(Lnet/minecraft/client/gui/FontRenderer;Lnet/minecraft/client/renderer/texture/TextureManager;Lnet/minecraft/item/ItemStack;IIZ)V",
+        method = "renderItemIntoGUI(Lnet/minecraft/FontRenderer;Lnet/minecraft/TextureManager;Lnet/minecraft/ItemStack;IIZ)V",
         at = @At(value = "INVOKE", target = "Lorg/lwjgl/opengl/GL11;glEnable(I)V", remap = false, ordinal = 10),
         remap = false)
     private void cancelAlpha3(int cap) {
@@ -96,7 +96,7 @@ public abstract class MixinRenderItem extends Render {
     }
 
     @Redirect(
-        method = "renderItemIntoGUI(Lnet/minecraft/client/gui/FontRenderer;Lnet/minecraft/client/renderer/texture/TextureManager;Lnet/minecraft/item/ItemStack;IIZ)V",
+        method = "renderItemIntoGUI(Lnet/minecraft/FontRenderer;Lnet/minecraft/TextureManager;Lnet/minecraft/ItemStack;IIZ)V",
         at = @At(value = "INVOKE", target = "Lorg/lwjgl/opengl/GL11;glDisable(I)V", remap = false, ordinal = 8),
         remap = false)
     private void cancelAlpha4(int cap) {
@@ -104,10 +104,10 @@ public abstract class MixinRenderItem extends Render {
     }
 
     @Inject(
-        method = "renderItemAndEffectIntoGUI(Lnet/minecraft/client/gui/FontRenderer;Lnet/minecraft/client/renderer/texture/TextureManager;Lnet/minecraft/item/ItemStack;II)V",
+        method = "renderItemAndEffectIntoGUI(Lnet/minecraft/FontRenderer;Lnet/minecraft/TextureManager;Lnet/minecraft/ItemStack;II)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/entity/RenderItem;renderItemIntoGUI(Lnet/minecraft/client/gui/FontRenderer;Lnet/minecraft/client/renderer/texture/TextureManager;Lnet/minecraft/item/ItemStack;IIZ)V",
+            target = "Lnet/minecraft/RenderItem;renderItemIntoGUI(Lnet/minecraft/FontRenderer;Lnet/minecraft/TextureManager;Lnet/minecraft/item/ItemStack;IIZ)V",
             remap = false))
     private void modifyRenderItemAndEffectIntoGUI1(FontRenderer fontRenderer, TextureManager manager,
         ItemStack itemStack, int x, int y, CallbackInfo ci) {
@@ -122,8 +122,8 @@ public abstract class MixinRenderItem extends Render {
      */
     @SuppressWarnings("DuplicatedCode")
     @Inject(
-        method = "renderItemAndEffectIntoGUI(Lnet/minecraft/client/gui/FontRenderer;Lnet/minecraft/client/renderer/texture/TextureManager;Lnet/minecraft/item/ItemStack;II)V",
-        at = @At(value = "FIELD", target = "Lnet/minecraft/client/renderer/entity/RenderItem;zLevel:F", ordinal = 2))
+        method = "renderItemAndEffectIntoGUI(Lnet/minecraft/FontRenderer;Lnet/minecraft/TextureManager;Lnet/minecraft/ItemStack;II)V",
+        at = @At(value = "FIELD", target = "Lnet/minecraft/RenderItem;zLevel:F", ordinal = 2))
     private void modifyRenderItemAndEffectIntoGUI2(FontRenderer fontRenderer, TextureManager manager,
         ItemStack itemStack, int x, int y, CallbackInfo ci) {
         if (!CITUtils.renderEnchantmentGUI(itemStack, x, y, this.zLevel) && itemStack.hasEffect(0)) {

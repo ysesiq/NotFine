@@ -15,19 +15,10 @@ import java.util.regex.Pattern;
 
 import javax.imageio.ImageIO;
 
-import net.minecraft.Minecraft;
-import net.minecraft.ThreadDownloadImageData;
-import net.minecraft.AbstractTexture;
-import net.minecraft.DynamicTexture;
+import net.minecraft.*;
 import net.minecraft.ITextureObject;
-import net.minecraft.SimpleTexture;
-import net.minecraft.TextureManager;
-import net.minecraft.TextureMap;
-import net.minecraft.FallbackResourceManager;
 import net.minecraft.IResourceManager;
 import net.minecraft.IResourcePack;
-import net.minecraft.SimpleReloadableResourceManager;
-import net.minecraft.ResourceLocation;
 
 import org.apache.commons.io.IOUtils;
 
@@ -277,7 +268,7 @@ public class TexturePackAPI {
         return getTextureIfLoaded(resource) >= 0;
     }
 
-    public static ITextureObject getTextureObject(ResourceLocation resource) {
+    public static TextureObject getTextureObject(ResourceLocation resource) {
         return Minecraft.getMinecraft()
             .getTextureManager()
             .getTexture(resource);

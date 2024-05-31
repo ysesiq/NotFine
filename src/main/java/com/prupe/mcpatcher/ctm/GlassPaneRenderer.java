@@ -5,7 +5,7 @@ import java.util.Arrays;
 import net.minecraft.Block;
 import net.minecraft.RenderBlocks;
 import net.minecraft.Tessellator;
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 import net.minecraft.IBlockAccess;
 
 import jss.notfine.config.MCPatcherForgeConfig;
@@ -18,7 +18,7 @@ public class GlassPaneRenderer {
     public static boolean skipTopEdgeRendering;
     public static boolean skipBottomEdgeRendering;
 
-    private static final IIcon[] icons = new IIcon[6];
+    private static final Icon[] icons = new Icon[6];
 
     private static double u0; // left edge
     private static double u1; // 7/16 point
@@ -30,14 +30,14 @@ public class GlassPaneRenderer {
     private static double u1Scaled;
     private static double u2Scaled;
 
-    public static void renderThin(RenderBlocks renderBlocks, Block blockPane, IIcon origIcon, int i, int j, int k,
+    public static void renderThin(RenderBlocks renderBlocks, Block blockPane, Icon origIcon, int i, int j, int k,
         boolean connectNorth, boolean connectSouth, boolean connectWest, boolean connectEast) {
         if (setupIcons(renderBlocks, blockPane, origIcon, i, j, k)) {
             render(i, j, k, connectNorth, connectSouth, connectWest, connectEast, 0.0, 0.0, 0.0, false);
         }
     }
 
-    public static void renderThick(RenderBlocks renderBlocks, Block blockPane, IIcon origIcon, int i, int j, int k,
+    public static void renderThick(RenderBlocks renderBlocks, Block blockPane, Icon origIcon, int i, int j, int k,
         boolean connectNorth, boolean connectSouth, boolean connectWest, boolean connectEast) {
         if (setupIcons(renderBlocks, blockPane, origIcon, i, j, k)) {
             setupPaneEdges(renderBlocks, blockPane, i, j, k);
@@ -45,7 +45,7 @@ public class GlassPaneRenderer {
         }
     }
 
-    private static boolean setupIcons(RenderBlocks renderBlocks, Block blockPane, IIcon origIcon, int x, int y, int z) {
+    private static boolean setupIcons(RenderBlocks renderBlocks, Block blockPane, Icon origIcon, int x, int y, int z) {
         skipPaneRendering = skipBottomEdgeRendering = skipTopEdgeRendering = false;
         if (!enable) {
             return false;
@@ -230,7 +230,7 @@ public class GlassPaneRenderer {
     }
 
     private static void setupTileCoords(int face) {
-        IIcon icon = icons[face];
+        Icon icon = icons[face];
         u0 = icon.getMinU();
         u1 = icon.getInterpolatedU(u1Scaled);
         u2 = icon.getInterpolatedU(u2Scaled);

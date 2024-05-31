@@ -10,16 +10,16 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(value = ItemRenderer.class)
 public abstract class MixinItemRenderer {
 
-    @Redirect(
-        method = "renderItem(Lnet/minecraft/EntityLivingBase;Lnet/minecraft/ItemStack;ILnet/minecraftforge/client/IItemRenderer$ItemRenderType;)V",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/ItemStack;hasEffect(I)Z"
-        ),
-        remap = false
-    )
-    private boolean notFine$toggleGlint(ItemStack stack, int pass) {
-        return (boolean)Settings.MODE_GLINT_WORLD.option.getStore() && stack.hasEffect(pass);
-    }
+//    @Redirect(
+//        method = "renderItem(Lnet/minecraft/EntityLivingBase;Lnet/minecraft/ItemStack;ILnet/minecraftforge/client/IItemRenderer$ItemRenderType;)V",
+//        at = @At(
+//            value = "INVOKE",
+//            target = "Lnet/minecraft/ItemStack;hasEffect(I)Z"
+//        ),
+//        remap = false
+//    )
+//    private boolean notFine$toggleGlint(ItemStack stack, int pass) {
+//        return (boolean)Settings.MODE_GLINT_WORLD.option.getStore() && stack.hasEffect(pass);
+//    }
 
 }

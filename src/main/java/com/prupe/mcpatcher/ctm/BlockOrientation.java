@@ -1,7 +1,7 @@
 package com.prupe.mcpatcher.ctm;
 
 import net.minecraft.Block;
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 import net.minecraft.IBlockAccess;
 
 import com.prupe.mcpatcher.mal.block.BlockStateMatcher;
@@ -153,9 +153,14 @@ final class BlockOrientation extends RenderBlockState {
     }
 
     @Override
-    public boolean shouldConnectByTile(Block neighbor, IIcon origIcon, int neighborX, int neighborY, int neighborZ) {
-        return origIcon == neighbor.getIcon(blockAccess, neighborX, neighborY, neighborZ, getTextureFaceOrig());
+    public boolean shouldConnectByTile(Block neighbor, Icon origIcon, int neighborI, int neighborJ, int neighborK) {
+        return false;
     }
+
+//    @Override
+//    public boolean shouldConnectByTile(Block neighbor, Icon origIcon, int neighborX, int neighborY, int neighborZ) {
+//        return origIcon == neighbor.getIcon(blockAccess, neighborX, neighborY, neighborZ, getTextureFaceOrig());
+//    }
 
     void setBlock(Block block, IBlockAccess blockAccess, int x, int y, int z) {
         this.block = block;

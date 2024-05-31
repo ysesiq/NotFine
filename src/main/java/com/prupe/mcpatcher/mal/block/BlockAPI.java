@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 import net.minecraft.Block;
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 import net.minecraft.IBlockAccess;
 
 import com.prupe.mcpatcher.MCPatcherUtils;

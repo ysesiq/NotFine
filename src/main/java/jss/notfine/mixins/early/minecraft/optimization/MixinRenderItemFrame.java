@@ -15,10 +15,10 @@ public abstract class MixinRenderItemFrame extends Render {
     private EntityItem cachedEntityItem;
 
     @Redirect(
-        method = "func_82402_b(Lnet/minecraft/item/EntityItemFrame;)V",
+        method = "func_82402_b(Lnet/minecraft/EntityItemFrame;)V",
         at = @At(
             value = "NEW",
-            target = "(Lnet/minecraft/world/World;DDDLnet/minecraft/item/ItemStack;)Lnet/minecraft/entity/item/EntityItem;",
+            target = "(Lnet/minecraft/World;DDDLnet/minecraft/ItemStack;)Lnet/minecraft/EntityItem;",
             ordinal = 0
         )
     )

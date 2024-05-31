@@ -30,7 +30,7 @@ public abstract class MixinRenderItem {
 
         float layerUVNoise = 4.0F;
 
-        OpenGlHelper.glBlendFunc(772, 1, 0, 1);
+//        OpenGlHelper.glBlendFunc(772, 1, 0, 1);
 
         //for(int layer = 0; layer < 2; ++layer) {
         	final int timeUVDenominator = 3000 /*+ layer * 1873*/;
@@ -58,7 +58,7 @@ public abstract class MixinRenderItem {
             //layerUVNoise = -1.0F;
         //}
 
-        OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+//        OpenGlHelper.glBlendFunc(770, 771, 1, 0);
     }
 
     @Shadow public float zLevel;

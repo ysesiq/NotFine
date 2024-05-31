@@ -15,7 +15,7 @@ import net.minecraft.ItemStack;
 import net.minecraft.NBTBase;
 import net.minecraft.NBTTagCompound;
 import net.minecraft.NBTTagList;
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.MCLogger;
@@ -63,8 +63,8 @@ public class CITUtils {
 
     private static ItemStack lastItemStack;
     private static int lastRenderPass;
-    static IIcon lastOrigIcon;
-    private static IIcon lastIcon;
+    static Icon lastOrigIcon;
+    private static Icon lastIcon;
 
     public static void init() {
         TexturePackChangeHandler.register(new TexturePackChangeHandler(MCPatcherUtils.CUSTOM_ITEM_TEXTURES, 3) {
@@ -176,7 +176,7 @@ public class CITUtils {
         });
     }
 
-    public static IIcon getIcon(IIcon icon, ItemStack itemStack, int renderPass) {
+    public static Icon getIcon(Icon icon, ItemStack itemStack, int renderPass) {
         if (icon == lastIcon && itemStack == lastItemStack && renderPass == lastRenderPass) {
             return icon;
         }
@@ -186,7 +186,7 @@ public class CITUtils {
         if (enableItems) {
             ItemOverride override = findItemOverride(itemStack);
             if (override != null) {
-                IIcon newIcon = override.getReplacementIcon(icon);
+                Icon newIcon = override.getReplacementIcon(icon);
                 if (newIcon != null) {
                     lastIcon = newIcon;
                 }
@@ -195,10 +195,10 @@ public class CITUtils {
         return lastIcon;
     }
 
-    public static IIcon getEntityIcon(IIcon icon, Entity entity) {
-        if (entity instanceof EntityPotion potion) {
-            return getIcon(icon, potion.potionDamage, 1);
-        }
+    public static Icon getEntityIcon(Icon icon, Entity entity) {
+//        if (entity instanceof EntityPotion potion) {
+//            return getIcon(icon, potion.potionDamage, 1);
+//        }
         return icon;
     }
 
@@ -293,7 +293,7 @@ public class CITUtils {
     }
 
     public static boolean setupArmorEnchantments(EntityLivingBase entity, int pass) {
-        return setupArmorEnchantments(entity.getEquipmentInSlot(4 - pass));
+//        return setupArmorEnchantments(entity.getEquipmentInSlot(4 - pass));
     }
 
     public static boolean setupArmorEnchantments(ItemStack itemStack) {
@@ -345,7 +345,7 @@ public class CITUtils {
             }
             if (base instanceof NBTTagList list) {
                 for (int i = 0; i < list.tagCount(); i++) {
-                    base = ((NBTTagListExpansion) list).tagAt(i);
+//                    base = ((NBTTagListExpansion) list).tagAt(i);
                     if (base instanceof NBTTagCompound) {
                         short id = ((NBTTagCompound) base).getShort("id");
                         short level = ((NBTTagCompound) base).getShort("lvl");

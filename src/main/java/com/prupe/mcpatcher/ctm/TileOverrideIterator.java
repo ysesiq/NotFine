@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import net.minecraft.Block;
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 
 import com.prupe.mcpatcher.mal.block.BlockStateMatcher;
 
@@ -20,7 +20,7 @@ abstract public class TileOverrideIterator implements Iterator<ITileOverride> {
     private final Map<Block, List<BlockStateMatcher>> allBlockOverrides;
     private final Map<String, List<ITileOverride>> allTileOverrides;
 
-    protected IIcon currentIcon;
+    protected Icon currentIcon;
 
     private List<BlockStateMatcher> blockOverrides;
     private List<ITileOverride> tileOverrides;
@@ -105,7 +105,7 @@ abstract public class TileOverrideIterator implements Iterator<ITileOverride> {
         }
     }
 
-    public ITileOverride go(RenderBlockState renderBlockState, IIcon origIcon) {
+    public ITileOverride go(RenderBlockState renderBlockState, Icon origIcon) {
         this.renderBlockState = renderBlockState;
         renderBlockState.setFilter(null);
         currentIcon = origIcon;
@@ -121,7 +121,7 @@ abstract public class TileOverrideIterator implements Iterator<ITileOverride> {
         pass: for (int pass = 0; pass < MAX_RECURSION; pass++) {
             while (hasNext()) {
                 ITileOverride override = next();
-                IIcon newIcon = getTile(override, renderBlockState, origIcon);
+                Icon newIcon = getTile(override, renderBlockState, origIcon);
                 if (newIcon != null) {
                     lastMatchedOverride = override;
                     skipOverrides.add(override);
@@ -135,11 +135,11 @@ abstract public class TileOverrideIterator implements Iterator<ITileOverride> {
         return lastMatchedOverride;
     }
 
-    public IIcon getIcon() {
+    public Icon getIcon() {
         return currentIcon;
     }
 
-    abstract protected IIcon getTile(ITileOverride override, RenderBlockState renderBlockState, IIcon origIcon);
+    abstract protected Icon getTile(ITileOverride override, RenderBlockState renderBlockState, Icon origIcon);
 
     public static final class IJK extends TileOverrideIterator {
 
@@ -148,7 +148,7 @@ abstract public class TileOverrideIterator implements Iterator<ITileOverride> {
         }
 
         @Override
-        protected IIcon getTile(ITileOverride override, RenderBlockState renderBlockState, IIcon origIcon) {
+        protected Icon getTile(ITileOverride override, RenderBlockState renderBlockState, Icon origIcon) {
             return override.getTileWorld(renderBlockState, origIcon);
         }
     }
@@ -160,7 +160,7 @@ abstract public class TileOverrideIterator implements Iterator<ITileOverride> {
         }
 
         @Override
-        protected IIcon getTile(ITileOverride override, RenderBlockState renderBlockState, IIcon origIcon) {
+        protected Icon getTile(ITileOverride override, RenderBlockState renderBlockState, Icon origIcon) {
             return override.getTileHeld(renderBlockState, origIcon);
         }
     }

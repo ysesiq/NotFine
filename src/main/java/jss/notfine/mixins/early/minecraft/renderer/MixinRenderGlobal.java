@@ -6,7 +6,7 @@ import net.minecraft.Minecraft;
 import net.minecraft.WorldClient;
 import net.minecraft.RenderGlobal;
 import net.minecraft.Tessellator;
-import net.minecraftforge.client.IRenderHandler;
+//import net.minecraftforge.client.IRenderHandler;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -33,42 +33,42 @@ public abstract class MixinRenderGlobal {
         }
     }
 
-    @WrapWithCondition(
-        method = "renderSky(F)V",
-        at = @At(value = "INVOKE", target = "Lnet/minecraftforge/client/IRenderHandler;render(FLnet/minecraft/client/multiplayer/WorldClient;Lnet/minecraft/client/Minecraft;)V", remap = false))
-    private boolean conditionalRenderHandlerRender(IRenderHandler irh, float f, WorldClient wc, Minecraft mc) {
-        return (boolean)Settings.MODE_SKY.option.getStore();
-    }
+//    @WrapWithCondition(
+//        method = "renderSky(F)V",
+//        at = @At(value = "INVOKE", target = "Lnet/minecraftforge/client/IRenderHandler;render(FLnet/minecraft/client/multiplayer/WorldClient;Lnet/minecraft/client/Minecraft;)V", remap = false))
+//    private boolean conditionalRenderHandlerRender(IRenderHandler irh, float f, WorldClient wc, Minecraft mc) {
+//        return (boolean)Settings.MODE_SKY.option.getStore();
+//    }
 
-    @Inject(method="renderSky(F)V", at=@At(value="INVOKE", target="Lnet/minecraft/client/renderer/Tessellator;draw()I", ordinal = 0))
+    @Inject(method="renderSky(F)V", at=@At(value="INVOKE", target="Lnet/minecraft/Tessellator;draw()I", ordinal = 0))
     private void conditionalTessellatorDrawEndSkybox(CallbackInfo ci) {
         if(!(boolean)Settings.MODE_SKY.option.getStore()) {
             Tessellator.instance.vertexCount = 0;
         }
     }
 
-    @Inject(method="renderSky(F)V", at=@At(value="INVOKE", target="Lnet/minecraft/client/renderer/Tessellator;draw()I", ordinal = 1))
+    @Inject(method="renderSky(F)V", at=@At(value="INVOKE", target="Lnet/minecraft/Tessellator;draw()I", ordinal = 1))
     private void conditionalTessellatorDrawSunsetSunrise(CallbackInfo ci) {
         if(!(boolean)Settings.MODE_SKY.option.getStore()) {
             Tessellator.instance.vertexCount = 0;
         }
     }
 
-    @Inject(method="renderSky(F)V", at=@At(value="INVOKE", target="Lnet/minecraft/client/renderer/Tessellator;draw()I", ordinal = 2))
+    @Inject(method="renderSky(F)V", at=@At(value="INVOKE", target="Lnet/minecraft/Tessellator;draw()I", ordinal = 2))
     private void conditionalTessellatorDrawSun(CallbackInfo ci) {
         if(!(boolean)Settings.MODE_SUN_MOON.option.getStore()) {
             Tessellator.instance.vertexCount = 0;
         }
     }
 
-    @Inject(method="renderSky(F)V", at=@At(value="INVOKE", target="Lnet/minecraft/client/renderer/Tessellator;draw()I", ordinal = 3))
+    @Inject(method="renderSky(F)V", at=@At(value="INVOKE", target="Lnet/minecraft/Tessellator;draw()I", ordinal = 3))
     private void conditionalTessellatorDrawMoon(CallbackInfo ci) {
         if(!(boolean)Settings.MODE_SUN_MOON.option.getStore()) {
             Tessellator.instance.vertexCount = 0;
         }
     }
 
-    @Inject(method="renderSky(F)V", at=@At(value="INVOKE", target="Lnet/minecraft/client/renderer/Tessellator;draw()I", ordinal = 4))
+    @Inject(method="renderSky(F)V", at=@At(value="INVOKE", target="Lnet/minecraft/Tessellator;draw()I", ordinal = 4))
     private void conditionalTessellatorDrawHorizon(CallbackInfo ci) {
         if(!(boolean)Settings.MODE_SKY.option.getStore()) {
             Tessellator.instance.vertexCount = 0;

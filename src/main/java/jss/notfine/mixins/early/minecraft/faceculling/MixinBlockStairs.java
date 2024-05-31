@@ -1,10 +1,7 @@
 package jss.notfine.mixins.early.minecraft.faceculling;
 
 import jss.notfine.util.IFaceObstructionCheckHelper;
-import net.minecraft.Block;
-import net.minecraft.BlockStairs;
-import net.minecraft.Material;
-import net.minecraft.IBlockAccess;
+import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(value = BlockStairs.class)
@@ -25,8 +22,12 @@ public abstract class MixinBlockStairs extends Block implements IFaceObstruction
         };
     }
 
-    MixinBlockStairs(Material materialIn) {
-        super(materialIn);
+//    MixinBlockStairs(Material materialIn) {
+//        super(materialIn);
+//    }
+
+    MixinBlockStairs(int par1, Material par2Material, BlockConstants constants) {
+        super(par1, par2Material, constants);
     }
 
 }

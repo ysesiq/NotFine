@@ -13,12 +13,12 @@ import java.util.TreeMap;
 
 import javax.imageio.ImageIO;
 
-import net.minecraft.ITextureObject;
+import net.minecraft.TextureObject;
 import net.minecraft.TextureAtlasSprite;
 import net.minecraft.TextureClock;
 import net.minecraft.TextureCompass;
 import net.minecraft.TextureMap;
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 import net.minecraft.ResourceLocation;
 
 import org.lwjgl.input.Keyboard;
@@ -168,7 +168,7 @@ public class FancyDial {
     }
 
     static void registerAnimations() {
-        ITextureObject texture = TexturePackAPI.getTextureObject(TexturePackAPI.ITEMS_PNG);
+        TextureObject texture = TexturePackAPI.getTextureObject(TexturePackAPI.ITEMS_PNG);
         if (texture instanceof TextureMap map) {
             List<TextureAtlasSprite> animations = map.listAnimatedSprites;
             for (FancyDial instance : instances.values()) {
@@ -490,7 +490,7 @@ public class FancyDial {
         super.finalize();
     }
 
-    private static double getAngle(IIcon icon) {
+    private static double getAngle(Icon icon) {
         if (icon instanceof TextureCompass) {
             return ((TextureCompass) icon).currentAngle * 180.0 / Math.PI;
         } else if (icon instanceof TextureClock) {

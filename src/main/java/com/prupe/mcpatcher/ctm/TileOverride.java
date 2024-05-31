@@ -14,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.minecraft.Block;
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 import net.minecraft.ResourceLocation;
 import net.minecraft.IBlockAccess;
 
@@ -49,7 +49,7 @@ abstract class TileOverride implements ITileOverride {
     private final BitSet height;
 
     private final List<ResourceLocation> tileNames = new ArrayList<>();
-    protected IIcon[] icons;
+    protected Icon[] icons;
     private int matchMetadata = META_MASK;
 
     static TileOverride create(ResourceLocation propertiesFile, TileLoader tileLoader) {
@@ -308,7 +308,7 @@ abstract class TileOverride implements ITileOverride {
 
     @Override
     public final void registerIcons() {
-        icons = new IIcon[tileNames.size()];
+        icons = new Icon[tileNames.size()];
         for (int i = 0; i < icons.length; i++) {
             icons[i] = tileLoader.getIcon(tileNames.get(i));
         }
@@ -356,18 +356,18 @@ abstract class TileOverride implements ITileOverride {
         }
     }
 
-    final boolean shouldConnect(RenderBlockState renderBlockState, IIcon icon, int relativeDirection) {
+    final boolean shouldConnect(RenderBlockState renderBlockState, Icon icon, int relativeDirection) {
         return shouldConnect(
             renderBlockState,
             icon,
             renderBlockState.getOffset(renderBlockState.getBlockFace(), relativeDirection));
     }
 
-    final boolean shouldConnect(RenderBlockState renderBlockState, IIcon icon, int blockFace, int relativeDirection) {
+    final boolean shouldConnect(RenderBlockState renderBlockState, Icon icon, int blockFace, int relativeDirection) {
         return shouldConnect(renderBlockState, icon, renderBlockState.getOffset(blockFace, relativeDirection));
     }
 
-    private boolean shouldConnect(RenderBlockState renderBlockState, IIcon icon, int[] offset) {
+    private boolean shouldConnect(RenderBlockState renderBlockState, Icon icon, int[] offset) {
         IBlockAccess blockAccess = renderBlockState.getBlockAccess();
         Block block = renderBlockState.getBlock();
         int i = renderBlockState.getI();
@@ -409,7 +409,7 @@ abstract class TileOverride implements ITileOverride {
     }
 
     @Override
-    public final IIcon getTileWorld(RenderBlockState renderBlockState, IIcon origIcon) {
+    public final Icon getTileWorld(RenderBlockState renderBlockState, Icon origIcon) {
         if (icons == null) {
             properties.error("no images loaded, disabling");
             return null;
@@ -450,7 +450,7 @@ abstract class TileOverride implements ITileOverride {
     }
 
     @Override
-    public final IIcon getTileHeld(RenderBlockState renderBlockState, IIcon origIcon) {
+    public final Icon getTileHeld(RenderBlockState renderBlockState, Icon origIcon) {
         if (icons == null) {
             properties.error("no images loaded, disabling");
             return null;
@@ -475,7 +475,7 @@ abstract class TileOverride implements ITileOverride {
 
     abstract String getMethod();
 
-    abstract IIcon getTileWorld_Impl(RenderBlockState renderBlockState, IIcon origIcon);
+    abstract Icon getTileWorld_Impl(RenderBlockState renderBlockState, Icon origIcon);
 
-    abstract IIcon getTileHeld_Impl(RenderBlockState renderBlockState, IIcon origIcon);
+    abstract Icon getTileHeld_Impl(RenderBlockState renderBlockState, Icon origIcon);
 }

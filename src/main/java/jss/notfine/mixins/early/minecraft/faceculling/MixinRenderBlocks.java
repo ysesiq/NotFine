@@ -4,7 +4,7 @@ import net.minecraft.Block;
 import net.minecraft.BlockFence;
 import net.minecraft.BlockWall;
 import net.minecraft.RenderBlocks;
-import net.minecraft.Blocks;
+//import net.minecraft.Blocks;
 import net.minecraft.IBlockAccess;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -64,8 +64,8 @@ public abstract class MixinRenderBlocks {
             renderStandardBlock(fence, x, y, z);
         }
 
-        field_152631_f = false;
-        fence.setBlockBoundsBasedOnState(blockAccess, x, y, z);
+//        field_152631_f = false;
+//        fence.setBlockBoundsBasedOnState(blockAccess, x, y, z);
         return true;
     }
 
@@ -97,20 +97,20 @@ public abstract class MixinRenderBlocks {
      * @author jss2a98aj
      * @reason Fix modded wall detection
      */
-    @Redirect(
-        method = "renderBlockFenceGate(Lnet/minecraft/block/BlockFenceGate;III)Z",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/world/IBlockAccess;getBlock(III)Lnet/minecraft/block/Block;"
-        ),
-        expect = 4
-    )
-    Block detectModdedWalls(IBlockAccess world, int x, int y, int z) {
-        return world.getBlock(x, y, z) instanceof BlockWall ? Blocks.cobblestone_wall : null;
-    }
+//    @Redirect(
+//        method = "renderBlockFenceGate(Lnet/minecraft/BlockFenceGate;III)Z",
+//        at = @At(
+//            value = "INVOKE",
+//            target = "Lnet/minecraft/IBlockAccess;getBlock(III)Lnet/minecraft/Block;"
+//        ),
+//        expect = 4
+//    )
+//    Block detectModdedWalls(IBlockAccess world, int x, int y, int z) {
+//        return world.getBlock(x, y, z) instanceof BlockWall ? Blocks.cobblestone_wall : null;
+//    }
 
     @Shadow public IBlockAccess blockAccess;
-    @Shadow public boolean field_152631_f;
+//    @Shadow public boolean field_152631_f;
     @Shadow public int uvRotateTop;
     @Shadow public abstract void setRenderBounds(double minX, double minY, double minZ, double maxX, double maxY, double maxZ);
     @Shadow public abstract boolean renderStandardBlock(Block blockType, int blockX, int blockY, int blockZ);

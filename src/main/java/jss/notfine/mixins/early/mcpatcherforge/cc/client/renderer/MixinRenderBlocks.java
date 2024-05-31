@@ -77,10 +77,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Inject(
-        method = "renderBlockCauldron(Lnet/minecraft/block/BlockCauldron;III)Z",
+        method = "renderBlockCauldron(Lnet/minecraft/BlockCauldron;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/block/BlockCauldron;getBlockTextureFromSide(I)Lnet/minecraft/util/IIcon;",
+            target = "Lnet/minecraft/BlockCauldron;getBlockTextureFromSide(I)Lnet/minecraft/Icon;",
             shift = At.Shift.AFTER))
     private void modifyRenderBlockCauldron1(BlockCauldron block, int x, int y, int z,
         CallbackInfoReturnable<Boolean> cir) {
@@ -89,17 +89,17 @@ public abstract class MixinRenderBlocks {
     }
 
     @Inject(
-        method = "renderBlockCauldron(Lnet/minecraft/block/BlockCauldron;III)Z",
+        method = "renderBlockCauldron(Lnet/minecraft/BlockCauldron;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/block/BlockLiquid;getLiquidIcon(Ljava/lang/String;)Lnet/minecraft/util/IIcon;"))
+            target = "Lnet/minecraft/BlockLiquid;getLiquidIcon(Ljava/lang/String;)Lnet/minecraft/Icon;"))
     private void modifyRenderBlockCauldron2(BlockCauldron block, int x, int y, int z,
         CallbackInfoReturnable<Boolean> cir) {
         ColorizeBlock.computeWaterColor();
         Tessellator.instance.setColorOpaque_F(Colorizer.setColor[0], Colorizer.setColor[1], Colorizer.setColor[2]);
     }
 
-    @Inject(method = "renderBlockRedstoneWire(Lnet/minecraft/block/Block;III)Z", at = @At("HEAD"))
+    @Inject(method = "renderBlockRedstoneWire(Lnet/minecraft/Block;III)Z", at = @At("HEAD"))
     private void calculateComputeRedstoneWireColor(Block block, int x, int y, int z,
         CallbackInfoReturnable<Boolean> cir,
         @Share("computeRedstoneWireColor") LocalBooleanRef computeRedstoneWireColor, @Share("red") LocalFloatRef red,
@@ -112,10 +112,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyArgs(
-        method = "renderBlockRedstoneWire(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockRedstoneWire(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 0))
     private void modifyColorRedstoneWire1(Args args,
         @Share("computeRedstoneWireColor") LocalBooleanRef computeRedstoneWireColor, @Share("red") LocalFloatRef red,
@@ -128,10 +128,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyArgs(
-        method = "renderBlockRedstoneWire(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockRedstoneWire(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 4))
     private void modifyColorRedstoneWire2(Args args,
         @Share("computeRedstoneWireColor") LocalBooleanRef computeRedstoneWireColor, @Share("red") LocalFloatRef red,
@@ -144,10 +144,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyArgs(
-        method = "renderBlockRedstoneWire(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockRedstoneWire(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 6))
     private void modifyColorRedstoneWire3(Args args,
         @Share("computeRedstoneWireColor") LocalBooleanRef computeRedstoneWireColor, @Share("red") LocalFloatRef red,
@@ -160,10 +160,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyArgs(
-        method = "renderBlockRedstoneWire(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockRedstoneWire(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 8))
     private void modifyColorRedstoneWire4(Args args,
         @Share("computeRedstoneWireColor") LocalBooleanRef computeRedstoneWireColor, @Share("red") LocalFloatRef red,
@@ -176,10 +176,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyArgs(
-        method = "renderBlockRedstoneWire(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockRedstoneWire(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 10))
     private void modifyColorRedstoneWire5(Args args,
         @Share("computeRedstoneWireColor") LocalBooleanRef computeRedstoneWireColor, @Share("red") LocalFloatRef red,
@@ -192,8 +192,8 @@ public abstract class MixinRenderBlocks {
     }
 
     @Inject(
-        method = "renderStandardBlock(Lnet/minecraft/block/Block;III)Z",
-        at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;isAmbientOcclusionEnabled()Z"))
+        method = "renderStandardBlock(Lnet/minecraft/Block;III)Z",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/Minecraft;isAmbientOcclusionEnabled()Z"))
     private void modifyRenderStandardBlock(Block block, int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
 
         // TODO: capture local variables to prevent double math
@@ -215,7 +215,7 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyConstant(
-        method = "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/Block;IIIFFF)Z",
         constant = { @Constant(floatValue = 0.5F), @Constant(floatValue = 0.6F), @Constant(floatValue = 0.8F) })
     private float redirectAOBaseMultiplier(float constant) {
         return RenderPass.getAOBaseMultiplier(constant);
@@ -224,7 +224,7 @@ public abstract class MixinRenderBlocks {
     // If only ordinal number was accessible ...
 
     @ModifyVariable(
-        method = "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(value = "LOAD", ordinal = 0),
         ordinal = 1)
     private boolean redirectColorMultiplier1(boolean value) {
@@ -232,7 +232,7 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyVariable(
-        method = "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(value = "LOAD", ordinal = 1),
         ordinal = 1)
     private boolean redirectColorMultiplier2(boolean value) {
@@ -240,7 +240,7 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyVariable(
-        method = "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(value = "LOAD", ordinal = 2),
         ordinal = 1)
     private boolean redirectColorMultiplier3(boolean value) {
@@ -248,7 +248,7 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyVariable(
-        method = "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(value = "LOAD", ordinal = 3),
         ordinal = 1)
     private boolean redirectColorMultiplier4(boolean value) {
@@ -256,7 +256,7 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyVariable(
-        method = "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithAmbientOcclusion(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(value = "LOAD", ordinal = 4),
         ordinal = 1)
     private boolean redirectColorMultiplier5(boolean value) {
@@ -264,7 +264,7 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyVariable(
-        method = "renderStandardBlockWithAmbientOcclusionPartial(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithAmbientOcclusionPartial(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(value = "LOAD", ordinal = 0),
         ordinal = 1)
     private boolean redirectColorMultiplierPartial1(boolean value) {
@@ -272,7 +272,7 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyVariable(
-        method = "renderStandardBlockWithAmbientOcclusionPartial(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithAmbientOcclusionPartial(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(value = "LOAD", ordinal = 1),
         ordinal = 1)
     private boolean redirectColorMultiplierPartial2(boolean value) {
@@ -280,7 +280,7 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyVariable(
-        method = "renderStandardBlockWithAmbientOcclusionPartial(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithAmbientOcclusionPartial(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(value = "LOAD", ordinal = 2),
         ordinal = 1)
     private boolean redirectColorMultiplierPartial3(boolean value) {
@@ -288,7 +288,7 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyVariable(
-        method = "renderStandardBlockWithAmbientOcclusionPartial(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithAmbientOcclusionPartial(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(value = "LOAD", ordinal = 3),
         ordinal = 1)
     private boolean redirectColorMultiplierPartial4(boolean value) {
@@ -296,7 +296,7 @@ public abstract class MixinRenderBlocks {
     }
 
     @ModifyVariable(
-        method = "renderStandardBlockWithAmbientOcclusionPartial(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithAmbientOcclusionPartial(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(value = "LOAD", ordinal = 4),
         ordinal = 1)
     private boolean redirectColorMultiplierPartial5(boolean value) {
@@ -304,10 +304,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderStandardBlockWithColorMultiplier(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithColorMultiplier(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 0))
     private void redirectColorMultiplier1(Tessellator instance, float red, float green, float blue) {
         Tessellator.instance.setColorOpaque_F(
@@ -317,10 +317,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderStandardBlockWithColorMultiplier(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithColorMultiplier(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 1))
     private void redirectColorMultiplier2(Tessellator instance, float red, float green, float blue) {
         Tessellator.instance.setColorOpaque_F(
@@ -330,10 +330,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderStandardBlockWithColorMultiplier(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithColorMultiplier(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 2))
     private void redirectColorMultiplier3(Tessellator instance, float red, float green, float blue) {
         Tessellator.instance.setColorOpaque_F(
@@ -343,10 +343,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderStandardBlockWithColorMultiplier(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithColorMultiplier(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 4))
     private void redirectColorMultiplier4(Tessellator instance, float red, float green, float blue) {
         Tessellator.instance.setColorOpaque_F(
@@ -356,10 +356,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderStandardBlockWithColorMultiplier(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithColorMultiplier(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 6))
     private void redirectColorMultiplier5(Tessellator instance, float red, float green, float blue) {
         Tessellator.instance.setColorOpaque_F(
@@ -369,10 +369,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderStandardBlockWithColorMultiplier(Lnet/minecraft/block/Block;IIIFFF)Z",
+        method = "renderStandardBlockWithColorMultiplier(Lnet/minecraft/Block;IIIFFF)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 8))
     private void redirectColorMultiplier6(Tessellator instance, float red, float green, float blue) {
         Tessellator.instance.setColorOpaque_F(
@@ -383,10 +383,10 @@ public abstract class MixinRenderBlocks {
 
     // If I was able to access ordinal number the duplication wouldn't be necessary
     @WrapWithCondition(
-        method = "renderBlockSandFalling(Lnet/minecraft/block/Block;Lnet/minecraft/world/World;IIII)V",
+        method = "renderBlockSandFalling(Lnet/minecraft/Block;Lnet/minecraft/World;IIII)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 0))
     private boolean modifyRenderBlockSandFalling0(Tessellator tessellator, float x, float y, float z, Block block,
         World world) {
@@ -395,10 +395,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @WrapWithCondition(
-        method = "renderBlockSandFalling(Lnet/minecraft/block/Block;Lnet/minecraft/world/World;IIII)V",
+        method = "renderBlockSandFalling(Lnet/minecraft/Block;Lnet/minecraft/World;IIII)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 1))
     private boolean modifyRenderBlockSandFalling1(Tessellator tessellator, float x, float y, float z, Block block,
         World world) {
@@ -407,10 +407,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @WrapWithCondition(
-        method = "renderBlockSandFalling(Lnet/minecraft/block/Block;Lnet/minecraft/world/World;IIII)V",
+        method = "renderBlockSandFalling(Lnet/minecraft/Block;Lnet/minecraft/World;IIII)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 2))
     private boolean modifyRenderBlockSandFalling2(Tessellator tessellator, float x, float y, float z, Block block,
         World world) {
@@ -419,10 +419,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @WrapWithCondition(
-        method = "renderBlockSandFalling(Lnet/minecraft/block/Block;Lnet/minecraft/world/World;IIII)V",
+        method = "renderBlockSandFalling(Lnet/minecraft/Block;Lnet/minecraft/World;IIII)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 3))
     private boolean modifyRenderBlockSandFalling3(Tessellator tessellator, float x, float y, float z, Block block,
         World world) {
@@ -431,10 +431,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @WrapWithCondition(
-        method = "renderBlockSandFalling(Lnet/minecraft/block/Block;Lnet/minecraft/world/World;IIII)V",
+        method = "renderBlockSandFalling(Lnet/minecraft/Block;Lnet/minecraft/World;IIII)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 4))
     private boolean modifyRenderBlockSandFalling4(Tessellator tessellator, float x, float y, float z, Block block,
         World world) {
@@ -443,10 +443,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @WrapWithCondition(
-        method = "renderBlockSandFalling(Lnet/minecraft/block/Block;Lnet/minecraft/world/World;IIII)V",
+        method = "renderBlockSandFalling(Lnet/minecraft/Block;Lnet/minecraft/World;IIII)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 5))
     private boolean modifyRenderBlockSandFalling5(Tessellator tessellator, float x, float y, float z, Block block,
         World world) {
@@ -455,10 +455,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 0))
     private void mcpatcherforge$handleSmoothing(Tessellator tessellator, float red, float green, float blue,
         Block block, int x, int y, int z) {
@@ -471,10 +471,10 @@ public abstract class MixinRenderBlocks {
     // Violate DRY
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 0))
     private void mcpatcherforge$redirectColor1(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -491,10 +491,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 1))
     private void mcpatcherforge$redirectColor2(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -511,10 +511,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 2))
     private void mcpatcherforge$redirectColor3(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -531,10 +531,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 3))
     private void mcpatcherforge$redirectColor4(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -551,10 +551,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 4))
     private void mcpatcherforge$redirectColor5(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -571,10 +571,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 5))
     private void mcpatcherforge$redirectColor6(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -591,10 +591,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 6))
     private void mcpatcherforge$redirectColor7(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -611,10 +611,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 7))
     private void mcpatcherforge$redirectColor8(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -631,19 +631,19 @@ public abstract class MixinRenderBlocks {
     }
 
     @Inject(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/RenderBlocks;renderFaceYNeg(Lnet/minecraft/block/Block;DDDLnet/minecraft/util/IIcon;)V"))
+            target = "Lnet/minecraft/RenderBlocks;renderFaceYNeg(Lnet/minecraft/Block;DDDLnet/minecraft/Icon;)V"))
     private void mcpatcherforge$setEnableAO(Block block, int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
         this.enableAO = false;
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 8))
     private void mcpatcherforge$redirectColor11(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -660,10 +660,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 9))
     private void mcpatcherforge$redirectColor12(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -680,10 +680,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 10))
     private void mcpatcherforge$redirectColor13(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -700,10 +700,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 11))
     private void mcpatcherforge$redirectColor14(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -720,10 +720,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 12))
     private void mcpatcherforge$redirectColor15(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -740,10 +740,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 13))
     private void mcpatcherforge$redirectColor16(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -760,10 +760,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 14))
     private void mcpatcherforge$redirectColor17(Tessellator tessellator, double x, double y, double z, double u,
         double v) {
@@ -780,10 +780,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;addVertexWithUV(DDDDD)V",
+            target = "Lnet/minecraft/Tessellator;addVertexWithUV(DDDDD)V",
             ordinal = 15))
     private void mcpatcherforge$redirectColor18(Tessellator tessellator, double x, double y, double z, double u,
         double v) {

@@ -3,7 +3,7 @@ package com.prupe.mcpatcher.mal.block;
 import net.minecraft.Block;
 import net.minecraft.Minecraft;
 import net.minecraft.Blocks;
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 import net.minecraft.IBlockAccess;
 
 import jss.notfine.config.MCPatcherForgeConfig;
@@ -23,7 +23,7 @@ public class RenderBlocksUtils {
     public static final float[] AO_BASE = new float[] { 0.5f, 1.0f, 0.8f, 0.8f, 0.6f, 0.6f };
 
     public static int layerIndex;
-    public static IIcon blankIcon;
+    public static Icon blankIcon;
 
     public static void setupColorMultiplier(Block block, IBlockAccess blockAccess, int x, int y, int z,
         boolean haveOverrideTexture, float r, float g, float b) {
@@ -133,8 +133,8 @@ public class RenderBlocksUtils {
         return face < 0 ? 1 : face % 6;
     }
 
-    public static IIcon getGrassTexture(Block block, IBlockAccess blockAccess, int x, int y, int z, int face,
-        IIcon topIcon) {
+    public static Icon getGrassTexture(Block block, IBlockAccess blockAccess, int x, int y, int z, int face,
+        Icon topIcon) {
         if (!enableBetterGrass || face < 2) {
             return null;
         }

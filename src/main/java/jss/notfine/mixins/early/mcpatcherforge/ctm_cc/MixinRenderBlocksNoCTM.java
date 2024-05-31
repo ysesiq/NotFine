@@ -3,7 +3,7 @@ package jss.notfine.mixins.early.mcpatcherforge.ctm_cc;
 import net.minecraft.Block;
 import net.minecraft.RenderBlocks;
 import net.minecraft.Tessellator;
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 import net.minecraft.IBlockAccess;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -26,17 +26,17 @@ public abstract class MixinRenderBlocksNoCTM {
     public boolean enableAO;
 
     @Shadow
-    public abstract IIcon getBlockIconFromSideAndMetadata(Block block, int side, int meta);
+    public abstract Icon getBlockIconFromSideAndMetadata(Block block, int side, int meta);
 
     // Redirect calls to this.getBlockIcon when possible
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/RenderBlocks;getBlockIconFromSideAndMetadata(Lnet/minecraft/block/Block;II)Lnet/minecraft/util/IIcon;",
+            target = "Lnet/minecraft/RenderBlocks;getBlockIconFromSideAndMetadata(Lnet/minecraft/Block;II)Lnet/minecraft/Icon;",
             ordinal = 0))
-    private IIcon mcpatcherforge$obtainFloatsAndRedirectToGetBlockIcon(RenderBlocks instance, Block block, int side,
+    private Icon mcpatcherforge$obtainFloatsAndRedirectToGetBlockIcon(RenderBlocks instance, Block block, int side,
         int meta, Block specializedBlock, int x, int y, int z, @Share("red") LocalFloatRef red,
         @Share("green") LocalFloatRef green, @Share("blue") LocalFloatRef blue) {
         int l = block.colorMultiplier(this.blockAccess, x, y, z);
@@ -51,19 +51,19 @@ public abstract class MixinRenderBlocksNoCTM {
         method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/RenderBlocks;getBlockIconFromSideAndMetadata(Lnet/minecraft/block/Block;II)Lnet/minecraft/util/IIcon;",
+            target = "Lnet/minecraft/client/renderer/RenderBlocks;getBlockIconFromSideAndMetadata(Lnet/minecraft/Block;II)Lnet/minecraft/Icon;",
             ordinal = 2))
-    private IIcon mcpatcherforge$saveSideAndRedirectToGetBlockIcon(RenderBlocks instance, Block block, int side,
+    private Icon mcpatcherforge$saveSideAndRedirectToGetBlockIcon(RenderBlocks instance, Block block, int side,
         int meta, Block specializedBlock, int x, int y, int z, @Share("requiredSide") LocalIntRef requiredSide) {
         requiredSide.set(side);
         return this.getBlockIconFromSideAndMetadata(block, side, meta);
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 2))
     private void mcpatcherforge$redirectColor10(Tessellator tessellator, float red, float green, float blue,
         Block block, int x, int y, int z, @Share("requiredSide") LocalIntRef requiredSide) {
@@ -80,10 +80,10 @@ public abstract class MixinRenderBlocksNoCTM {
     }
 
     @Redirect(
-        method = "renderBlockLiquid(Lnet/minecraft/block/Block;III)Z",
+        method = "renderBlockLiquid(Lnet/minecraft/Block;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Tessellator;setColorOpaque_F(FFF)V",
+            target = "Lnet/minecraft/Tessellator;setColorOpaque_F(FFF)V",
             ordinal = 1))
     private void mcpatcherforge$redirectColor9(Tessellator tessellator, float red, float green, float blue, Block block,
         int x, int y, int z, @Share("red") LocalFloatRef redLocal, @Share("green") LocalFloatRef greenLocal,

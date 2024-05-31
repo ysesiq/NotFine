@@ -12,7 +12,7 @@ import static com.prupe.mcpatcher.ctm.RenderBlockState.REL_UL;
 import static com.prupe.mcpatcher.ctm.RenderBlockState.REL_UR;
 import static com.prupe.mcpatcher.ctm.RenderBlockState.TOP_FACE;
 
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 
 import com.prupe.mcpatcher.mal.resource.PropertiesFile;
 import com.prupe.mcpatcher.mal.tile.TileLoader;
@@ -61,7 +61,7 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileWorld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileWorld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             int neighborBits = 0;
             for (int bit = 0; bit < 8; bit++) {
                 if (shouldConnect(renderBlockState, origIcon, bit)) {
@@ -72,7 +72,7 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileHeld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileHeld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             return icons[0];
         }
     }
@@ -102,7 +102,7 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileWorld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileWorld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             int face = renderBlockState.getFaceForHV();
             if (face < 0) {
                 return null;
@@ -118,7 +118,7 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileHeld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileHeld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             return icons[3];
         }
     }
@@ -152,8 +152,8 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileWorld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
-            IIcon icon = super.getTileWorld_Impl(renderBlockState, origIcon);
+        Icon getTileWorld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
+            Icon icon = super.getTileWorld_Impl(renderBlockState, origIcon);
             if (icon != icons[3]) {
                 return icon;
             }
@@ -207,7 +207,7 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileWorld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileWorld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             int face = renderBlockState.getFaceForHV();
             if (face < 0) {
                 return null;
@@ -223,7 +223,7 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileHeld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileHeld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             return icons[3];
         }
     }
@@ -257,8 +257,8 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileWorld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
-            IIcon icon = super.getTileWorld_Impl(renderBlockState, origIcon);
+        Icon getTileWorld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
+            Icon icon = super.getTileWorld_Impl(renderBlockState, origIcon);
             if (icon != icons[3]) {
                 return icon;
             }
@@ -306,7 +306,7 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileWorld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileWorld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             int face = renderBlockState.getBlockFace();
             if (face < 0) {
                 face = NORTH_FACE;
@@ -320,7 +320,7 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileHeld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileHeld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             return null;
         }
     }
@@ -357,7 +357,7 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileWorld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileWorld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             int face = renderBlockState.getBlockFace();
             if (face < 0) {
                 face = 0;
@@ -376,7 +376,7 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileHeld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileHeld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             return icons[0];
         }
     }
@@ -418,7 +418,7 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileWorld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileWorld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             int face = renderBlockState.getBlockFace();
             if (face < 0) {
                 face = 0;
@@ -446,7 +446,7 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileHeld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileHeld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             return icons[0];
         }
     }
@@ -472,12 +472,12 @@ class TileOverrideImpl {
         }
 
         @Override
-        IIcon getTileWorld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileWorld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             return icons[0];
         }
 
         @Override
-        IIcon getTileHeld_Impl(RenderBlockState renderBlockState, IIcon origIcon) {
+        Icon getTileHeld_Impl(RenderBlockState renderBlockState, Icon origIcon) {
             return icons[0];
         }
     }

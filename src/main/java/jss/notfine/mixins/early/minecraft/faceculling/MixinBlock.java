@@ -51,9 +51,9 @@ public abstract class MixinBlock {
         }
         //Check if other block is solid
         Block otherBlock = worldIn.getBlock(x, y, z);
-        if(otherBlock.isOpaqueCube()) {
-            return false;
-        }
+//        if(otherBlock.isOpaqueCube()) {
+//            return false;
+//        }
         //Check for IFaceObstructionCheckHelper
         if(otherBlock instanceof IFaceObstructionCheckHelper target) {
             return target.isFaceNonObstructing(worldIn, x, y, z, side, minX, minY, minZ, maxX, maxY, maxZ);

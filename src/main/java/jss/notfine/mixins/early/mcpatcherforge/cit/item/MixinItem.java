@@ -2,7 +2,7 @@ package jss.notfine.mixins.early.mcpatcherforge.cit.item;
 
 import net.minecraft.Item;
 import net.minecraft.ItemStack;
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -15,12 +15,12 @@ import com.prupe.mcpatcher.cit.CITUtils;
 public abstract class MixinItem {
 
     @Shadow
-    public abstract IIcon getIconFromDamage(int meta);
+    public abstract Icon getIconFromDamage(int meta);
 
     @Redirect(
-        method = "getIconIndex(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/util/IIcon;",
-        at = @At(value = "INVOKE", target = "Lnet/minecraft/item/Item;getIconFromDamage(I)Lnet/minecraft/util/IIcon;"))
-    private IIcon modifyGetIconIndex(Item item, int meta, ItemStack itemStack) {
+        method = "getIconIndex(Lnet/minecraft/ItemStack;)Lnet/minecraft/Icon;",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/Item;getIconFromDamage(I)Lnet/minecraft/Icon;"))
+    private Icon modifyGetIconIndex(Item item, int meta, ItemStack itemStack) {
         return CITUtils.getIcon(this.getIconFromDamage(meta), itemStack, 0);
     }
 }

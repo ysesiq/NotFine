@@ -17,16 +17,16 @@ public class ClientProxy extends CommonProxy {
         if(!NotFineConfig.allowToggle3DAnaglyph) {
             Minecraft.getMinecraft().gameSettings.anaglyph = false;
         }
-        if(!NotFineConfig.allowToggleFBO) {
-            Minecraft.getMinecraft().gameSettings.fboEnable = true;
-        }
+//        if(!NotFineConfig.allowToggleFBO) {
+//            Minecraft.getMinecraft().gameSettings.fboEnable = true;
+//        }
 
         for(Settings setting : Settings.values()) {
             setting.ready();
         }
 
-        MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(LoadMenuButtons.INSTANCE);
+//        MinecraftForge.EVENT_BUS.register(this);
+//        MinecraftForge.EVENT_BUS.register(LoadMenuButtons.INSTANCE);
     }
 
     @Override
@@ -39,11 +39,11 @@ public class ClientProxy extends CommonProxy {
         SettingsManager.settingsFile.loadSettings();
     }
 
-    @SubscribeEvent
-    public void onFOVModifierUpdate(FOVUpdateEvent event) {
-        if (!(boolean)Settings.DYNAMIC_FOV.option.getStore()){
-            event.newfov = 1.0F;
-        }
-    }
+//    @SubscribeEvent
+//    public void onFOVModifierUpdate(FOVUpdateEvent event) {
+//        if (!(boolean)Settings.DYNAMIC_FOV.option.getStore()){
+//            event.newfov = 1.0F;
+//        }
+//    }
 
 }

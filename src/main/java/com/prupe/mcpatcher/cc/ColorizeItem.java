@@ -55,14 +55,14 @@ public class ColorizeItem {
         potionsInitialized = true;
 
         waterBottleColor = 0x385dc6;
-        for (Potion potion : potions) {
-            potion.liquidColor = ((PotionExpansion) potion).getOrigColor();
-        }
+//        for (Potion potion : potions) {
+//            potion.liquidColor = ((PotionExpansion) potion).getOrigColor();
+//        }
 
         for (MapColor mapColor : MapColor.mapColorArray) {
-            if (mapColor != null) {
-                mapColor.colorValue = ((MapColorExpansion) mapColor).getOriginalColorValue();
-            }
+//            if (mapColor != null) {
+//                mapColor.colorValue = ((MapColorExpansion) mapColor).getOriginalColorValue();
+//            }
         }
     }
 
@@ -80,7 +80,7 @@ public class ColorizeItem {
             if (MapColor.mapColorArray[i] != null) {
                 int[] rgb = new int[] { ((MapColorExpansion) MapColor.mapColorArray[i]).getOriginalColorValue() };
                 Colorizer.loadIntColor("map." + Colorizer.getStringKey(MAP_MATERIALS, i), rgb, 0);
-                MapColor.mapColorArray[i].colorValue = rgb[0];
+//                MapColor.mapColorArray[i].colorValue = rgb[0];
             }
         }
     }

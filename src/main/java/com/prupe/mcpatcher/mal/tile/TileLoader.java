@@ -11,11 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.minecraft.Minecraft;
-import net.minecraft.TextureAtlasSprite;
-import net.minecraft.TextureMap;
-import net.minecraft.IIcon;
-import net.minecraft.ResourceLocation;
+import net.minecraft.*;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;
@@ -46,7 +42,7 @@ public class TileLoader {
     private final Map<String, TextureAtlasSprite> baseTexturesByName = new HashMap<>();
     private final Set<ResourceLocation> tilesToRegister = new HashSet<>();
     private final Map<ResourceLocation, BufferedImage> tileImages = new HashMap<>();
-    private final Map<String, IIcon> iconMap = new HashMap<>();
+    private final Map<String, Icon> iconMap = new HashMap<>();
 
     static {
         long maxSize = 4096L;
@@ -288,7 +284,7 @@ public class TileLoader {
                 return false;
             }
         }
-        IIcon icon = textureMap.registerIcon(name);
+        Icon icon = textureMap.registerIcon(name);
         map.put(name, (TextureAtlasSprite) icon);
         iconMap.put(name, icon);
         String extra = (width == height ? "" : ", " + (height / width) + " frames");
@@ -302,18 +298,18 @@ public class TileLoader {
         tileImages.clear();
     }
 
-    public IIcon getIcon(String name) {
+    public Icon getIcon(String name) {
         if (MCPatcherUtils.isNullOrEmpty(name)) {
             return null;
         }
-        IIcon icon = iconMap.get(name);
+        Icon icon = iconMap.get(name);
         if (icon == null) {
             icon = baseTexturesByName.get(name);
         }
         return icon;
     }
 
-    public IIcon getIcon(ResourceLocation resource) {
+    public Icon getIcon(ResourceLocation resource) {
         return resource == null ? null : getIcon(resource.toString());
     }
 }

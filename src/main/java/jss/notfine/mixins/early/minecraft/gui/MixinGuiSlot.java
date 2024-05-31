@@ -11,11 +11,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(GuiSlot.class)
 public abstract class MixinGuiSlot {
 
-    @Inject(method = "drawContainerBackground", at = @At("HEAD"), cancellable = true, remap = false)
-    private void notFine$toggleContainerBackground(CallbackInfo ci) {
-        if(!(boolean)Settings.MODE_GUI_BACKGROUND.option.getStore() && Minecraft.getMinecraft().theWorld != null) {
-            ci.cancel();
-        }
-    }
+//    @Inject(method = "drawContainerBackground", at = @At("HEAD"), cancellable = true, remap = false)
+//    private void notFine$toggleContainerBackground(CallbackInfo ci) {
+//        if(!(boolean)Settings.MODE_GUI_BACKGROUND.option.getStore() && Minecraft.getMinecraft().theWorld != null) {
+//            ci.cancel();
+//        }
+//    }
 
 }

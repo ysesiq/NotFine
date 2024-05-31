@@ -21,9 +21,9 @@ public abstract class MixinBlockFarmland extends Block implements IFaceObstructi
         }
         //Check if other block is solid
         Block otherBlock = worldIn.getBlock(x, y, z);
-        if(otherBlock.isOpaqueCube()) {
-            return false;
-        }
+//        if(otherBlock.isOpaqueCube()) {
+//            return false;
+//        }
         //Check for IFaceObstructionCheckHelper
         if(otherBlock instanceof IFaceObstructionCheckHelper target) {
             return target.isFaceNonObstructing(worldIn, x, y, z, side, 0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);

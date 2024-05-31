@@ -115,7 +115,7 @@ public class Colorizer {
     }
 
     static void loadIntColor(String key, Potion potion) {
-        potion.liquidColor = loadIntColor(key, potion.getLiquidColor());
+//        potion.liquidColor = loadIntColor(key, potion.getLiquidColor());
     }
 
     static boolean loadIntColor(String key, int[] color, int index) {

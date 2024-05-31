@@ -24,6 +24,7 @@
     ]
   },
   "mixins": [
-    "notfine.mixins.json"
-  ]
+    "mixins.notfine.early.json"
+  ],
+  "accessWidener": "notfine.accesswidener"
 }

@@ -8,7 +8,7 @@ import jss.notfine.core.SettingsManager;
 import net.minecraft.EntityRenderer;
 import net.minecraft.GameSettings;
 import net.minecraft.WorldProvider;
-import org.spongepowered.asm.lib.Opcodes;
+//import org.spongepowered.asm.lib.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,33 +19,33 @@ import org.lwjgl.opengl.GL11;
 @Mixin(EntityRenderer.class)
 abstract public class MixinEntityRenderer {
 
-    @Redirect(
-        method = "renderWorld(FJ)V",
-        at = @At(
-            value = "FIELD",
-             target = "Lnet/minecraft/GameSettings;fancyGraphics:Z",
-            opcode = Opcodes.GETFIELD,
-            ordinal = 0
-        )
-    )
-    private boolean toggleWaterDetail(GameSettings settings) {
-        return SettingsManager.waterDetail;
-    }
-
-    /**
-     * @author Caedis
-     * @reason Void fog toggle
-     */
-    @WrapOperation(
-        method = "setupFog",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/WorldProvider;getWorldHasVoidParticles()Z"
-        )
-    )
-    private boolean notFine$toggleVoidFog(WorldProvider provider, Operation<Boolean> original){
-        return ((boolean)Settings.VOID_FOG.option.getStore()) ? original.call(provider) : false;
-    }
+//    @Redirect(
+//        method = "renderWorld(FJ)V",
+//        at = @At(
+//            value = "FIELD",
+//             target = "Lnet/minecraft/GameSettings;fancyGraphics:Z",
+//            opcode = Opcodes.GETFIELD,
+//            ordinal = 0
+//        )
+//    )
+//    private boolean toggleWaterDetail(GameSettings settings) {
+//        return SettingsManager.waterDetail;
+//    }
+//
+//    /**
+//     * @author Caedis
+//     * @reason Void fog toggle
+//     */
+//    @WrapOperation(
+//        method = "setupFog",
+//        at = @At(
+//            value = "INVOKE",
+//            target = "Lnet/minecraft/WorldProvider;getWorldHasVoidParticles()Z"
+//        )
+//    )
+//    private boolean notFine$toggleVoidFog(WorldProvider provider, Operation<Boolean> original){
+//        return ((boolean)Settings.VOID_FOG.option.getStore()) ? original.call(provider) : false;
+//    }
 
     @Redirect(
         method = "setupFog",

@@ -3,7 +3,7 @@ package com.prupe.mcpatcher.ctm;
 import java.util.List;
 import java.util.Set;
 
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 
 import com.prupe.mcpatcher.mal.block.BlockStateMatcher;
 
@@ -21,7 +21,7 @@ interface ITileOverride extends Comparable<ITileOverride> {
 
     int getWeight();
 
-    IIcon getTileWorld(RenderBlockState renderBlockState, IIcon origIcon);
+    Icon getTileWorld(RenderBlockState renderBlockState, Icon origIcon);
 
-    IIcon getTileHeld(RenderBlockState renderBlockState, IIcon origIcon);
+    Icon getTileHeld(RenderBlockState renderBlockState, Icon origIcon);
 }

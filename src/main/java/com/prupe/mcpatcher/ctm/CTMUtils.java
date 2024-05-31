@@ -10,7 +10,7 @@ import java.util.Set;
 
 import net.minecraft.Block;
 import net.minecraft.RenderBlocks;
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 import net.minecraft.ResourceLocation;
 import net.minecraft.IBlockAccess;
 
@@ -124,7 +124,7 @@ public class CTMUtils {
         haveBlockFace = false;
     }
 
-    public static IIcon getBlockIcon(IIcon icon, RenderBlocks renderBlocks, Block block, IBlockAccess blockAccess,
+    public static Icon getBlockIcon(Icon icon, RenderBlocks renderBlocks, Block block, IBlockAccess blockAccess,
         int i, int j, int k, int face) {
         lastOverride = null;
         if (blockAccess != null && checkFace(face)) {
@@ -141,7 +141,7 @@ public class CTMUtils {
         return lastOverride == null && skipDefaultRendering(block) ? RenderBlocksUtils.blankIcon : icon;
     }
 
-    public static IIcon getBlockIcon(IIcon icon, RenderBlocks renderBlocks, Block block, int face, int metadata) {
+    public static Icon getBlockIcon(Icon icon, RenderBlocks renderBlocks, Block block, int face, int metadata) {
         lastOverride = null;
         if (checkFace(face) && checkRenderType(block)) {
             renderBlockState.setBlockMetadata(block, metadata, face);
@@ -153,7 +153,7 @@ public class CTMUtils {
         return icon;
     }
 
-    public static IIcon getBlockIcon(IIcon icon, RenderBlocks renderBlocks, Block block, int face) {
+    public static Icon getBlockIcon(Icon icon, RenderBlocks renderBlocks, Block block, int face) {
         return getBlockIcon(icon, renderBlocks, block, face, 0);
     }
 

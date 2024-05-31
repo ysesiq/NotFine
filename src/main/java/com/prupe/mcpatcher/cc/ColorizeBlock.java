@@ -8,7 +8,7 @@ import java.util.Properties;
 
 import net.minecraft.Block;
 import net.minecraft.RenderBlocks;
-import net.minecraft.Blocks;
+//import net.minecraft.Blocks;
 import net.minecraft.ResourceLocation;
 import net.minecraft.IBlockAccess;
 
@@ -388,7 +388,7 @@ public class ColorizeBlock {
     }
 
     public static void colorizeWaterBlockGL(Block block) {
-        if (block == Blocks.flowing_water || block == Blocks.water) {
+//        if (block == Blocks.flowing_water || block == Blocks.water) {
             float[] waterColor;
             if (waterColorMap == null) {
                 waterColor = ColorizeEntity.waterBaseColor;
@@ -397,7 +397,7 @@ public class ColorizeBlock {
                 ColorUtils.intToFloat3(waterColorMap.getColorMultiplier(), waterColor);
             }
             GL11.glColor4f(waterColor[0], waterColor[1], waterColor[2], 1.0f);
-        }
+//        }
     }
 
     public static boolean computeRedstoneWireColor(int current) {
@@ -485,7 +485,8 @@ public class ColorizeBlock {
     private static boolean checkBiomeSmoothing(Block block, int face) {
         return enableSmoothBiomes && face >= 0
             && RenderBlocksUtils.isAmbientOcclusionEnabled()
-            && block.getLightValue() == 0;
+//            && block.getLightValue() == 0
+            ;
     }
 
     private static boolean setupBiomeSmoothing(RenderBlocks renderBlocks, Block block, IBlockAccess blockAccess, int x,

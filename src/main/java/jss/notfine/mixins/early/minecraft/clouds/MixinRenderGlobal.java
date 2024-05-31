@@ -12,7 +12,7 @@ import net.minecraft.TextureManager;
 import net.minecraft.MathHelper;
 import net.minecraft.ResourceLocation;
 import net.minecraft.Vec3;
-import net.minecraftforge.client.IRenderHandler;
+//import net.minecraftforge.client.IRenderHandler;
 import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,11 +28,11 @@ public abstract class MixinRenderGlobal {
      */
     @Overwrite
     public void renderClouds(float partialTicks) {
-        IRenderHandler renderer;
-        if((renderer = theWorld.provider.getCloudRenderer()) != null) {
-            renderer.render(partialTicks, theWorld, mc);
-            return;
-        }
+//        IRenderHandler renderer;
+//        if((renderer = theWorld.provider.getCloudRenderer()) != null) {
+//            renderer.render(partialTicks, theWorld, mc);
+//            return;
+//        }
         if(mc.theWorld.provider.isSurfaceWorld()) {
             GraphicsQualityOff cloudMode = (GraphicsQualityOff)Settings.MODE_CLOUDS.option.getStore();
             if(cloudMode == GraphicsQualityOff.FANCY || cloudMode == GraphicsQualityOff.DEFAULT && mc.gameSettings.fancyGraphics) {
@@ -52,7 +52,7 @@ public abstract class MixinRenderGlobal {
         Tessellator tessellator = Tessellator.instance;
         GL11.glDisable(GL11.GL_CULL_FACE);
         GL11.glEnable(GL11.GL_BLEND);
-        OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+//        OpenGlHelper.glBlendFunc(770, 771, 1, 0);
         renderEngine.bindTexture(locationCloudsPng);
 
         Vec3 color = theWorld.getCloudColour(partialTicks);
@@ -193,7 +193,7 @@ public abstract class MixinRenderGlobal {
         Tessellator tessellator = Tessellator.instance;
         GL11.glDisable(GL11.GL_CULL_FACE);
         GL11.glEnable(GL11.GL_BLEND);
-        OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+//        OpenGlHelper.glBlendFunc(770, 771, 1, 0);
         renderEngine.bindTexture(locationCloudsPng);
 
         Vec3 color = theWorld.getCloudColour(partialTicks);

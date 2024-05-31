@@ -1,10 +1,7 @@
 package jss.notfine.mixins.early.minecraft.faceculling;
 
 import jss.notfine.util.IFaceObstructionCheckHelper;
-import net.minecraft.Block;
-import net.minecraft.BlockCactus;
-import net.minecraft.Material;
-import net.minecraft.IBlockAccess;
+import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(value = BlockCactus.class)
@@ -21,9 +18,9 @@ public abstract class MixinBlockCactus extends Block implements IFaceObstruction
         }
         //Check if other block is solid
         Block otherBlock = worldIn.getBlock(x, y, z);
-        if(otherBlock.isOpaqueCube()) {
-            return false;
-        }
+//        if(otherBlock.isOpaqueCube()) {
+//            return false;
+//        }
         //Check for IFaceObstructionCheckHelper
         if(otherBlock instanceof IFaceObstructionCheckHelper target) {
             return target.isFaceNonObstructing(worldIn, x, y, z, side, 0.0625F, 0.0F, 0.0625F, 0.9375F, 1.0F, 0.9375F);
@@ -43,8 +40,12 @@ public abstract class MixinBlockCactus extends Block implements IFaceObstruction
         return otherMinX < 0.0625F || otherMinZ < 0.0625F ||  otherMaxX > 0.9375F || otherMaxZ > 0.9375F;
     }
 
-    MixinBlockCactus(Material material) {
-        super(material);
+//    MixinBlockCactus(Material material) {
+//        super(material);
+//    }
+
+    MixinBlockCactus(int par1, Material par2Material, BlockConstants constants) {
+        super(par1, par2Material, constants);
     }
 
 }

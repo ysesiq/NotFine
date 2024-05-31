@@ -3,7 +3,7 @@ package com.prupe.mcpatcher.cit;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.minecraft.IIcon;
+import net.minecraft.Icon;
 import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.mal.resource.PropertiesFile;
@@ -11,8 +11,8 @@ import com.prupe.mcpatcher.mal.tile.TileLoader;
 
 final class ItemOverride extends OverrideBase {
 
-    private IIcon icon;
-    private final Map<IIcon, IIcon> iconMap;
+    private Icon icon;
+    private final Map<Icon, Icon> iconMap;
 
     ItemOverride(PropertiesFile properties) {
         super(properties);
@@ -29,9 +29,9 @@ final class ItemOverride extends OverrideBase {
         return "item";
     }
 
-    IIcon getReplacementIcon(IIcon origIcon) {
+    Icon getReplacementIcon(Icon origIcon) {
         if (iconMap != null) {
-            IIcon newIcon = iconMap.get(origIcon);
+            Icon newIcon = iconMap.get(origIcon);
             if (newIcon != null) {
                 return newIcon;
             }
@@ -64,8 +64,8 @@ final class ItemOverride extends OverrideBase {
         }
         if (alternateTextures != null) {
             for (Map.Entry<String, ResourceLocation> entry : alternateTextures.entrySet()) {
-                IIcon from = tileLoader.getIcon(entry.getKey());
-                IIcon to = tileLoader.getIcon(entry.getValue());
+                Icon from = tileLoader.getIcon(entry.getKey());
+                Icon to = tileLoader.getIcon(entry.getValue());
                 if (from != null && to != null) {
                     iconMap.put(from, to);
                 }
