@@ -16,9 +16,6 @@ import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 
 import net.minecraft.*;
-import net.minecraft.ITextureObject;
-import net.minecraft.IResourceManager;
-import net.minecraft.IResourcePack;
 
 import org.apache.commons.io.IOUtils;
 
@@ -38,15 +35,15 @@ public class TexturePackAPI {
 
     private static final String ASSETS = "assets/";
 
-    public static List<IResourcePack> getResourcePacks(String namespace) {
-        List<IResourcePack> resourcePacks = new ArrayList<>();
-        IResourceManager resourceManager = getResourceManager();
+    public static List<ResourcePack> getResourcePacks(String namespace) {
+        List<ResourcePack> resourcePacks = new ArrayList<>();
+        ResourceManager resourceManager = getResourceManager();
         if (resourceManager instanceof SimpleReloadableResourceManager) {
             Set<Map.Entry<String, FallbackResourceManager>> entrySet = ((SimpleReloadableResourceManager) resourceManager).domainResourceManagers
                 .entrySet();
             for (Map.Entry<String, FallbackResourceManager> entry : entrySet) {
                 if (namespace == null || namespace.equals(entry.getKey())) {
-                    List<IResourcePack> packs = entry.getValue().resourcePacks;
+                    List<ResourcePack> packs = entry.getValue().resourcePacks;
                     if (packs != null) {
                         resourcePacks.removeAll(packs);
                         resourcePacks.addAll(packs);
@@ -60,7 +57,7 @@ public class TexturePackAPI {
     public static Set<String> getNamespaces() {
         Set<String> namespaces = new HashSet<>();
         namespaces.add(DEFAULT_NAMESPACE);
-        IResourceManager resourceManager = getResourceManager();
+        ResourceManager resourceManager = getResourceManager();
         if (resourceManager instanceof SimpleReloadableResourceManager simpleReloadableResourceManager) {
             namespaces.addAll(simpleReloadableResourceManager.domainResourceManagers.keySet());
         }
@@ -258,7 +255,7 @@ public class TexturePackAPI {
         if (resource == null) {
             return -1;
         }
-        ITextureObject texture = Minecraft.getMinecraft()
+        TextureObject texture = Minecraft.getMinecraft()
             .getTextureManager()
             .getTexture(resource);
         return texture instanceof AbstractTexture ? texture.getGlTextureId() : -1;
@@ -286,7 +283,7 @@ public class TexturePackAPI {
         if (resource != null) {
             TextureManager textureManager = Minecraft.getMinecraft()
                 .getTextureManager();
-            ITextureObject texture = textureManager.getTexture(resource);
+            TextureObject texture = textureManager.getTexture(resource);
             if (texture != null && !(texture instanceof TextureMap) && !(texture instanceof DynamicTexture)) {
                 if (texture instanceof AbstractTexture) {
                     ((AbstractTextureExpansion) texture).unloadGLTexture();
@@ -302,10 +299,10 @@ public class TexturePackAPI {
             .getTextureManager();
         if (textureManager != null) {
             Set<ResourceLocation> texturesToUnload = new HashSet<>();
-            Set<Map.Entry<ResourceLocation, ITextureObject>> entrySet = textureManager.mapTextureObjects.entrySet();
-            for (Map.Entry<ResourceLocation, ITextureObject> entry : entrySet) {
+            Set<Map.Entry<ResourceLocation, TextureObject>> entrySet = textureManager.mapTextureObjects.entrySet();
+            for (Map.Entry<ResourceLocation, TextureObject> entry : entrySet) {
                 ResourceLocation resource = entry.getKey();
-                ITextureObject texture = entry.getValue();
+                TextureObject texture = entry.getValue();
                 if (texture instanceof SimpleTexture && !(texture instanceof ThreadDownloadImageData)
                     && !TexturePackAPI.hasResource(resource)) {
                     texturesToUnload.add(resource);
@@ -317,7 +314,7 @@ public class TexturePackAPI {
         }
     }
 
-    private static IResourceManager getResourceManager() {
+    private static ResourceManager getResourceManager() {
         return Minecraft.getMinecraft()
             .getResourceManager();
     }

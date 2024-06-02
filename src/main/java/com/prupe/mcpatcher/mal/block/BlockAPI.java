@@ -16,9 +16,6 @@ import net.minecraft.IBlockAccess;
 import com.prupe.mcpatcher.MCPatcherUtils;
 import com.prupe.mcpatcher.mal.resource.PropertiesFile;
 
-import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
-import cpw.mods.fml.common.registry.GameData;
-
 public class BlockAPI {
 
     BlockAPI(FMLControlledNamespacedRegistry<Block> registry) {

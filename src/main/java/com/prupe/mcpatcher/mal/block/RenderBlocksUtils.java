@@ -2,7 +2,6 @@ package com.prupe.mcpatcher.mal.block;
 
 import net.minecraft.Block;
 import net.minecraft.Minecraft;
-import net.minecraft.Blocks;
 import net.minecraft.Icon;
 import net.minecraft.IBlockAccess;
 
@@ -33,7 +32,7 @@ public class RenderBlocksUtils {
             colorMultiplierType[3] = COLOR;
             colorMultiplierType[4] = COLOR;
             colorMultiplierType[5] = COLOR;
-        } else if (block == Blocks.grass) {
+        } else if (block == Block.grass) {
             colorMultiplierType[0] = NONCOLOR;
             if (enableBetterGrass) {
                 if (isSnowCovered(blockAccess, x, y, z)) {
@@ -65,7 +64,7 @@ public class RenderBlocksUtils {
             colorMultiplierType[4] = COLOR;
             colorMultiplierType[5] = COLOR;
         }
-        if (!isAmbientOcclusionEnabled() || block.getLightValue() != 0) {
+        if (!isAmbientOcclusionEnabled() || Block.lightValue[block.blockID] != 0) {
             setupColorMultiplier(0, r, g, b);
             setupColorMultiplier(1, r, g, b);
             setupColorMultiplier(2, r, g, b);
@@ -76,7 +75,7 @@ public class RenderBlocksUtils {
     }
 
     public static void setupColorMultiplier(Block block, boolean useColor) {
-        if (block == Blocks.grass || !useColor) {
+        if (block == Block.grass || !useColor) {
             colorMultiplierType[0] = NONCOLOR;
             colorMultiplierType[2] = NONCOLOR;
             colorMultiplierType[3] = NONCOLOR;
@@ -156,12 +155,14 @@ public class RenderBlocksUtils {
         if (isSnow != neighborIsSnow) {
             return null;
         }
-        return isSnow ? Blocks.snow_layer.getIcon(blockAccess, x, y, z, face) : topIcon;
+//        return isSnow ? Block.snow_layer.getIcon(blockAccess, x, y, z, face) : topIcon;
+        return topIcon;
     }
 
     private static boolean isSnowCovered(IBlockAccess blockAccess, int x, int y, int z) {
         Block topBlock = blockAccess.getBlock(x, y + 1, z);
-        return topBlock == Blocks.snow_layer || topBlock == Blocks.snow;
+//        return topBlock == Block.snow_layer || topBlock == Blocks.snow;
+        return topBlock == Block.snow;
     }
 
     public static boolean isAmbientOcclusionEnabled() {

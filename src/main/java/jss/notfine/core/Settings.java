@@ -1,7 +1,5 @@
 package jss.notfine.core;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import jss.notfine.gui.options.control.NotFineControlValueFormatter;
 import jss.notfine.gui.options.named.AlwaysNever;
 import jss.notfine.gui.options.named.BackgroundSelect;
@@ -21,15 +19,15 @@ import me.jellysquid.mods.sodium.client.gui.options.control.SliderControl;
 import me.jellysquid.mods.sodium.client.gui.options.control.TickBoxControl;
 import me.jellysquid.mods.sodium.client.gui.options.named.GraphicsQuality;
 import me.jellysquid.mods.sodium.client.gui.options.storage.OptionStorage;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.util.MathHelper;
+import net.minecraft.Minecraft;
+import net.minecraft.I18n;
+import net.minecraft.MathHelper;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
 
-@SideOnly(Side.CLIENT)
+//@SideOnly(Side.CLIENT)
 public enum Settings {
     CLOUD_HEIGHT(new NotFineOptionSlider(128, 96, 384, 8,  null)) {
         @Override
@@ -239,12 +237,12 @@ public enum Settings {
 
         @Override
         public String getName() {
-            return I18n.format("options." + setting.name().toLowerCase());
+            return I18n.getString("options." + setting.name().toLowerCase());
         }
 
         @Override
         public String getTooltip() {
-            return I18n.format("options." + setting.name().toLowerCase() + ".tooltip");
+            return I18n.getString("options." + setting.name().toLowerCase() + ".tooltip");
         }
 
         @Override

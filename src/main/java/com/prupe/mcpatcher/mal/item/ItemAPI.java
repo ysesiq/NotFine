@@ -9,8 +9,6 @@ import net.minecraft.Item;
 
 import com.prupe.mcpatcher.MCPatcherUtils;
 
-import cpw.mods.fml.common.registry.GameData;
-
 public class ItemAPI {
 
     ItemAPI() {

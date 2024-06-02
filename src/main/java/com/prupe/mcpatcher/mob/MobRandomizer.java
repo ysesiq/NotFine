@@ -47,7 +47,7 @@ public class MobRandomizer {
             .endsWith(".png")) {
             return texture;
         }
-        String key = texture + ":" + entity.getEntityId();
+        String key = texture + ":" + entity.entityId;
         ResourceLocation newTexture = cache.get(key);
         if (newTexture == null) {
             ExtraInfo info = ExtraInfo.getInfo(entity);
@@ -99,11 +99,11 @@ public class MobRandomizer {
         private Integer origBiome;
 
         ExtraInfo(EntityLivingBase entity) {
-            this(entity, getSkinId(entity.getEntityId()), (int) entity.posX, (int) entity.posY, (int) entity.posZ);
+            this(entity, getSkinId(entity.entityId), (int) entity.posX, (int) entity.posY, (int) entity.posZ);
         }
 
         ExtraInfo(EntityLivingBase entity, long skin, int origX, int origY, int origZ) {
-            entityId = entity.getEntityId();
+            entityId = entity.entityId;
             references = new HashSet<>();
             this.skin = skin;
             this.origX = origX;
@@ -151,7 +151,7 @@ public class MobRandomizer {
             ExtraInfo info;
             synchronized (allInfo) {
                 clearUnusedReferences();
-                info = allInfo.get(entity.getEntityId());
+                info = allInfo.get(entity.entityId);
                 if (info == null) {
                     info = new ExtraInfo(entity);
                     putInfo(entity, info);
@@ -170,7 +170,7 @@ public class MobRandomizer {
                     logger.finest(
                         "added ref #%d for %d (%d entities)",
                         info.references.size(),
-                        entity.getEntityId(),
+                        entity.entityId,
                         allInfo.size());
                 }
                 info.setBiome();
@@ -180,7 +180,7 @@ public class MobRandomizer {
 
         static void putInfo(EntityLivingBase entity, ExtraInfo info) {
             synchronized (allInfo) {
-                allInfo.put(entity.getEntityId(), info);
+                allInfo.put(entity.entityId, info);
             }
         }
 
@@ -211,7 +211,7 @@ public class MobRandomizer {
 
         public static void writeToNBT(EntityLivingBase entity, NBTTagCompound nbt) {
             synchronized (allInfo) {
-                ExtraInfo info = allInfo.get(entity.getEntityId());
+                ExtraInfo info = allInfo.get(entity.entityId);
                 if (info != null) {
                     nbt.setLong(SKIN_TAG, info.skin);
                     nbt.setInteger(ORIG_X_TAG, info.origX);

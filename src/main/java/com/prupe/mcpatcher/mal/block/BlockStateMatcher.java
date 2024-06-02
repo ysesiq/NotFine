@@ -5,8 +5,6 @@ import net.minecraft.IBlockAccess;
 
 import com.prupe.mcpatcher.MCPatcherUtils;
 
-import cpw.mods.fml.common.registry.GameData;
-
 public class BlockStateMatcher {
 
     private final String fullString;

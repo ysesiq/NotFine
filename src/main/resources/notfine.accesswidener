@@ -24,3 +24,4 @@ accessible field net/minecraft/TextureMap listAnimatedSprites Ljava/util/List;
 accessible field net/minecraft/TextureAtlasSprite framesTextureData Ljava/util/List;
 
 accessible method net/minecraft/FontRenderer readFontTexture ()V
+accessible method net/minecraft/FileResourcePack getResourcePackZipFile ()Ljava/util/zip/ZipFile;

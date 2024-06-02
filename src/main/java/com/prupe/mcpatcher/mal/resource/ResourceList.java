@@ -14,11 +14,7 @@ import java.util.logging.Level;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import net.minecraft.AbstractResourcePack;
-import net.minecraft.DefaultResourcePack;
-import net.minecraft.FileResourcePack;
-import net.minecraft.IResourcePack;
-import net.minecraft.ResourceLocation;
+import net.minecraft.*;
 
 import com.prupe.mcpatcher.MCLogger;
 import com.prupe.mcpatcher.MCPatcherUtils;
@@ -28,18 +24,18 @@ public class ResourceList {
     private static final MCLogger logger = MCLogger.getLogger(MCLogger.Category.TEXTURE_PACK);
 
     private static ResourceList instance;
-    private static final Map<IResourcePack, Integer> resourcePackOrder = new WeakHashMap<>();
+    private static final Map<ResourcePack, Integer> resourcePackOrder = new WeakHashMap<>();
 
-    private final IResourcePack resourcePack;
+    private final ResourcePack resourcePack;
     private final Set<ResourceLocationWithSource> allResources = new TreeSet<>(
         new ResourceLocationWithSource.Comparator1());
 
     public static ResourceList getInstance() {
         if (instance == null) {
-            List<IResourcePack> resourcePacks = TexturePackAPI.getResourcePacks(null);
+            List<ResourcePack> resourcePacks = TexturePackAPI.getResourcePacks(null);
             int order = resourcePacks.size();
             resourcePackOrder.clear();
-            for (IResourcePack resourcePack : resourcePacks) {
+            for (ResourcePack resourcePack : resourcePacks) {
                 resourcePackOrder.put(resourcePack, order);
                 order--;
             }
@@ -52,14 +48,14 @@ public class ResourceList {
         instance = null;
     }
 
-    public static int getResourcePackOrder(IResourcePack resourcePack) {
+    public static int getResourcePackOrder(ResourcePack resourcePack) {
         Integer i = resourcePackOrder.get(resourcePack);
         return i == null ? Integer.MAX_VALUE : i;
     }
 
     private ResourceList() {
         this.resourcePack = null;
-        for (IResourcePack resourcePack : TexturePackAPI.getResourcePacks(null)) {
+        for (ResourcePack resourcePack : TexturePackAPI.getResourcePacks(null)) {
             ResourceList sublist;
             if (resourcePack instanceof FileResourcePack) {
                 sublist = new ResourceList((FileResourcePack) resourcePack);
@@ -80,7 +76,7 @@ public class ResourceList {
                     "%s -> %s",
                     resource,
                     resource.getSource()
-                        .getPackName());
+                            .getPackName());
             }
         }
     }

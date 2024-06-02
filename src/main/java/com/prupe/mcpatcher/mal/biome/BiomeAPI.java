@@ -63,16 +63,16 @@ public class BiomeAPI {
         if (name.isEmpty()) {
             return null;
         }
-//        for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray()) {
-//            if (biome == null || biome.biomeName == null) {
-//                continue;
-//            }
-//            if (name.equalsIgnoreCase(biome.biomeName) || name.equalsIgnoreCase(biome.biomeName.replace(" ", ""))) {
-//                if (biome.biomeID >= 0 && biome.biomeID < BiomeGenBase.getBiomeGenArray().length) {
-//                    return biome;
-//                }
-//            }
-//        }
+        for (BiomeGenBase biome : BiomeGenBase.biomeList) {
+            if (biome == null || biome.biomeName == null) {
+                continue;
+            }
+            if (name.equalsIgnoreCase(biome.biomeName) || name.equalsIgnoreCase(biome.biomeName.replace(" ", ""))) {
+                if (biome.biomeID >= 0 && biome.biomeID < BiomeGenBase.biomeList.length) {
+                    return biome;
+                }
+            }
+        }
         return null;
     }
 
@@ -82,7 +82,7 @@ public class BiomeAPI {
 
     public static int getBiomeIDAt(IBlockAccess blockAccess, int i, int j, int k) {
         BiomeGenBase biome = getBiomeGenAt(blockAccess, i, j, k);
-//        return biome == null ? BiomeGenBase.getBiomeGenArray().length : biome.biomeID;
+        return biome == null ? BiomeGenBase.biomeList.length : biome.biomeID;
     }
 
     public static BiomeGenBase getBiomeGenAt(IBlockAccess blockAccess, int i, int j, int k) {
@@ -94,28 +94,28 @@ public class BiomeAPI {
         return lastBiome;
     }
 
-//    public static int getWaterColorMultiplier(BiomeGenBase biome) {
-//        return biome == null ? 0xffffff : biome.getWaterColorMultiplier();
-//    }
+    public static int getWaterColorMultiplier(BiomeGenBase biome) {
+        return biome == null ? 0xffffff : biome.waterColorMultiplier;
+    }
 
-//    private static void logBiomes() {
-//        if (!biomesLogged) {
-//            biomesLogged = true;
-//            for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
-//                BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
-//                if (biome != null) {
-//                    int x = (int) (255.0f * (1.0f - biome.temperature));
-//                    int y = (int) (255.0f * (1.0f - biome.temperature * biome.rainfall));
-//                    logger.config(
-//                        "setupBiome #%d id=%d \"%s\" %06x (%d,%d)",
-//                        i,
-//                        biome.biomeID,
-//                        biome.biomeName,
-//                        biome.waterColorMultiplier,
-//                        x,
-//                        y);
-//                }
-//            }
-//        }
-//    }
+    private static void logBiomes() {
+        if (!biomesLogged) {
+            biomesLogged = true;
+            for (int i = 0; i < BiomeGenBase.biomeList.length; i++) {
+                BiomeGenBase biome = BiomeGenBase.biomeList[i];
+                if (biome != null) {
+                    int x = (int) (255.0f * (1.0f - biome.temperature));
+                    int y = (int) (255.0f * (1.0f - biome.temperature * biome.rainfall));
+                    logger.config(
+                        "setupBiome #%d id=%d \"%s\" %06x (%d,%d)",
+                        i,
+                        biome.biomeID,
+                        biome.biomeName,
+                        biome.waterColorMultiplier,
+                        x,
+                        y);
+                }
+            }
+        }
+    }
 }

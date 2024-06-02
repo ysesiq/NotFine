@@ -74,7 +74,7 @@ public class SkyRenderer {
             currentWorld = newEntry;
             active = currentWorld.active();
             if (active) {
-                worldTime = world.getWorldTime() + partialTick;
+                worldTime = world.total_time + partialTick;
                 rainStrength = 1.0f - world.getRainStrength(partialTick);
                 SkyRenderer.celestialAngle = celestialAngle;
             }

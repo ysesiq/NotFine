@@ -293,7 +293,7 @@ public class CITUtils {
     }
 
     public static boolean setupArmorEnchantments(EntityLivingBase entity, int pass) {
-//        return setupArmorEnchantments(entity.getEquipmentInSlot(4 - pass));
+        return setupArmorEnchantments(entity.getCurrentItemOrArmor(4 - pass));
     }
 
     public static boolean setupArmorEnchantments(ItemStack itemStack) {

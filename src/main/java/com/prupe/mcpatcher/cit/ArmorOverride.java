@@ -2,6 +2,7 @@ package com.prupe.mcpatcher.cit;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import net.minecraft.ResourceLocation;
 
@@ -57,7 +58,7 @@ final class ArmorOverride extends OverrideBase {
         if (!name.contains("/")) {
             name = "./" + name;
         }
-        return TexturePackAPI.parseResourceLocation(CITUtils.FIXED_ARMOR_RESOURCE, name)
+        return Objects.requireNonNull(TexturePackAPI.parseResourceLocation(CITUtils.FIXED_ARMOR_RESOURCE, name))
             .toString();
     }
 }
