@@ -16,6 +16,9 @@ import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 
 import net.minecraft.*;
+import net.minecraft.ITextureObject;
+import net.minecraft.IResourceManager;
+import net.minecraft.IResourcePack;
 
 import org.apache.commons.io.IOUtils;
 

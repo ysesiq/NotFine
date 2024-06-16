@@ -1,6 +1,6 @@
 package me.jellysquid.mods.sodium.client.gui.options.named;
 
-import net.minecraft.util.MathHelper;
+import net.minecraft.MathHelper;
 
 public enum LightingQuality implements NamedState {
     OFF("options.ao.off"),

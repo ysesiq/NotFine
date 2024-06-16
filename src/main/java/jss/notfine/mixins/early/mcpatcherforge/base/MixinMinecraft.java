@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 import net.minecraft.Minecraft;
 import net.minecraft.DynamicTexture;
 import net.minecraft.TextureManager;
-import net.minecraft.IResourceManager;
+import net.minecraft.ResourceManager;
 import net.minecraft.ResourceLocation;
 import net.minecraft.Session;
 
@@ -37,14 +37,14 @@ import jss.notfine.config.MCPatcherForgeConfig;
 public abstract class MixinMinecraft {
 
     @Shadow
-    public abstract IResourceManager getResourceManager();
+    public abstract ResourceManager getResourceManager();
 
     @Shadow
     @Final
     private static ResourceLocation locationMojangPng;
 
     @Inject(
-        method = "<init>(Lnet/minecraft/util/Session;IIZZLjava/io/File;Ljava/io/File;Ljava/io/File;Ljava/net/Proxy;Ljava/lang/String;Lcom/google/common/collect/Multimap;Ljava/lang/String;)V",
+        method = "<init>(Lnet/minecraft/Session;IIZZLjava/io/File;Ljava/io/File;Ljava/io/File;Ljava/net/Proxy;Ljava/lang/String;Lcom/google/common/collect/Multimap;Ljava/lang/String;)V",
         at = @At("RETURN"))
     private void modifyConstructor(Session sessionIn, int displayWidth, int displayHeight, boolean fullscreen,
         boolean isDemo, File dataDir, File assetsDir, File resourcePackDir, Proxy proxy, String version,
@@ -56,7 +56,7 @@ public abstract class MixinMinecraft {
         method = "startGame()V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/resources/IReloadableResourceManager;registerReloadListener(Lnet/minecraft/client/resources/IResourceManagerReloadListener;)V",
+            target = "Lnet/minecraft/ReloadableResourceManager;registerReloadListener(Lnet/minecraft/ResourceManagerReloadListener;)V",
             ordinal = 0))
     private void modifyStartGame1(CallbackInfo ci) {
         TileLoader.init();
@@ -102,7 +102,7 @@ public abstract class MixinMinecraft {
         method = "loadScreen()V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/texture/TextureManager;getDynamicTextureLocation(Ljava/lang/String;Lnet/minecraft/client/renderer/texture/DynamicTexture;)Lnet/minecraft/util/ResourceLocation;"))
+            target = "Lnet/minecraft/TextureManager;getDynamicTextureLocation(Ljava/lang/String;Lnet/minecraft/DynamicTexture;)Lnet/minecraft/ResourceLocation;"))
     private ResourceLocation modifyLoadScreen(TextureManager renderEngine, String p_110578_1_,
         DynamicTexture p_110578_2_) throws IOException {
         return renderEngine.getDynamicTextureLocation(

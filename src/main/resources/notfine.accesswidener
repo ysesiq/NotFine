@@ -25,3 +25,6 @@ accessible field net/minecraft/TextureAtlasSprite framesTextureData Ljava/util/L
 
 accessible method net/minecraft/FontRenderer readFontTexture ()V
 accessible method net/minecraft/FileResourcePack getResourcePackZipFile ()Ljava/util/zip/ZipFile;
+
+accessible field net/minecraft/GameSettings enableVsync Z
+accessible field net/minecraft/GameSettings fullScreen Z

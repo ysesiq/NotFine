@@ -4,8 +4,8 @@ import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import jss.notfine.gui.GuiCustomMenuButton;
 import jss.notfine.gui.NotFineGameOptionPages;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiOptions;
+import net.minecraft.GuiButton;
+import net.minecraft.GuiOptions;
 import net.minecraftforge.client.event.GuiScreenEvent.InitGuiEvent;
 
 import java.util.List;

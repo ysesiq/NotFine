@@ -1,6 +1,6 @@
 package me.jellysquid.mods.sodium.client.gui.options.control;
 
-import net.minecraft.client.resources.I18n;
+import net.minecraft.I18n;
 
 public interface ControlValueFormatter {
     static ControlValueFormatter guiScale() {
