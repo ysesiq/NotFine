@@ -1,7 +1,7 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.block;
 
 import net.minecraft.Block;
-import net.minecraft.BlockOldLeaf;
+import net.minecraft.BlockLeaves;
 import net.minecraft.IBlockAccess;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.prupe.mcpatcher.cc.ColorizeBlock;
 
-@Mixin(BlockOldLeaf.class)
+@Mixin(BlockLeaves.class)
 public abstract class MixinBlockOldLeaf {
 
     @Inject(method = "getRenderColor(I)I", at = @At("HEAD"), cancellable = true)
@@ -21,7 +21,7 @@ public abstract class MixinBlockOldLeaf {
         }
     }
 
-    @Inject(method = "colorMultiplier(Lnet/minecraft/world/IBlockAccess;III)I", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "colorMultiplier(Lnet/minecraft/IBlockAccess;III)I", at = @At("HEAD"), cancellable = true)
     private void modifyColorMultiplier(IBlockAccess worldIn, int x, int y, int z, CallbackInfoReturnable<Integer> cir) {
         if (ColorizeBlock.colorizeBlock((Block) (Object) this, worldIn, x, y, z)) {
             cir.setReturnValue(ColorizeBlock.blockColor);

@@ -43,7 +43,7 @@ public class VideoSettings {
     }
 
     public void saveSettings() {
-        if (FMLClientHandler.instance().isLoading()) return;
+//        if (FMLClientHandler.instance().isLoading()) return;
         try {
             PrintWriter printwriter = new PrintWriter(new FileWriter(optionsFile));
             for(Settings setting : Settings.values()) {

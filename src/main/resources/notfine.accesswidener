@@ -28,3 +28,11 @@ accessible method net/minecraft/FileResourcePack getResourcePackZipFile ()Ljava/
 
 accessible field net/minecraft/GameSettings enableVsync Z
 accessible field net/minecraft/GameSettings fullScreen Z
+
+extendable class net/minecraft/ResourceLocation
+
+accessible field net/minecraft/FallbackResourceManager resourcePacks Ljava/util/List;
+accessible field net/minecraft/SimpleReloadableResourceManager domainResourceManagers Ljava/util/Map;
+accessible field net/minecraft/TextureManager mapTextureObjects Ljava/util/Map;
+
+

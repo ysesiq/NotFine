@@ -1,11 +1,6 @@
 package jss.notfine.mixins.early.mcpatcherforge.cc.client.particle;
 
-import net.minecraft.BlockLiquid;
-import net.minecraft.Material;
-import net.minecraft.EntityDropParticleFX;
-import net.minecraft.EntityFX;
-import net.minecraft.MathHelper;
-import net.minecraft.World;
+import net.minecraft.*;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -17,6 +12,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import com.prupe.mcpatcher.cc.ColorizeBlock;
 import com.prupe.mcpatcher.cc.ColorizeEntity;
 import com.prupe.mcpatcher.cc.Colorizer;
+
+import static net.minecraft.EnumParticle.splash;
 
 @Mixin(EntityDropParticleFX.class)
 public abstract class MixinEntityDropParticleFX extends EntityFX {
@@ -32,7 +29,7 @@ public abstract class MixinEntityDropParticleFX extends EntityFX {
     }
 
     @Inject(
-        method = "<init>(Lnet/minecraft/world/World;DDDLnet/minecraft/block/material/Material;)V",
+        method = "<init>(Lnet/minecraft/World;DDDLnet/minecraft/Material;)V",
         at = @At("RETURN"))
     private void modifyConstructor(World worldIn, double x, double y, double z, Material material, CallbackInfo ci) {
         if (material == Material.water) {
@@ -96,7 +93,7 @@ public abstract class MixinEntityDropParticleFX extends EntityFX {
         if (this.onGround) {
             if (this.materialType == Material.water) {
                 this.setDead();
-                this.worldObj.spawnParticle("splash", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+                this.worldObj.spawnParticle(splash, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
             } else {
                 this.setParticleTextureIndex(114);
             }
@@ -113,7 +110,7 @@ public abstract class MixinEntityDropParticleFX extends EntityFX {
             .getMaterial();
 
         if (material.isLiquid() || material.isSolid()) {
-            double d0 = (float) (MathHelper.floor_double(this.posY) + 1) - BlockLiquid.getLiquidHeightPercent(
+            double d0 = (float) (MathHelper.floor_double(this.posY) + 1) - BlockFluid.getFluidHeightPercent(
                 this.worldObj.getBlockMetadata(
                     MathHelper.floor_double(this.posX),
                     MathHelper.floor_double(this.posY),

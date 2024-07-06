@@ -6,6 +6,13 @@
   "target": "@env(DEFAULT)",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "mcpatcherforge.cc.block.MixinBlockLiquid",
+    "mcpatcherforge.cc.block.MixinBlockOldLeaf",
+    "mcpatcherforge.cc.client.renderer.MixinItemRenderer",
+    "mcpatcherforge.cc.world.MixinWorldProviderEnd",
+    "mcpatcherforge.cc.world.MixinWorldProviderHell",
+    "mcpatcherforge.cit.client.renderer.entity.MixinRenderEntityLiving",
+    "mcpatcherforge.ctm.MixinRenderBlocks",
     "minecraft.clouds.MixinEntityRenderer",
     "minecraft.clouds.MixinGameSettings",
     "minecraft.clouds.MixinRenderGlobal",

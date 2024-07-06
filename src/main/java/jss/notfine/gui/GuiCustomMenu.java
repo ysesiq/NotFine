@@ -31,7 +31,7 @@ public class GuiCustomMenu extends GuiScreen {
     @Override
     public void initGui() {
         buttonList.clear();
-        buttonList.add(new GuiButton(200, width / 2 - 110, height - 27, I18n.format("gui.done")));
+        buttonList.add(new GuiButton(200, width / 2 - 110, height - 27, I18n.getString("gui.done")));
         optionsRowList = new GuiCustomOptionsRowList(mc, width, height, 32, height - 32, 25, optionPage, subPages);
         instance = this;
     }

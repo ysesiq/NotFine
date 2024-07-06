@@ -68,16 +68,16 @@ public abstract class MixinRenderBlocks {
 
     @Redirect(
         method = {
-            "renderBlockVine(Lnet/minecraft/block/Block;III)Z",
-            "renderBlockLilyPad(Lnet/minecraft/block/Block;III)Z",
-            "renderBlockLadder(Lnet/minecraft/block/Block;III)Z",
-            "renderBlockTripWireSource(Lnet/minecraft/block/Block;III)Z",
-            "renderBlockLever(Lnet/minecraft/block/Block;III)Z",
-            "renderBlockTripWire(Lnet/minecraft/block/Block;III)Z"
+            "renderBlockVine(Lnet/minecraft/Block;III)Z",
+            "renderBlockLilyPad(Lnet/minecraft/Block;III)Z",
+            "renderBlockLadder(Lnet/minecraft/Block;III)Z",
+            "renderBlockTripWireSource(Lnet/minecraft/Block;III)Z",
+            "renderBlockLever(Lnet/minecraft/Block;III)Z",
+            "renderBlockTripWire(Lnet/minecraft/Block;III)Z"
         },
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/RenderBlocks;getBlockIconFromSide(Lnet/minecraft/block/Block;I)Lnet/minecraft/util/Icon;"))
+            target = "Lnet/minecraft/RenderBlocks;getBlockIconFromSide(Lnet/minecraft/Block;I)Lnet/minecraft/Icon;"))
     private Icon redirectGetBlockIconFromSide(RenderBlocks instance, Block block, int side, Block specializedBlock,
         int x, int y, int z) {
         return (this.blockAccess == null) ? this.getBlockIconFromSide(block, side)
@@ -85,10 +85,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockBrewingStand(Lnet/minecraft/block/BlockBrewingStand;III)Z",
+        method = "renderBlockBrewingStand(Lnet/minecraft/BlockBrewingStand;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/RenderBlocks;getBlockIconFromSideAndMetadata(Lnet/minecraft/block/Block;II)Lnet/minecraft/util/Icon;"))
+            target = "Lnet/minecraft/RenderBlocks;getBlockIconFromSideAndMetadata(Lnet/minecraft/Block;II)Lnet/minecraft/Icon;"))
     private Icon modifyRenderBlockBrewingStand(RenderBlocks instance, Block block, int side, int meta,
         BlockBrewingStand specializedBlock, int x, int y, int z) {
         return (this.blockAccess == null) ? this.getBlockIconFromSideAndMetadata(block, side, meta)
@@ -96,10 +96,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockFlowerpot(Lnet/minecraft/block/BlockFlowerPot;III)Z",
+        method = "renderBlockFlowerpot(Lnet/minecraft/BlockFlowerPot;III)Z",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/RenderBlocks;getBlockIconFromSide(Lnet/minecraft/block/Block;I)Lnet/minecraft/util/Icon;"))
+            target = "Lnet/minecraft/RenderBlocks;getBlockIconFromSide(Lnet/minecraft/Block;I)Lnet/minecraft/Icon;"))
     private Icon modifyRenderBlockFlowerpot(RenderBlocks instance, Block block, int side,
         BlockFlowerPot specializedBlock, int x, int y, int z) {
         return (this.blockAccess == null) ? this.getBlockIconFromSide(block, side)
@@ -107,10 +107,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockAnvilRotate(Lnet/minecraft/block/BlockAnvil;IIIIFFFFZZI)F",
+        method = "renderBlockAnvilRotate(Lnet/minecraft/BlockAnvil;IIIIFFFFZZI)F",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/RenderBlocks;getBlockIconFromSideAndMetadata(Lnet/minecraft/block/Block;II)Lnet/minecraft/util/Icon;"))
+            target = "Lnet/minecraft/RenderBlocks;getBlockIconFromSideAndMetadata(Lnet/minecraft/Block;II)Lnet/minecraft/Icon;"))
     private Icon modifyRenderBlockAnvilRotate(RenderBlocks instance, Block block, int side, int meta,
         BlockAnvil specializedBlock, int x, int y, int z) {
         return (this.blockAccess == null) ? this.getBlockIconFromSideAndMetadata(block, side, meta)
@@ -118,10 +118,10 @@ public abstract class MixinRenderBlocks {
     }
 
     @Redirect(
-        method = "renderBlockRedstoneDiodeMetadata(Lnet/minecraft/block/BlockRedstoneDiode;IIII)V",
+        method = "renderBlockRedstoneDiodeMetadata(Lnet/minecraft/BlockRedstoneDiode;IIII)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/RenderBlocks;getBlockIconFromSideAndMetadata(Lnet/minecraft/block/Block;II)Lnet/minecraft/util/Icon;"))
+            target = "Lnet/minecraft/RenderBlocks;getBlockIconFromSideAndMetadata(Lnet/minecraft/Block;II)Lnet/minecraft/Icon;"))
     private Icon modifyRenderRedstoneDiodeMetadata(RenderBlocks instance, Block block, int side, int meta,
         BlockRedstoneDiode specializedBlock, int x, int y, int z) {
         return (this.blockAccess == null) ? this.getBlockIconFromSideAndMetadata(block, side, meta)

@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
 
-import net.minecraft.Launch;
+//import net.minecraft.Launch;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -257,7 +257,7 @@ public class MCPatcherUtils {
 
     public static void setMinecraft(File gameDir) {
 
-        minecraftDir = Launch.minecraftHome;
+//        minecraftDir = Launch.minecraftHome;
         if (gameDir == null || !gameDir.isDirectory()) {
             MCPatcherUtils.gameDir = minecraftDir;
         } else {

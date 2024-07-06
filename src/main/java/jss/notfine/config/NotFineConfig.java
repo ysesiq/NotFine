@@ -1,6 +1,6 @@
 package jss.notfine.config;
 
-import net.minecraft.launchwrapper.Launch;
+import net.minecraft.Launch;
 import net.minecraftforge.common.config.Configuration;
 import jss.notfine.NotFine;
 

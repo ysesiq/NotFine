@@ -11,7 +11,6 @@ import me.jellysquid.mods.sodium.client.gui.options.named.GraphicsQuality;
 import net.minecraft.Minecraft;
 import net.minecraft.Gui;
 import net.minecraft.Block;
-import net.minecraft.Launch;
 import net.minecraft.ResourceLocation;
 
 import java.io.File;
@@ -21,7 +20,7 @@ public class SettingsManager {
     private static final Minecraft mc = Minecraft.getMinecraft();
 
     public static VideoSettings settingsFile = new VideoSettings(
-        new File(Launch.minecraftHome + File.separator + "optionsnf.txt")
+        new File(".minecraft" + File.separator + "optionsnf.txt")
     );
 
     public static int minimumFarPlaneDistance;
@@ -82,7 +81,7 @@ public class SettingsManager {
         LeavesQuality value = (LeavesQuality)Settings.MODE_LEAVES.option.getStore();
         leavesOpaque = value == LeavesQuality.FAST || (value == LeavesQuality.DEFAULT && !mc.gameSettings.fancyGraphics);
         Block.leaves.setGraphicsLevel(!leavesOpaque);
-        Block.leaves2.setGraphicsLevel(!leavesOpaque);
+//        Block.leaves2.setGraphicsLevel(!leavesOpaque);
     }
 
     public static void shadowsUpdated() {

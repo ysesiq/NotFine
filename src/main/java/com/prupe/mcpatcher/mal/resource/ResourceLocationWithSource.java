@@ -3,18 +3,18 @@ package com.prupe.mcpatcher.mal.resource;
 import java.util.Comparator;
 import java.util.regex.Pattern;
 
-import net.minecraft.IResourcePack;
+import net.minecraft.ResourcePack;
 import net.minecraft.ResourceLocation;
 
 import com.prupe.mcpatcher.MCPatcherUtils;
 
 public class ResourceLocationWithSource extends ResourceLocation {
 
-    private final IResourcePack source;
+    private final ResourcePack source;
     private final int order;
     private final boolean isDirectory;
 
-    public ResourceLocationWithSource(IResourcePack source, ResourceLocation resource) {
+    public ResourceLocationWithSource(ResourcePack source, ResourceLocation resource) {
         super(
             resource.getResourceDomain(),
             resource.getResourcePath()
@@ -25,7 +25,7 @@ public class ResourceLocationWithSource extends ResourceLocation {
             .endsWith("/");
     }
 
-    public IResourcePack getSource() {
+    public ResourcePack getSource() {
         return source;
     }
 

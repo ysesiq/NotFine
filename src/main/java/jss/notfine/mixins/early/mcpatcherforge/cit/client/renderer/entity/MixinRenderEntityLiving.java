@@ -1,16 +1,8 @@
 package jss.notfine.mixins.early.mcpatcherforge.cit.client.renderer.entity;
 
-import net.minecraft.ModelBase;
-import net.minecraft.OpenGlHelper;
-import net.minecraft.Render;
-import net.minecraft.RendererLivingEntity;
-import net.minecraft.EntityLivingBase;
-import net.minecraft.MathHelper;
-import net.minecraft.ResourceLocation;
-import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraft.*;
 
-import org.apache.logging.log4j.Logger;
+import net.xiaoyu233.fml.FishModLoader;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 import org.spongepowered.asm.mixin.Final;
@@ -23,9 +15,6 @@ import com.prupe.mcpatcher.cit.CITUtils;
 @Mixin(RendererLivingEntity.class)
 public abstract class MixinRenderEntityLiving extends Render {
 
-    @Final
-    @Shadow
-    private static Logger logger;
     @Final
     @Shadow
     private static ResourceLocation RES_ITEM_GLINT;
@@ -83,39 +72,37 @@ public abstract class MixinRenderEntityLiving extends Render {
      */
     @SuppressWarnings("DuplicatedCode")
     @Overwrite
-    public void doRender(EntityLivingBase entity, double x, double y, double z, float p_76986_8_, float p_76986_9_) {
-        if (MinecraftForge.EVENT_BUS
-            .post(new RenderLivingEvent.Pre(entity, (RendererLivingEntity) (Object) this, x, y, z))) return;
+    public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9) {
         GL11.glPushMatrix();
         GL11.glDisable(GL11.GL_CULL_FACE);
-        this.mainModel.onGround = this.renderSwingProgress(entity, p_76986_9_);
+        this.mainModel.onGround = this.renderSwingProgress((EntityLivingBase) par1Entity, par9);
 
         if (this.renderPassModel != null) {
             this.renderPassModel.onGround = this.mainModel.onGround;
         }
 
-        this.mainModel.isRiding = entity.isRiding();
+        this.mainModel.isRiding = par1Entity.isRiding();
 
         if (this.renderPassModel != null) {
             this.renderPassModel.isRiding = this.mainModel.isRiding;
         }
 
-        this.mainModel.isChild = entity.isChild();
+        this.mainModel.isChild = ((EntityLivingBase) par1Entity).isChild();
 
         if (this.renderPassModel != null) {
             this.renderPassModel.isChild = this.mainModel.isChild;
         }
 
         try {
-            float f2 = this.interpolateRotation(entity.prevRenderYawOffset, entity.renderYawOffset, p_76986_9_);
-            float f3 = this.interpolateRotation(entity.prevRotationYawHead, entity.rotationYawHead, p_76986_9_);
+            float f2 = this.interpolateRotation(((EntityLivingBase) par1Entity).prevRenderYawOffset, ((EntityLivingBase) par1Entity).renderYawOffset, par9);
+            float f3 = this.interpolateRotation(((EntityLivingBase) par1Entity).prevRotationYawHead, ((EntityLivingBase) par1Entity).rotationYawHead, par9);
             float f4;
 
-            if (entity.isRiding() && entity.ridingEntity instanceof EntityLivingBase entitylivingbase1) {
+            if (par1Entity.isRiding() && par1Entity.ridingEntity instanceof EntityLivingBase entitylivingbase1) {
                 f2 = this.interpolateRotation(
                     entitylivingbase1.prevRenderYawOffset,
                     entitylivingbase1.renderYawOffset,
-                    p_76986_9_);
+                    par9);
                 f4 = MathHelper.wrapAngleTo180_float(f3 - f2);
 
                 if (f4 < -85.0F) {
@@ -133,19 +120,19 @@ public abstract class MixinRenderEntityLiving extends Render {
                 }
             }
 
-            float f13 = entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * p_76986_9_;
-            this.renderLivingAt(entity, x, y, z);
-            f4 = this.handleRotationFloat(entity, p_76986_9_);
-            this.rotateCorpse(entity, f4, f2, p_76986_9_);
+            float f13 = par1Entity.prevRotationPitch + (par1Entity.rotationPitch - par1Entity.prevRotationPitch) * par9;
+            this.renderLivingAt((EntityLivingBase) par1Entity, par2, par4, par6);
+            f4 = this.handleRotationFloat((EntityLivingBase) par1Entity, par9);
+            this.rotateCorpse((EntityLivingBase) par1Entity, f4, f2, par9);
             float f5 = 0.0625F;
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);
             GL11.glScalef(-1.0F, -1.0F, 1.0F);
-            this.preRenderCallback(entity, p_76986_9_);
+            this.preRenderCallback((EntityLivingBase) par1Entity, par9);
             GL11.glTranslatef(0.0F, -24.0F * f5 - 0.0078125F, 0.0F);
-            float f6 = entity.prevLimbSwingAmount + (entity.limbSwingAmount - entity.prevLimbSwingAmount) * p_76986_9_;
-            float f7 = entity.limbSwing - entity.limbSwingAmount * (1.0F - p_76986_9_);
+            float f6 = ((EntityLivingBase) par1Entity).prevLimbSwingAmount + (((EntityLivingBase) par1Entity).limbSwingAmount - ((EntityLivingBase) par1Entity).prevLimbSwingAmount) * par9;
+            float f7 = ((EntityLivingBase) par1Entity).limbSwing - ((EntityLivingBase) par1Entity).limbSwingAmount * (1.0F - par9);
 
-            if (entity.isChild()) {
+            if (((EntityLivingBase) par1Entity).isChild()) {
                 f7 *= 3.0F;
             }
 
@@ -154,34 +141,34 @@ public abstract class MixinRenderEntityLiving extends Render {
             }
 
             GL11.glEnable(GL11.GL_ALPHA_TEST);
-            this.mainModel.setLivingAnimations(entity, f7, f6, p_76986_9_);
-            this.renderModel(entity, f7, f6, f4, f3 - f2, f13, f5);
+            this.mainModel.setLivingAnimations((EntityLivingBase) par1Entity, f7, f6, par9);
+            this.renderModel((EntityLivingBase) par1Entity, f7, f6, f4, f3 - f2, f13, f5);
             int j;
             float f8;
             float f9;
             float f10;
 
             for (int i = 0; i < 4; ++i) {
-                j = this.shouldRenderPass(entity, i, p_76986_9_);
+                j = this.shouldRenderPass((EntityLivingBase) par1Entity, i, par9);
 
                 if (j > 0) {
-                    this.renderPassModel.setLivingAnimations(entity, f7, f6, p_76986_9_);
-                    this.renderPassModel.render(entity, f7, f6, f4, f3 - f2, f13, f5);
+                    this.renderPassModel.setLivingAnimations((EntityLivingBase) par1Entity, f7, f6, par9);
+                    this.renderPassModel.render(par1Entity, f7, f6, f4, f3 - f2, f13, f5);
 
                     if ((j & 240) == 16) {
-                        this.func_82408_c(entity, i, p_76986_9_);
-                        this.renderPassModel.render(entity, f7, f6, f4, f3 - f2, f13, f5);
+                        this.func_82408_c((EntityLivingBase) par1Entity, i, par9);
+                        this.renderPassModel.render(par1Entity, f7, f6, f4, f3 - f2, f13, f5);
                     }
                     // patch start
-                    if (CITUtils.setupArmorEnchantments(entity, i)) {
+                    if (CITUtils.setupArmorEnchantments((EntityLivingBase) par1Entity, i)) {
                         while (CITUtils.preRenderArmorEnchantment()) {
-                            this.renderPassModel.render(entity, f7, f6, f4, f3 - f2, f13, f5);
+                            this.renderPassModel.render(par1Entity, f7, f6, f4, f3 - f2, f13, f5);
                             CITUtils.postRenderArmorEnchantment();
                         }
                     } else if ((j & 15) == 15) {
                         // if -> else if
                         // patch end
-                        f8 = (float) entity.ticksExisted + p_76986_9_;
+                        f8 = (float) par1Entity.ticksExisted + par9;
                         this.bindTexture(RES_ITEM_GLINT);
                         GL11.glEnable(GL11.GL_BLEND);
                         f9 = 0.5F;
@@ -202,7 +189,7 @@ public abstract class MixinRenderEntityLiving extends Render {
                             GL11.glRotatef(30.0F - (float) k * 60.0F, 0.0F, 0.0F, 1.0F);
                             GL11.glTranslatef(0.0F, f11, 0.0F);
                             GL11.glMatrixMode(GL11.GL_MODELVIEW);
-                            this.renderPassModel.render(entity, f7, f6, f4, f3 - f2, f13, f5);
+                            this.renderPassModel.render(par1Entity, f7, f6, f4, f3 - f2, f13, f5);
                         }
 
                         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -221,28 +208,28 @@ public abstract class MixinRenderEntityLiving extends Render {
             }
 
             GL11.glDepthMask(true);
-            this.renderEquippedItems(entity, p_76986_9_);
-            float f14 = entity.getBrightness(p_76986_9_);
-            j = this.getColorMultiplier(entity, f14, p_76986_9_);
+            this.renderEquippedItems((EntityLivingBase) par1Entity, par9);
+            float f14 = par1Entity.getBrightness(par9);
+            j = this.getColorMultiplier((EntityLivingBase) par1Entity, f14, par9);
             OpenGlHelper.setActiveTexture(OpenGlHelper.lightmapTexUnit);
             GL11.glDisable(GL11.GL_TEXTURE_2D);
             OpenGlHelper.setActiveTexture(OpenGlHelper.defaultTexUnit);
 
-            if ((j >> 24 & 255) > 0 || entity.hurtTime > 0 || entity.deathTime > 0) {
+            if ((j >> 24 & 255) > 0 || ((EntityLivingBase) par1Entity).hurtTime > 0 || ((EntityLivingBase) par1Entity).deathTime > 0) {
                 GL11.glDisable(GL11.GL_TEXTURE_2D);
                 GL11.glDisable(GL11.GL_ALPHA_TEST);
                 GL11.glEnable(GL11.GL_BLEND);
                 GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
                 GL11.glDepthFunc(GL11.GL_EQUAL);
 
-                if (entity.hurtTime > 0 || entity.deathTime > 0) {
+                if (((EntityLivingBase) par1Entity).hurtTime > 0 || ((EntityLivingBase) par1Entity).deathTime > 0) {
                     GL11.glColor4f(f14, 0.0F, 0.0F, 0.4F);
-                    this.mainModel.render(entity, f7, f6, f4, f3 - f2, f13, f5);
+                    this.mainModel.render(par1Entity, f7, f6, f4, f3 - f2, f13, f5);
 
                     for (int l = 0; l < 4; ++l) {
-                        if (this.inheritRenderPass(entity, l, p_76986_9_) >= 0) {
+                        if (this.inheritRenderPass((EntityLivingBase) par1Entity, l, par9) >= 0) {
                             GL11.glColor4f(f14, 0.0F, 0.0F, 0.4F);
-                            this.renderPassModel.render(entity, f7, f6, f4, f3 - f2, f13, f5);
+                            this.renderPassModel.render(par1Entity, f7, f6, f4, f3 - f2, f13, f5);
                         }
                     }
                 }
@@ -253,12 +240,12 @@ public abstract class MixinRenderEntityLiving extends Render {
                     float f15 = (float) (j & 255) / 255.0F;
                     f10 = (float) (j >> 24 & 255) / 255.0F;
                     GL11.glColor4f(f8, f9, f15, f10);
-                    this.mainModel.render(entity, f7, f6, f4, f3 - f2, f13, f5);
+                    this.mainModel.render(par1Entity, f7, f6, f4, f3 - f2, f13, f5);
 
                     for (int i1 = 0; i1 < 4; ++i1) {
-                        if (this.inheritRenderPass(entity, i1, p_76986_9_) >= 0) {
+                        if (this.inheritRenderPass((EntityLivingBase) par1Entity, i1, par9) >= 0) {
                             GL11.glColor4f(f8, f9, f15, f10);
-                            this.renderPassModel.render(entity, f7, f6, f4, f3 - f2, f13, f5);
+                            this.renderPassModel.render(par1Entity, f7, f6, f4, f3 - f2, f13, f5);
                         }
                     }
                 }
@@ -271,7 +258,7 @@ public abstract class MixinRenderEntityLiving extends Render {
 
             GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         } catch (Exception exception) {
-            logger.error("Couldn't render entity", exception);
+            FishModLoader.LOGGER.error("Couldn't render par1Entity", exception);
         }
 
         OpenGlHelper.setActiveTexture(OpenGlHelper.lightmapTexUnit);
@@ -279,8 +266,6 @@ public abstract class MixinRenderEntityLiving extends Render {
         OpenGlHelper.setActiveTexture(OpenGlHelper.defaultTexUnit);
         GL11.glEnable(GL11.GL_CULL_FACE);
         GL11.glPopMatrix();
-        this.passSpecialRender(entity, x, y, z);
-        MinecraftForge.EVENT_BUS
-            .post(new RenderLivingEvent.Post(entity, (RendererLivingEntity) (Object) this, x, y, z));
+        this.passSpecialRender((EntityLivingBase) par1Entity, par2, par4, par6);
     }
 }

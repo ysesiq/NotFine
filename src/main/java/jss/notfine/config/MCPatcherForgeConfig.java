@@ -3,7 +3,7 @@ package jss.notfine.config;
 import java.io.File;
 import java.util.logging.Level;
 
-import net.minecraft.launchwrapper.Launch;
+import net.minecraft.Launch;
 import net.minecraftforge.common.config.Configuration;
 
 // Adapted from hodgepodge
